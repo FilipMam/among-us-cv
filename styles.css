@@ -50,8 +50,8 @@ body {
     width: 4vh;
     height: 6vh;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     background-color: #fff;
 }
 
@@ -63,4 +63,8 @@ body {
     width: 15%;
     height: 15%;
     background-color: yellow;
+}
+
+.obstacle.active {
+    background-color: orange;
 }
