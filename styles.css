@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    text-align: center;
+}
+
+.ship {
+    background-color: #fff;
+    border: 2vh gray solid;
+    height: 100vh;
+    width: 100vh;
+    display: inline-block;
+    position: relative;
+}
+
+.ship__floor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: indigo;
+    height: 66%;
+}
+
+.ship__wall {
+    height: 34%;
+}
+
+.ship__wall__part {
+    display: inline-block;
+    width: 33%;
+    background-color: red;
+    height: 100%;
+    border: black solid 1px;
+
+}
+
+.ship__wall__part--center {
+    width:34%;
+}
+
+#crewmate {
+    width: 4vh;
+    height: 6vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+}
+
+.obstacle {
+    position: absolute;
+    display: inline-block;
+    left: 10%;
+    top: 30%;
+    width: 15%;
+    height: 15%;
+    background-color: yellow;
+}
