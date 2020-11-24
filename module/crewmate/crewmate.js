@@ -12,15 +12,6 @@ class Crewmate {
         this.element = document.querySelector("#crewmate");
         this.posX = 0;
         this.posY = 0;
-        this.element.style.transform = `translate3d(${this.posX}vh, ${this.posY}vh, 0)`;
-
-        
-        this.state.subscribe((s) => {
-            this.posX = s.crewmateX;
-            this.posY = s.crewmateY;
-
-            this.element.style.transform = `translate3d(${this.posX}vh, ${this.posY}vh, 0)`;
-        });
     }
 
     move(dir) {
@@ -30,7 +21,7 @@ class Crewmate {
 
         if (!interval) {
             interval = setInterval(() => {
-                const box = this.element.getBoundingClientRect();
+                let box = this.getBox();
 
                 if (this.moving.left) {
                     let newPosX = box.left - pacePXL;
@@ -62,7 +53,11 @@ class Crewmate {
                     };
                 }
 
-                this.state.publish({crewmateX: this.posX, crewmateY: this.posY});
+                this.element.style.transform = `translate3d(${this.posX}vh, ${this.posY}vh, 0)`;
+
+                box = this.getBox();
+
+                this.state.publish({crewmateX: box.left + box.width/2, crewmateY: box.bottom});
 
             } , 24);
         }
@@ -82,6 +77,10 @@ class Crewmate {
             return (obstacle.left < x + crewmate.width) && obstacle.right > x && obstacle.top < y && obstacle.bottom > y - crewmate.height/3;
         })
     };
+
+    getBox = () => {
+        return this.element.getBoundingClientRect();
+    }
 
 }
 
