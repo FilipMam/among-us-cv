@@ -15,7 +15,7 @@ class Crewmate {
     }
 
     move(dir) {
-        const pace = 1.2;
+        const pace = 0.6;
         const pacePXL = pace*window.innerHeight/100;
         this.moving[dir] = true;
 
@@ -25,14 +25,14 @@ class Crewmate {
 
                 if (this.moving.left) {
                     let newPosX = box.left - pacePXL;
-                    if (newPosX > boundryLeft && !this.willHitObstacle(newPosX, box.bottom, box)) {
+                    if (newPosX > boundryLeft && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
                         this.posX = this.posX - pace;
                     }
                 };
 
                 if (this.moving.right) {
-                    let newPosX = box.right + pacePXL;
-                    if (newPosX < boundryRight && !this.willHitObstacle(newPosX, box.bottom, box)) {
+                    let newPosX = box.left + pacePXL;
+                    if (newPosX < boundryRight && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
                         this.posX = this.posX + pace;                        
                     } 
                 };
@@ -40,7 +40,7 @@ class Crewmate {
 
                 if (this.moving.down) {
                     let newPosY = box.bottom + pacePXL;
-                    if (newPosY < boundryBottom && !this.willHitObstacle(box.left, newPosY, box)) {
+                    if (newPosY < boundryBottom && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
                         this.posY = this.posY + pace;                        
                     }
                     
@@ -48,7 +48,7 @@ class Crewmate {
                 
                 if (this.moving.up) {
                     let newPosY = box.bottom - pacePXL;
-                    if (newPosY > boundryTop && !this.willHitObstacle(box.left, newPosY, box)) {
+                    if (newPosY > boundryTop && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
                         this.posY = this.posY - pace;
                     };
                 }
@@ -59,7 +59,7 @@ class Crewmate {
 
                 this.state.publish({crewmateX: box.left + box.width/2, crewmateY: box.bottom});
 
-            } , 24);
+            } , 12);
         }
     }
 
@@ -72,9 +72,12 @@ class Crewmate {
         }
     }
 
-    willHitObstacle = (x, y, crewmate) => {
+    willHitObstacle = (xL, xR, y, height) => {
         return this.obstacles.some(obstacle => {
-            return (obstacle.left < x + crewmate.width) && obstacle.right > x && obstacle.top < y && obstacle.bottom > y - crewmate.height/3;
+            return (obstacle.left < xR) && 
+            obstacle.right > xL && 
+            obstacle.top < y && 
+            obstacle.bottom > y - height/3;
         })
     };
 

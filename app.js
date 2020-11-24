@@ -7,8 +7,6 @@ const keyMap = {
 
 const state = new State();
 
-
-// const _obstacles = [document.querySelector(".obstacle")];
 const _obstacles = [new Obstacle("#obstacle1", state)];
 
 const crewmate = new Crewmate(state, _obstacles);
