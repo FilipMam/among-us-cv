@@ -69,3 +69,7 @@ body {
 .obstacle.active {
     background-color: orange;
 }
+
+.obstacle.finished {
+    background-color: green;
+}

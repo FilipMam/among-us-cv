@@ -5,11 +5,11 @@ const keyMap = {
   40: "down"  
 };
 
-const state = new State();
+const crewmateState = new State();
 
-const _obstacles = [new Obstacle("#obstacle1", state)];
+const _obstacles = [new Obstacle("#obstacle1", crewmateState)];
 
-const crewmate = new Crewmate(state, _obstacles);
+const crewmate = new Crewmate(crewmateState, _obstacles);
 
 const shipBox = document.querySelector(".ship__floor").getBoundingClientRect();
 const boundryLeft = shipBox.left;
@@ -22,6 +22,13 @@ document.addEventListener("keydown", (event) => {
       event.preventDefault();
       crewmate.move(keyMap[event.keyCode]);
     }
+
+    // space
+    if (event.keyCode === 32) {
+      const activeObstacle = _obstacles.find(obstacle => obstacle.active);
+      if (activeObstacle) activeObstacle.finish();
+    }
+
 });
 
 document.addEventListener("keyup", (event) => {
