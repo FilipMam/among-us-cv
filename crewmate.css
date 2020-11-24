@@ -122,6 +122,6 @@
 #crewmate.moving--right {
 }
 
-#crewmate.moving--left * {
+#crewmate.moving--left  {
     transform: scaleX(-1);
 }
