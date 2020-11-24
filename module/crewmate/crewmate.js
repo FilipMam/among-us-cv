@@ -18,6 +18,7 @@ class Crewmate {
         const pace = 0.6;
         const pacePXL = pace*window.innerHeight/100;
         this.moving[dir] = true;
+        this.element.classList.add("moving");
 
         if (!interval) {
             interval = setInterval(() => {
@@ -28,6 +29,9 @@ class Crewmate {
                     if (newPosX > boundryLeft && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
                         this.posX = this.posX - pace;
                     }
+                    
+                    this.element.classList.remove("moving--right");
+                    this.element.classList.add("moving--left");
                 };
 
                 if (this.moving.right) {
@@ -35,6 +39,9 @@ class Crewmate {
                     if (newPosX < boundryRight && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
                         this.posX = this.posX + pace;                        
                     } 
+
+                    this.element.classList.remove("moving--left");
+                    this.element.classList.add("moving--right");
                 };
 
 
@@ -53,6 +60,8 @@ class Crewmate {
                     };
                 }
 
+                
+
                 this.element.style.transform = `translate3d(${this.posX}vh, ${this.posY}vh, 0)`;
 
                 box = this.getBox();
@@ -69,6 +78,7 @@ class Crewmate {
         if (!Object.entries(this.moving).some(entry => entry[1])) {
             clearInterval(interval);
             interval = null;
+            setTimeout(() => {this.element.classList.remove("moving");}, 150);
         }
     }
 

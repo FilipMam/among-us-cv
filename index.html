@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filip Mamcarczyk</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="
+    stylesheet" href="styles.css">
+    <link rel="stylesheet" href="crewmate.css">
 </head>
 <body>
     <div class="ship">
@@ -15,8 +17,16 @@
         </div>
         <div class="ship__floor">
             <div id="obstacle1" class="obstacle"></div>
-            <div id="crewmate"></div>
-            
+            <div id="crewmate" class="moving--right">
+                <div class="crewmate__body">
+                    <div class="crewmate__mask"></div>
+                    <div class="crewmate__backpack"></div>
+                    <!-- <div class="leg leg--left"></div> -->
+                    <!-- <div class="foot foot--left"></div> -->
+                    <!-- <div class="leg leg--right"></div> -->
+                    <!-- <div class="foot foot--right"></div> -->
+                  </div>
+            </div>
         </div>
     </div>
     <script src="module/state/state.js"></script>

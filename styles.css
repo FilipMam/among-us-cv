@@ -47,15 +47,6 @@ body {
     width:34%;
 }
 
-#crewmate {
-    width: 4vh;
-    height: 6vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-}
-
 .obstacle {
     position: absolute;
     display: inline-block;
