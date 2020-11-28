@@ -4,30 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filip Mamcarczyk</title>
-    <link rel="
-    stylesheet" href="styles.css">
-    <link rel="stylesheet" href="crewmate.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="module/styles/crewmate.css">
+    <link rel="stylesheet" href="module/styles/wall.css">
 </head>
 <body>
     <div class="ship">
-        <div class="ship__wall">
-            <div class="ship__wall__part ship__wall__part--left"></div><!--
-            --><div class="ship__wall__part ship__wall__part--center"></div><!--
-        --><div class="ship__wall__part ship__wall__part--right"></div>
-        </div>
-        <div class="ship__floor">
-            <div id="obstacle1" class="obstacle"></div>
-            <div id="crewmate" class="moving--right">
-                <div class="crewmate__body">
-                    <div class="crewmate__mask"></div>
-                    <div class="crewmate__backpack"></div>
-                    <!-- <div class="leg leg--left"></div> -->
-                    <!-- <div class="foot foot--left"></div> -->
-                    <!-- <div class="leg leg--right"></div> -->
-                    <!-- <div class="foot foot--right"></div> -->
-                  </div>
+        <div class="wall">
+        <div class="wall__part wall__part--left">
+            <div class="wall__upper">
+                <div class="wall__upper__part"></div>
+                <div class="wall__upper__part"></div>
+                <div class="wall__upper__part"></div>
+                <div class="wall__upper__part"></div>
+            </div>
+            <div class="wall__lower">
+                <div class="wall__lower__part"></div>
+                <div class="wall__lower__part"></div>
+                <div class="wall__lower__part"></div>
+            </div>
+        </div><!--
+        --><div class="wall__part wall__part--center">
+            <div class="wall__upper">
+                <div class="wall__upper__part"></div>
+                <div class="wall__upper__part"></div>
+                <div class="wall__upper__part"></div>
+                <div class="wall__upper__part"></div>
+            </div>
+            <div class="wall__lower">
+                <div class="wall__lower__part"></div>
+                <div class="wall__lower__part"></div>
+                <div class="wall__lower__part"></div>
+            </div>
+        </div><!--
+        --><div class="wall__part wall__part--right">
+            <div class="wall__upper">
+                <div class="wall__upper__part"></div>
+                <div class="wall__upper__part"></div>
+                <div class="wall__upper__part"></div>
+                <div class="wall__upper__part"></div>
+            </div>
+            <div class="wall__lower">
+                <div class="wall__lower__part"></div>
+                <div class="wall__lower__part"></div>
+                <div class="wall__lower__part"></div>
             </div>
         </div>
+        </div>
+        <div class="ship__floor">
+            <div class="ship__floor__upper-part">
+                <div class="ship__floor__row"></div>
+                <div class="ship__floor__row"></div>
+                <div class="ship__floor__row"></div>
+                <div class="ship__floor__corridor">
+                    <div class="ship__floor__corridor__tail"></div>
+                    <div class="ship__floor__corridor__tail"></div>
+                    <div class="ship__floor__corridor__tail"></div>
+                    <div class="ship__floor__corridor__tail"></div>
+                </div>
+                <div class="ship__floor__stairs"></div>
+            </div>
+            <div class="ship__floor__tails">
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+                <div class="ship__floor__tail"></div>
+            </div>
+
+            <!-- <div class="ship__floor__lines--h">
+                <div class="ship__floor__line"></div>
+                <div class="ship__floor__line"></div>
+                <div class="ship__floor__line"></div>
+                <div class="ship__floor__line"></div>
+            </div>
+            <div class="ship__floor__lines--v">
+                <div class="ship__floor__line"></div>
+                <div class="ship__floor__line"></div>
+                <div class="ship__floor__line"></div>    
+            </div> -->
+            <div id="obstacle1" class="obstacle"></div>
+            
+        </div>
+        <div id="crewmate" class="moving--right">
+            <div class="crewmate__body">
+                <div class="crewmate__mask"></div>
+                <div class="crewmate__backpack"></div>
+                <!-- <div class="leg leg--left"></div> -->
+                <!-- <div class="foot foot--left"></div> -->
+                <!-- <div class="leg leg--right"></div> -->
+                <!-- <div class="foot foot--right"></div> -->
+              </div>
+        </div>
+
     </div>
     <script src="module/state/state.js"></script>
     <script src="module/obstacle/obstacle.js"></script>
