@@ -6,6 +6,8 @@ class Crewmate {
         "down": false
     }
 
+    isMovingLeft = false;
+
     constructor(state, obstacles) {
         this.state = state;
         this.obstacles = obstacles;
@@ -28,20 +30,17 @@ class Crewmate {
                     let newPosX = box.left - pacePXL;
                     if (newPosX > boundryLeft && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
                         this.posX = this.posX - pace;
+                        this.isMovingLeft = true;
                     }
                     
-                    this.element.classList.remove("moving--right");
-                    this.element.classList.add("moving--left");
                 };
 
                 if (this.moving.right) {
                     let newPosX = box.left + pacePXL;
                     if (newPosX < boundryRight && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
-                        this.posX = this.posX + pace;                        
+                        this.posX = this.posX + pace;
+                        this.isMovingLeft = false;                   
                     } 
-
-                    this.element.classList.remove("moving--left");
-                    this.element.classList.add("moving--right");
                 };
 
 
@@ -60,9 +59,9 @@ class Crewmate {
                     };
                 }
 
-                
+                const scale = this.isMovingLeft ? "scaleX(-1)" : "";
 
-                this.element.style.transform = `translate3d(${this.posX}vh, ${this.posY}vh, 0)`;
+                this.element.style.transform = `translate3d(${this.posX}vh, ${this.posY}vh, 0) ${scale}`;
 
                 box = this.getBox();
 
