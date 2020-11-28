@@ -38,4 +38,25 @@ document.addEventListener("keyup", (event) => {
   }
 });
 
+const a = () => {
+  setTimeout(() => {
+    document.querySelector("#crewmate").classList.add("moving--1");
+    document.querySelector("#crewmate").classList.remove("moving--4");
 
+    setTimeout(() => {
+      document.querySelector("#crewmate").classList.remove("moving--1");
+      document.querySelector("#crewmate").classList.add("moving--2");
+      setTimeout(() => {
+        document.querySelector("#crewmate").classList.remove("moving--2");
+        document.querySelector("#crewmate").classList.add("moving--3");
+        setTimeout(() => {
+          document.querySelector("#crewmate").classList.remove("moving--3");
+          document.querySelector("#crewmate").classList.add("moving--4");
+          a()
+        }, 150);
+      }, 150);
+    }, 150);
+  }, 150);
+}
+
+a()
