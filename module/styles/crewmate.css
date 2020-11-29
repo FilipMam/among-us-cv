@@ -133,6 +133,14 @@
     border-radius: 36vh 44vh 28vh 30vh;
 }
 
+.moving--5 .crewmate__figure,
+.moving--6 .crewmate__figure,
+.moving--11 .crewmate__figure,
+.moving--12 .crewmate__figure {
+    height: 9.5vh;
+}
+
+
 .moving--1 .leg--left,
 .moving--2 .leg--left,
 .moving--3 .leg--left,
