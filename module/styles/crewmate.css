@@ -100,33 +100,95 @@
 }
 
 .moving--1 .crewmate__body,
-.moving--3 .crewmate__body {
+.moving--2 .crewmate__body,
+.moving--3 .crewmate__body,
+.moving--4 .crewmate__body,
+.moving--7 .crewmate__body,
+.moving--8 .crewmate__body,
+.moving--9 .crewmate__body,
+.moving--10 .crewmate__body {
     border-radius: 36vh 44vh 40vh 35vh;
 }
 
-.moving--2 .crewmate__body,
-.moving--4 .crewmate__body {
+.moving--5 .crewmate__body,
+.moving--6 .crewmate__body,
+.moving--11 .crewmate__body,
+.moving--12 .crewmate__body {
     border-radius: 36vh 44vh 28vh 30vh;
-}
-
-.moving--1 .leg--right,
-.moving--3 .leg--right {
-    z-index: 1;
-    height: 4.2vh;
-    transform: translate(1vh, -1.4vh) rotate(-45deg);
 }
 
 .moving--1 .leg--left,
 .moving--2 .leg--left,
 .moving--3 .leg--left,
 .moving--4 .leg--left {
+    height: 2.2vh;
     width: 5.2vh;
-    height: 2.5vh;
     transform: translate(-1.7vh, -1vh) rotate(20deg);
     border-radius: 39% 0 60% 40%;
 }
 
+.moving--1 .leg--right,
 .moving--2 .leg--right,
+.moving--3 .leg--right,
+.moving--4 .leg--right {
+    z-index: 1;
+    height: 3.2vh;
+    transform: translate(1vh, -1.4vh) rotate(-45deg);
+}
+
+.moving--5 .leg--left,
+.moving--6 .leg--left {
+    z-index: 3;
+    height: 2.2vh;
+    width: 4.5vh;
+    left: 0vh;
+    border-radius: 58% 27% 60% 40%;
+}
+
+.moving--5 .leg--right,
+.moving--6 .leg--right {
+    z-index: 1;
+    height: 3.2vh;
+    right: 1.5vh;
+}
+
+
+.moving--7 .leg--left,
+.moving--8 .leg--left,
+.moving--9 .leg--left,
+.moving--10 .leg--left {
+    z-index: 1;
+    width: 3.7vh;
+    height: 2.5vh;
+    transform: translate(-0.75vh, -0.75vh) rotate(25deg);
+}
+
+.moving--7 .leg--right,
+.moving--8 .leg--right,
+.moving--9 .leg--right,
+.moving--10 .leg--right {
+    z-index: 3;
+    height: 3.8vh;
+    transform: translate(1vh, -1.4vh) rotate(-45deg);
+}
+
+.moving--11 .leg--left,
+.moving--12 .leg--left {
+    z-index: 1;
+    height: 2.2vh;
+    width: 5vh;
+    left: 1vh;
+    border-radius: 58% 27% 60% 40%;
+}
+
+.moving--11 .leg--right,
+.moving--12 .leg--right {
+    z-index: 3;
+    height: 3.2vh;
+    right: 1.5vh;
+}
+
+/* .moving--2 .leg--right,
 .moving--4 .leg--right {
     height: 3.2vh;
     right: 1.5vh;
@@ -143,16 +205,9 @@
 
 .moving--4 .leg--right {
     z-index: 3;
-}
+} */
 
-.moving--3 .leg--left {
-    z-index: 1;
-    transform: translate(-0.5vh, -1.5vh) rotate(25deg);
-}
 
-.moving--3 .leg--right {
-    z-index: 2;
-}
   
     
 #crewmate.moving {
