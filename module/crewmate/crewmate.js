@@ -21,6 +21,7 @@ class Crewmate {
     move(dir) {
         const pace = 0.6;
         const pacePXL = pace*window.innerHeight/100;
+        const legHeight = 2.5*window.innerHeight/100;//positioned absolute
         this.moving[dir] = true;
 
         if (this.movingAnimtationFrame === 0) {
@@ -30,10 +31,11 @@ class Crewmate {
         if (!interval) {
             interval = setInterval(() => {
                 let box = this.getBox();
+                let positionBottom = box.bottom + legHeight;
 
                 if (this.moving.left) {
                     let newPosX = box.left - pacePXL;
-                    if (newPosX > boundryLeft && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
+                    if (newPosX > boundryLeft && !this.willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
                         this.posX = this.posX - pace;
                         this.isMovingLeft = true;
                     }
@@ -41,8 +43,8 @@ class Crewmate {
                 };
 
                 if (this.moving.right) {
-                    let newPosX = box.left + pacePXL;
-                    if (newPosX < boundryRight && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
+                    let newPosX = box.right + pacePXL;
+                    if (newPosX < boundryRight && !this.willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
                         this.posX = this.posX + pace;
                         this.isMovingLeft = false;                   
                     } 
@@ -50,7 +52,7 @@ class Crewmate {
 
 
                 if (this.moving.down) {
-                    let newPosY = box.bottom + pacePXL;
+                    let newPosY = positionBottom  + pacePXL;
                     if (newPosY < boundryBottom && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
                         this.posY = this.posY + pace;                        
                     }
@@ -58,7 +60,7 @@ class Crewmate {
                 };
                 
                 if (this.moving.up) {
-                    let newPosY = box.bottom - pacePXL;
+                    let newPosY = positionBottom - pacePXL;
                     if (newPosY > boundryTop && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
                         this.posY = this.posY - pace;
                     };
@@ -90,12 +92,11 @@ class Crewmate {
     }
 
     willHitObstacle = (xL, xR, y, height) => {
-        return this.obstacles.some(obstacle => {
-            return (obstacle.left < xR) && 
+        const legHeight = 2.5*window.innerHeight/100;//positioned absolute
+        return this.obstacles.some(obstacle => (obstacle.left < xR) && 
             obstacle.right > xL && 
             obstacle.top < y && 
-            obstacle.bottom > y - height/3;
-        })
+            obstacle.bottom > y - legHeight);
     };
 
     getBox = () => {
