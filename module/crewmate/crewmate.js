@@ -8,6 +8,8 @@ class Crewmate {
 
     isMovingLeft = false;
 
+    movingAnimtationFrame = 0;
+
     constructor(state, obstacles) {
         this.state = state;
         this.obstacles = obstacles;
@@ -20,7 +22,10 @@ class Crewmate {
         const pace = 0.6;
         const pacePXL = pace*window.innerHeight/100;
         this.moving[dir] = true;
-        this.element.classList.add("moving");
+
+        if (this.movingAnimtationFrame === 0) {
+            this.changeAnimationFrame();
+        } 
 
         if (!interval) {
             interval = setInterval(() => {
@@ -76,8 +81,11 @@ class Crewmate {
         this.moving[dir] = false;
         if (!Object.entries(this.moving).some(entry => entry[1])) {
             clearInterval(interval);
+            clearInterval(this.walkingAnimationInteval);
             interval = null;
-            setTimeout(() => {this.element.classList.remove("moving");}, 150);
+            this.walkingAnimationInteval = null;
+            this.element.classList.remove(`moving--${this.movingAnimtationFrame}`);
+            this.movingAnimtationFrame = 0;
         }
     }
 
@@ -92,6 +100,19 @@ class Crewmate {
 
     getBox = () => {
         return this.element.getBoundingClientRect();
+    }
+
+    changeAnimationFrame = () => {
+        this._updateAnimationFrame();
+        this.walkingAnimationInteval = setInterval(() => {
+            this._updateAnimationFrame();
+        }, 60);
+    }
+
+    _updateAnimationFrame = () => {
+        this.element.classList.remove(`moving--${this.movingAnimtationFrame}`);
+        this.movingAnimtationFrame = this.movingAnimtationFrame === 12 ? 1 : this.movingAnimtationFrame + 1;
+        this.element.classList.add(`moving--${this.movingAnimtationFrame}`);
     }
 
 }

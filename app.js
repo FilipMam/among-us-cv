@@ -38,16 +38,5 @@ document.addEventListener("keyup", (event) => {
   }
 });
 
-let i = 0;
-let time = 100;
 
-const a = () => {
-  setTimeout(() => {
-    document.querySelector("#crewmate").classList.remove("moving--" + i);
-    i = i === 12 ? 1 : i + 1;
-    document.querySelector("#crewmate").classList.add("moving--" + i);
-    a();
-  }, 60);
-}
-
-a() 
+// a() 
