@@ -1,0 +1,45 @@
+.whiteboard-container {
+    position: absolute;
+    left: 20vh;
+    bottom: 100%;
+    width: 25vh;
+    height: 20vh;
+    z-index: 1;
+}
+
+.whiteboard {
+    width: 100%;
+    height: 15vh;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 1.5vh 1vh;
+    border-radius: 1vh;
+    border: solid 0.5vh #000;
+    background-color: rgb(212, 212, 212);
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 1vh;
+    text-align: left;
+    filter: blur(0.75px);
+}
+
+.whiteboard p:first-child {
+    line-height: 1.3vh;
+    transform: rotate(-3deg);
+    text-decoration: line-through;
+    padding-bottom: 1.5vh;
+}
+
+.whiteboard p:nth-child(5) {
+    padding-top: 1vh;
+    font-size: 0.6vh;
+    transform: rotate(-3deg);
+    text-align: right;
+}
+
+.whiteboard a {
+    color: black;
+}
+
+
+/* .white */

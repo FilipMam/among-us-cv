@@ -61,7 +61,6 @@ body {
     background-color: indigo;
     height: 69%;
     background-color: var(--floor-line);
-    overflow: hidden;
     z-index: 1;
 }
 
