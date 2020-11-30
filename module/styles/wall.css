@@ -2,6 +2,9 @@
     --wall: #6a6f71;
     --wall-line--black: #171c1d;
     --wall-line--dark: #444549;
+    --doors-border: #3e464a;
+    --doors--dark: #41444a;
+    --doors--light: #5b5e64;
 }
 
 .wall {
@@ -89,4 +92,88 @@
     width: 50%;
 }
 
+.doors,
+.doors__entrance {
+    position: absolute;
+    left: 50%;
+    bottom: -0.5vh;
+    transform: translate(-50%, 0);
+    border: solid 0.5vh var(--wall-line--black);
+    border-radius: 20% 20% 5% 5% / 30% 30% 10% 10%;
+}
 
+.doors {
+    width: 65%;
+    height: 17vh;
+    background-color: var(--doors-border);
+    filter: blur(0.5px)
+}
+
+.doors__entrance {
+    width: 90%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--doors--light);
+    background-image: 
+        linear-gradient(45deg, var(--doors--dark) 25%, transparent 25%, transparent 75%, var(--doors--dark) 75%, var(--doors--dark)),
+        linear-gradient(-45deg, var(--doors--dark) 25%, transparent 25%, transparent 75%, var(--doors--dark) 75%, var(--doors--dark));
+    background-size: 50% 8vh;
+}
+
+.doors__center {
+    height: 100%;
+    width: 60%;
+    position: relative;
+    background-color: var(--doors--light);
+    border-right: solid 0.25vh var(--wall-line--dark);
+    border-left: solid 0.25vh var(--wall-line--dark);
+}
+
+.doors__center::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 0.25vh;
+    background-color: var(--doors--dark);
+}
+
+.doors__button {
+    position: absolute;
+    width: 2.5vh;
+    height: 6vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--doors--light);
+    border-left: solid 0.25vh var(--doors--dark);
+    border-right: solid 0.25vh var(--doors--dark);
+}
+
+.doors__button:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -0.25vh;
+    top: -1vh;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 1.25vh 1.25vh 1.25vh;
+    border-color: transparent transparent var(--doors--light);
+    filter: drop-shadow(0 -0.25vh 0 var(--doors--dark));
+} 
+
+.doors__button:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -0.25vh;
+    bottom: -1vh;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 1.25vh 1.25vh 0 1.25vh;
+    border-color:  var(--doors--light) transparent transparent transparent;
+    filter: drop-shadow(0 0.25vh 0 var(--doors--dark));
+} 

@@ -74,9 +74,8 @@ body {
     width: 19.5%;
     height: 100%;
     position: absolute;
-    left: 50%;
+    right: 6.5vh;
     top: 0;
-    transform: translateX(-50%);
     background-color: var(--corridor);
     border-left: solid 1.5vh var(--floor-light-line);
     border-right: solid 1.5vh var(--floor-light-line);
