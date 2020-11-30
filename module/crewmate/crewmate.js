@@ -10,8 +10,8 @@ class Crewmate {
 
     movingAnimtationFrame = 0;
 
-    constructor(state, obstacles) {
-        this.state = state;
+    constructor(globalState, obstacles) {
+        this.globalState = globalState;
         this.obstacles = obstacles;
         this.element = document.querySelector("#crewmate");
         this.posX = 0;
@@ -22,6 +22,7 @@ class Crewmate {
         const pace = 0.6;
         const pacePXL = pace*window.innerHeight/100;
         const legHeight = 2.5*window.innerHeight/100;//positioned absolute
+        const boundries = this.globalState.state.boundries;
         this.moving[dir] = true;
 
         if (this.movingAnimtationFrame === 0) {
@@ -35,7 +36,7 @@ class Crewmate {
 
                 if (this.moving.left) {
                     let newPosX = box.left - pacePXL;
-                    if (newPosX > boundryLeft && !this.willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
+                    if (newPosX > boundries.left && !this.willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
                         this.posX = this.posX - pace;
                         this.isMovingLeft = true;
                     }
@@ -44,7 +45,7 @@ class Crewmate {
 
                 if (this.moving.right) {
                     let newPosX = box.right + pacePXL;
-                    if (newPosX < boundryRight && !this.willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
+                    if (newPosX < boundries.right && !this.willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
                         this.posX = this.posX + pace;
                         this.isMovingLeft = false;                   
                     } 
@@ -53,7 +54,7 @@ class Crewmate {
 
                 if (this.moving.down) {
                     let newPosY = positionBottom  + pacePXL;
-                    if (newPosY < boundryBottom && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
+                    if (newPosY < boundries.bottom && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
                         this.posY = this.posY + pace;                        
                     }
                     
@@ -61,7 +62,7 @@ class Crewmate {
                 
                 if (this.moving.up) {
                     let newPosY = positionBottom - pacePXL;
-                    if (newPosY > boundryTop && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
+                    if (newPosY > boundries.top && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
                         this.posY = this.posY - pace;
                     };
                 }
@@ -72,7 +73,7 @@ class Crewmate {
 
                 box = this.getBox();
 
-                this.state.publish({crewmateX: box.left + box.width/2, crewmateY: box.bottom});
+                this.globalState.publish({crewmateX: box.left + box.width/2, crewmateY: box.bottom});
 
             } , 12);
         }
