@@ -1,21 +1,22 @@
 class Crewmate {
-    moving = {
-        "left": false,
-        "right": false,
-        "up": false,
-        "down": false
+
+    state = {
+        moving: {
+            "left": false,
+            "right": false,
+            "up": false,
+            "down": false
+        },
+        isMovingLeft: false,
+        movingAnimtationFrame: 0,
+        posX: 0,
+        posY: 0
     }
-
-    isMovingLeft = false;
-
-    movingAnimtationFrame = 0;
 
     constructor(globalState, obstacles) {
         this.globalState = globalState;
         this.obstacles = obstacles;
         this.element = document.querySelector("#crewmate");
-        this.posX = 0;
-        this.posY = 0;
     }
 
     move(dir) {
@@ -23,9 +24,9 @@ class Crewmate {
         const pacePXL = pace*window.innerHeight/100;
         const legHeight = 2.5*window.innerHeight/100;//positioned absolute
         const boundries = this.globalState.state.boundries;
-        this.moving[dir] = true;
+        this.state.moving[dir] = true;
 
-        if (this.movingAnimtationFrame === 0) {
+        if (this.state.movingAnimtationFrame === 0) {
             this.changeAnimationFrame();
         } 
 
@@ -34,42 +35,42 @@ class Crewmate {
                 let box = this.getBox();
                 let positionBottom = box.bottom + legHeight;
 
-                if (this.moving.left) {
+                if (this.state.moving.left) {
                     let newPosX = box.left - pacePXL;
                     if (newPosX > boundries.left && !this.willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
-                        this.posX = this.posX - pace;
-                        this.isMovingLeft = true;
+                        this.state.posX = this.state.posX - pace;
+                        this.state.isMovingLeft = true;
                     }
                     
                 };
 
-                if (this.moving.right) {
+                if (this.state.moving.right) {
                     let newPosX = box.right + pacePXL;
                     if (newPosX < boundries.right && !this.willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
-                        this.posX = this.posX + pace;
-                        this.isMovingLeft = false;                   
+                        this.state.posX = this.state.posX + pace;
+                        this.state.isMovingLeft = false;                   
                     } 
                 };
 
 
-                if (this.moving.down) {
+                if (this.state.moving.down) {
                     let newPosY = positionBottom  + pacePXL;
                     if (newPosY < boundries.bottom && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
-                        this.posY = this.posY + pace;                        
+                        this.state.posY = this.state.posY + pace;                        
                     }
                     
                 };
                 
-                if (this.moving.up) {
+                if (this.state.moving.up) {
                     let newPosY = positionBottom - pacePXL;
                     if (newPosY > boundries.top && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
-                        this.posY = this.posY - pace;
+                        this.state.posY = this.state.posY - pace;
                     };
                 }
 
-                const scale = this.isMovingLeft ? "scaleX(-1)" : "";
+                const scale = this.state.isMovingLeft ? "scaleX(-1)" : "";
 
-                this.element.style.transform = `translate3d(${this.posX}vh, ${this.posY}vh, 0) ${scale}`;
+                this.element.style.transform = `translate3d(${this.state.posX}vh, ${this.state.posY}vh, 0) ${scale}`;
 
                 box = this.getBox();
 
@@ -81,14 +82,14 @@ class Crewmate {
 
 
     stopMoving = (dir) => {
-        this.moving[dir] = false;
-        if (!Object.entries(this.moving).some(entry => entry[1])) {
+        this.state.moving[dir] = false;
+        if (!Object.entries(this.state.moving).some(entry => entry[1])) {
             clearInterval(interval);
             clearInterval(this.walkingAnimationInteval);
             interval = null;
             this.walkingAnimationInteval = null;
-            this.element.classList.remove(`moving--${this.movingAnimtationFrame}`);
-            this.movingAnimtationFrame = 0;
+            this.element.classList.remove(`moving--${this.state.movingAnimtationFrame}`);
+            this.state.movingAnimtationFrame = 0;
         }
     }
 
@@ -112,9 +113,9 @@ class Crewmate {
     }
 
     _updateAnimationFrame = () => {
-        this.element.classList.remove(`moving--${this.movingAnimtationFrame}`);
-        this.movingAnimtationFrame = this.movingAnimtationFrame === 12 ? 1 : this.movingAnimtationFrame + 1;
-        this.element.classList.add(`moving--${this.movingAnimtationFrame}`);
+        this.element.classList.remove(`moving--${this.state.movingAnimtationFrame}`);
+        this.state.movingAnimtationFrame = this.state.movingAnimtationFrame === 12 ? 1 : this.state.movingAnimtationFrame + 1;
+        this.element.classList.add(`moving--${this.state.movingAnimtationFrame}`);
     }
 
 }

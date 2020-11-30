@@ -1,6 +1,6 @@
 class State {
     
-    callbacks = []
+    _callbacks = []
 
     state = {
         boundries: {}
@@ -12,11 +12,11 @@ class State {
 
     publish = (state) => {
         this.state = Object.assign(this.state, state);
-        this.callbacks.forEach(cb => cb(this.state));
+        this._callbacks.forEach(cb => cb(this.state));
     }
 
     subscribe = (cb) => {
-        this.callbacks.push(cb);
+        this._callbacks.push(cb);
     }
 
     _setBoundries() {
