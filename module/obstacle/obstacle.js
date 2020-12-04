@@ -40,9 +40,10 @@ class Obstacle {
         if (this.isInBoundries(this.state.crewmateX, this.state.crewmateY)) {
             this.element.classList.add("active");
             this.active = true;
+            this.task.setActiveState(true);
         } else {
             this.element.classList.remove("active");
-            this.active = false;
+            this.task.setActiveState(false);
         }
     }
 

@@ -1,6 +1,7 @@
 class Task {
 
     finished = false;
+    active = false;
     
     constructor(key) {
         this.key = key;
@@ -12,5 +13,21 @@ class Task {
         this.taskListElement.classList.add("finished");
     }
 
+    setActiveState = (active) => {
+        this.active = active;
+    } 
+
+
+}
+
+class WhiteboardTask extends Task {
+    constructor() {
+        super("whiteboard");
+    }
+
+    open = () => {
+        document.querySelector("#whiteboard").style.transform = "scale(2)";
+        this.finish();
+    }
 
 }

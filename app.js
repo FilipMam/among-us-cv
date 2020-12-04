@@ -1,6 +1,6 @@
 (function() {
   const tasks = [
-    new Task("whiteboard")
+    new WhiteboardTask()
   ];
 
   const globalState = new State(tasks);
@@ -29,8 +29,8 @@
 
       // space
       if (event.keyCode === 32) {   
-        const activeObstacle = obstacles.find(obstacle => obstacle.active);
-        if (activeObstacle) activeObstacle.finish();
+        const activeTask = tasks.find(task => task.active);
+        if (activeTask) activeTask.open();
       }
 
   });
