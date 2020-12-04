@@ -10,9 +10,15 @@
 .whiteboard {
     width: 100%;
     height: 15vh;
+    border-radius: 1vh;
+}
+
+.whiteboard__content {
+    width: 96%;
+    height: 95%;
     position: relative;
-    top: 0;
-    left: 0;
+    top: 2.5%;
+    left: 2%;
     padding: 1.5vh 1vh;
     border-radius: 1vh;
     border: solid 0.5vh #000;
@@ -23,11 +29,15 @@
     filter: blur(0.75px);
 }
 
+.whiteboard.active:not(.finished) {
+    background-color: yellow;
+}
+
 .whiteboard p:first-child {
     line-height: 1.3vh;
     transform: rotate(-3deg);
     text-decoration: line-through;
-    padding-bottom: 1.5vh;
+    padding-bottom: 0.5vh;
 }
 
 .whiteboard p:nth-child(5) {

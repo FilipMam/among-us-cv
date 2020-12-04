@@ -6,8 +6,9 @@ class State {
         boundries: {}
     }
 
-    constructor() {
+    constructor(tasks) {
         this._setBoundries();
+        this.state.tasks = tasks;
     }
 
     publish = (state) => {
@@ -17,6 +18,10 @@ class State {
 
     subscribe = (cb) => {
         this._callbacks.push(cb);
+    }
+
+    unsubscribe = (cb) => {
+        this._callbacks = this._callbacks.filter(subscribedCb => subscribedCb !== cb);
     }
 
     _setBoundries() {

@@ -6,9 +6,9 @@
     <title>Filip Mamcarczyk</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="module/crewmate/crewmate.css">
+    <link rel="stylesheet" href="module/task/tasks.css">
     <link rel="stylesheet" href="module/styles/wall.css">
-    <link rel="stylesheet" href="module/styles/table.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="module/styles/whiteboard.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 </head>
@@ -64,12 +64,14 @@
         </div>
         <div class="ship__floor">
             <div class="whiteboard-container">
-                <div class="whiteboard">
-                    <p>This page was made with Blender, Unity, machine learning and quantuum computing.</p>
-                    <p>Just kidding.</p> 
-                    <p>It's HTML, CSS and Javascript.</p>
-                    <p>You can check the code <a href="https://github.com/FilipMam/among-us-cv" target="_blank">here</a>*</p>
-                    <p>* feel free to give the repo a star!</p>
+                <div id="whiteboard" class="whiteboard">
+                    <div class="whiteboard__content">
+                        <p>This page was made with Blender, Unity, machine learning and quantuum computing.</p>
+                        <p>Just kidding.</p> 
+                        <p>It's HTML, CSS and Javascript.</p>
+                        <p>You can check the code <a href="https://github.com/FilipMam/among-us-cv" target="_blank">here</a>*</p>
+                        <p>* feel free to give the repo a star!</p>
+                    </div>
                 </div>
             </div>
             <div class="ship__floor__upper-part">
@@ -108,19 +110,23 @@
             </div>
             <div id="obstacle1" class="obstacle"></div>
         </div>
-        <div id="crewmate" class="moving">
-            <div class="crewmate__figure">
-                <div class="crewmate__body">
-                    <div class="crewmate__mask"></div>
-                    <div class="crewmate__backpack"></div>
-                </div>
-            
-                <div class="leg leg--left"></div>
-                <div class="leg leg--right"></div>
+    </div>
+    <div id="crewmate" class="moving">
+        <div class="crewmate__figure">
+            <div class="crewmate__body">
+                <div class="crewmate__mask"></div>
+                <div class="crewmate__backpack"></div>
             </div>
+        
+            <div class="leg leg--left"></div>
+            <div class="leg leg--right"></div>
         </div>
     </div>
+    <ul class="tasks-list">
+        <li class="tasks-list-item tasks-list-item--whiteboard">Learn how this page was made</div>
+    </div>
     <script src="module/state/state.js"></script>
+    <script src="module/task/task.js"></script>
     <script src="module/obstacle/obstacle.js"></script>
     <script src="module/crewmate/crewmate.js"></script>
     <script src="app.js"></script>

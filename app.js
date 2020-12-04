@@ -1,37 +1,44 @@
-const globalState = new State();
+(function() {
+  const tasks = [
+    new Task("whiteboard")
+  ];
 
-const _obstacles = [new Obstacle("#obstacle1", globalState)];
+  const globalState = new State(tasks);
 
-const crewmate = new Crewmate(globalState, _obstacles);
+  const obstacles = 
+    tasks.map(task => 
+      new Obstacle(`${task.key}`, globalState, task))
+    .concat([
+      new Obstacle("obstacle1", globalState)
+    ]);
+  
+  const crewmate = new Crewmate(globalState, obstacles);
 
+  const keyMap = {
+    37: "left",
+    38: "up",
+    39: "right",
+    40: "down"  
+  };
 
-const keyMap = {
-  37: "left",
-  38: "up",
-  39: "right",
-  40: "down"  
-};
+  document.addEventListener("keydown", (event) => {
+      if (keyMap[event.keyCode]) {
+        event.preventDefault();
+        crewmate.move(keyMap[event.keyCode]);
+      }
 
-document.addEventListener("keydown", (event) => {
+      // space
+      if (event.keyCode === 32) {   
+        const activeObstacle = obstacles.find(obstacle => obstacle.active);
+        if (activeObstacle) activeObstacle.finish();
+      }
+
+  });
+
+  document.addEventListener("keyup", (event) => {
     if (keyMap[event.keyCode]) {
       event.preventDefault();
-      crewmate.move(keyMap[event.keyCode]);
+      crewmate.stopMoving(keyMap[event.keyCode]);
     }
-
-    // space
-    if (event.keyCode === 32) {
-      const activeObstacle = _obstacles.find(obstacle => obstacle.active);
-      if (activeObstacle) activeObstacle.finish();
-    }
-
-});
-
-document.addEventListener("keyup", (event) => {
-  if (keyMap[event.keyCode]) {
-    event.preventDefault();
-    crewmate.stopMoving(keyMap[event.keyCode]);
-  }
-});
-
-
-// a() 
+  });
+})()

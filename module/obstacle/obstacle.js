@@ -3,20 +3,21 @@ class Obstacle {
     boxMargin = window.innerHeight*5/100;
 
     active = false;
-    finished = false;
 
-    constructor(selector, state) {
-        this.element = document.querySelector(selector);
-        this.box = this.element.getBoundingClientRect(); 
-        state.subscribe(s => {
-            if (this.isInBoundries(s.crewmateX, s.crewmateY)) {
-                this.element.classList.add("active");
-                this.active = true;
-            } else {
-                this.element.classList.remove("active");
-                this.active = false;
-            }
-        });
+    constructor(selector, globalState) {
+        this.state = globalState.state;
+        this.element = document.querySelector(`#${selector}`);
+        this.box = this.element.getBoundingClientRect();
+
+        const task = this.state.tasks.find(task => task.key === selector);
+        
+        if (task) {
+            this.task = task;
+            globalState.subscribe(state => {
+                this.state = state;
+                this.activateIfCrewmateIsNerby();
+            });
+        }
     }
 
     get left() {
@@ -35,6 +36,16 @@ class Obstacle {
         return this.box.bottom;
     }
 
+    activateIfCrewmateIsNerby = () => {
+        if (this.isInBoundries(this.state.crewmateX, this.state.crewmateY)) {
+            this.element.classList.add("active");
+            this.active = true;
+        } else {
+            this.element.classList.remove("active");
+            this.active = false;
+        }
+    }
+
     isInBoundries = (x, y) => {
         return (this.left - this.boxMargin < x) && 
             (x < this.right + this.boxMargin) &&
@@ -43,8 +54,10 @@ class Obstacle {
     }
 
     finish = () => {
-        this.finished = true;
-        this.element.classList.add("finished");
+        if (this.task && !this.task.finished) {
+            this.element.classList.add("finished");
+            this.task.finish();
+        }
     }
 
 }
