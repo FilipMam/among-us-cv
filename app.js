@@ -9,7 +9,8 @@
     tasks.map(task => 
       new Obstacle(`${task.key}`, globalState, task))
     .concat([
-      new Obstacle("obstacle1", globalState)
+      new Obstacle("obstacle1", globalState),
+      new Obstacle("bed", globalState)
     ]);
   
   const crewmate = new Crewmate(globalState, obstacles);

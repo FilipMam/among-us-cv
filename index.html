@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="module/crewmate/crewmate.css">
     <link rel="stylesheet" href="module/task/tasks.css">
+    <link rel="stylesheet" href="module/styles/bed.css">
+    <link rel="stylesheet" href="module/styles/desk.css">
     <link rel="stylesheet" href="module/styles/wall.css">
     <link rel="stylesheet" href="module/styles/whiteboard.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -109,19 +111,36 @@
                 <div class="ship__floor__tail"></div>
             </div>
             <div id="obstacle1" class="obstacle"></div>
-        </div>
-    </div>
-    <div id="crewmate" class="moving">
-        <div class="crewmate__figure">
-            <div class="crewmate__body">
-                <div class="crewmate__mask"></div>
-                <div class="crewmate__backpack"></div>
+            <div id="desk">
+                <div class="chair"></div>
+                <div class="desk__part desk__part--vertical"></div>
+                <div class="desk__part desk__part--horizontal"></div>
             </div>
-        
-            <div class="leg leg--left"></div>
-            <div class="leg leg--right"></div>
+            <div id="bed">
+                <div class="mattress">
+                    <div class="pillow"></div>
+                    <div class="towel">
+                        <div class="towel__part towel__part--center"></div> 
+                        <div class="towel__part towel__part--lower"></div> 
+                    </div>
+                </div>
+                <div class="bed__frame"></div>
+                <div class="bed__arm"></div>
+            </div>
+            <div id="crewmate" class="moving">
+                <div class="crewmate__figure">
+                    <div class="crewmate__body">
+                        <div class="crewmate__mask"></div>
+                        <div class="crewmate__backpack"></div>
+                    </div>
+                
+                    <div class="leg leg--left"></div>
+                    <div class="leg leg--right"></div>
+                </div>
+            </div>
         </div>
     </div>
+
     <ul class="tasks-list">
         <li class="tasks-list-item tasks-list-item--whiteboard">Learn how this page was made</div>
     </div>

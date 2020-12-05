@@ -1,0 +1,129 @@
+:root {
+    --mattress: #257daa; 
+    --mattress-dark: #1a5392;
+    --pillow: #b5c0cc;
+    --pillow-dark: #7994aa;
+    --pillow-border: #303c44;
+    --frame: #89a6aa;
+    --frame-border: #2f5261;
+}
+
+
+#bed {
+    width: 25vh;
+    height: 17vh;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 0 0.5vh 0 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    filter: blur(1px)
+}
+
+.mattress {
+    width: 100%;
+    height: 12vh;
+    position: relative;
+    top: 0;
+    background-color: var(--mattress);
+    border-top: solid 0.5vh var(--mattress-dark);
+    border-right: solid 0.75vh var(--mattress-dark);
+    border-bottom: solid 1vh var(--mattress-dark);
+    border-radius: 0 0.5vh 0.5vh 0;
+    z-index: 101;
+}
+
+.bed__frame {
+    width: 99%;
+    height: 1.5vh;
+    background-color: var(--frame);
+    border: solid 0.5vh var(--frame-border);
+    border-left: none;
+    border-radius: 0 0.25vh 0.5vh 0;
+}
+
+.bed__arm {
+    width: 50%;
+    height: 1.5vh;
+    background-color: var(--frame);
+    border-right: solid 0.5vh var(--frame-border);
+    border-bottom: solid 0.5vh var(--frame-border);
+    border-radius: 0 0 100% 0;
+    position: relative;
+    background-image: radial-gradient(var(--frame-border) 20%, transparent 20%);
+    background-position: 0 0;
+    background-size: 3.5vh 1vh;
+}
+
+.pillow {
+    position: absolute;
+    left: 0;
+    bottom: 1vh;
+    width: 6.5vh;
+    height: 12vh;
+    background-color: var(--pillow-dark);
+    border: solid 0.4vh var(--pillow-border);
+    border-radius: 95% 200% 50% 0.5vh / 50% 50% 30% 0.5vh;
+    overflow: hidden;
+}
+
+.pillow:after {
+    content: "";
+    width: 85%;
+    height: 90%;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--pillow);
+    border-radius: 0 0 0.5vh 1.5vh / 0 0 0.5vh 1.5vh;
+}
+
+.towel {
+    position: absolute;
+    right: 2vh;
+    bottom: 3vh;
+    width: 6vh;
+    height: 6.5vh;
+    transform: skewX(-25deg);
+    z-index: 1;
+}
+
+.towel__part {
+    background-color: var(--pillow);
+}
+
+.towel__part--center {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: solid 0.4vh var(--pillow-border);
+    border-right: solid 0.4vh var(--pillow-border);
+    border-top: solid 0.4vh var(--pillow-border);
+    border-radius: 50% 60% 0 0 / 30% 20% 0 0;
+}
+
+.towel__part--lower {
+    width: 100%;
+    height: 1.5vh;
+    position: absolute;
+    bottom: -0.5vh;
+    border-radius: 100%;
+    border: solid 0.4vh var(--pillow-border);
+}
+
+.towel__part--lower:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 0.05vh;
+    border-radius: 25%;
+    border: solid 0.25vh var(--pillow-border);
+
+}
