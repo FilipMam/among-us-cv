@@ -1,6 +1,7 @@
 (function() {
   const tasks = [
-    new WhiteboardTask()
+    new WhiteboardTask(),
+    new PanelTask()
   ];
 
   const globalState = new State(tasks);

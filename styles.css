@@ -37,7 +37,7 @@ body {
 .obstacle {
     position: absolute;
     display: inline-block;
-    left: 10%;
+    left: 50%;
     top: 30%;
     width: 15%;
     height: 15%;

@@ -31,3 +31,15 @@ class WhiteboardTask extends Task {
     }
 
 }
+
+class PanelTask extends Task {
+    constructor() {
+        super("panel");
+    }
+
+    open = () => {
+        document.querySelector("#panel").style.transform = "scale(2)";
+        this.finish();
+    }
+
+}
