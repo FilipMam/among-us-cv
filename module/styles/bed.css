@@ -17,7 +17,6 @@
     bottom: 0;
     border-radius: 0 0.5vh 0 0;
     background-color: rgba(0, 0, 0, 0.3);
-    filter: blur(1px)
 }
 
 .mattress {
@@ -30,7 +29,6 @@
     border-right: solid 0.75vh var(--mattress-dark);
     border-bottom: solid 1vh var(--mattress-dark);
     border-radius: 0 0.5vh 0.5vh 0;
-    z-index: 101;
 }
 
 .bed__frame {
@@ -58,13 +56,14 @@
 .pillow {
     position: absolute;
     left: 0;
-    bottom: 1vh;
+    bottom: 7vh;
     width: 6.5vh;
     height: 12vh;
     background-color: var(--pillow-dark);
     border: solid 0.4vh var(--pillow-border);
     border-radius: 95% 200% 50% 0.5vh / 50% 50% 30% 0.5vh;
     overflow: hidden;
+    z-index: 101;
 }
 
 .pillow:after {
