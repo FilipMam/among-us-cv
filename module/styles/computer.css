@@ -59,7 +59,7 @@
     height: 7vh;
     position: absolute;
     left: 0.5vh;
-    top: 5.5vh;
+    top: 5vh;
     z-index: 101;
 }
 
@@ -104,7 +104,7 @@
     width: 3vh;
     height: 4vh;
     position: absolute;
-    left: 5vh;
+    left: 4.5vh;
     top: 2.5vh;
     background-color: var(--mouse-pad);
     border-radius: 10% / 20%;
@@ -177,7 +177,7 @@
     height: 12vh;
     position: absolute;
     left: -0.5vh;
-    top: -6vh;
+    top: -6.25vh;
     background-color: yellow;
     transform: skewY(-64deg);
     border-radius: 0 5vh;

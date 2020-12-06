@@ -1,5 +1,6 @@
 :root {
     --desk: #747f8e;
+    --desk-shadow: #5c6168;
     --desk-dark: #171b1b;
     --screen: #020204;
     --screen-text: #22b455;
@@ -9,11 +10,11 @@
 
 #panel {
     position: absolute;
-    bottom: 0;
-    right: 15vh;
+    bottom: 8vh;
+    right: -10vh;
     width: 30vh;
     height: 10vh;
-    transform: scale(1, -1);
+    transform: rotate(-90deg) scale(-0.8, -1);
     filter: blur(1px);
     border: solid 0.5vh transparent;
     border-top: none;
@@ -32,9 +33,33 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--desk);
+    background-color: var(--desk-shadow);
     border: solid 0.25vh var(--desk-dark);
+    border-top: none;
     border-radius: 0 0 2vh 2vh;
+    overflow: hidden;
+}
+
+.panel__desk:before {
+    content: "";
+    height: 9.25vh;
+    width: 95%;
+    position: absolute;
+    left: 0.25vh;
+    bottom: 0.25vh;
+    background-color: var(--desk);
+    border-radius: 0 0 2vh 2vh;
+}
+
+.panel__desk:after {
+    content: "";
+    height: 85%;
+    width: 1vh;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 2vh 0;
 }
 
 .panel__part {
@@ -101,6 +126,7 @@
     border-radius: 25% 25% 10% 10% / 25% 25% 25% 25%;
     font-family: 'VT323', monospace;
     color: #22b455;
+    z-index: 1;
 }
 
 .panel__part--right {
