@@ -10,25 +10,30 @@
 
 #panel {
     position: absolute;
-    bottom: 8vh;
-    right: -10vh;
-    width: 30vh;
+    bottom: 13vh;
+    right: -12.5vh;
+    width: 35vh;
     height: 10vh;
     transform: rotate(-90deg) scale(-0.8, -1);
     filter: blur(1px);
     border: solid 0.5vh transparent;
+    border-radius: 0 0 2vh 2vh;
     border-top: none;
-    z-index: 101;
 }
 
-#panel.active:not(.finished) {
-    border-color: yellow;
+#panel.active:not(.finished):before {
+    content: "";
+    height: 102%;
+    width: 93%;
+    position: absolute;
+    left: -0.75vh;
+    top: 0.1vh;
+    background-color: yellow;
     border-radius: 0 0 2vh 2vh;
-
 }
 
 .panel__desk {
-    width: 100%;
+    width: 30vh;
     height: 100%;
     display: flex;
     align-items: center;
@@ -37,24 +42,26 @@
     border: solid 0.25vh var(--desk-dark);
     border-top: none;
     border-radius: 0 0 2vh 2vh;
-    overflow: hidden;
+    position: relative;
 }
 
 .panel__desk:before {
     content: "";
-    height: 9.25vh;
+    display: inline-block;
+    height: 100%;
     width: 95%;
     position: absolute;
-    left: 0.25vh;
-    bottom: 0.25vh;
+    left: 0;
+    bottom: 0;
     background-color: var(--desk);
     border-radius: 0 0 2vh 2vh;
 }
 
 .panel__desk:after {
     content: "";
+    display: inline-block;
     height: 85%;
-    width: 1vh;
+    width: 3vh;
     position: absolute;
     left: 100%;
     top: 0;
