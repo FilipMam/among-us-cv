@@ -1,41 +1,46 @@
-const keyMap = {
-  37: "left",
-  38: "up",
-  39: "right",
-  40: "down"  
-};
+(function() {
+  const tasks = [
+    new WhiteboardTask(),
+    new PanelTask()
+  ];
 
-const crewmateState = new State();
+  const globalState = new State(tasks);
 
-const _obstacles = [new Obstacle("#obstacle1", crewmateState)];
+  const obstacles = 
+    tasks.map(task => 
+      new Obstacle(`${task.key}`, globalState, task))
+    .concat([
+      new Obstacle("obstacle1", globalState),
+      new Obstacle("bed", globalState)
+    ]);
+  
+  const crewmate = new Crewmate(globalState, obstacles);
 
-const crewmate = new Crewmate(crewmateState, _obstacles);
+  const keyMap = {
+    37: "left",
+    38: "up",
+    39: "right",
+    40: "down"  
+  };
 
-const shipBox = document.querySelector(".ship__floor").getBoundingClientRect();
-const boundryLeft = shipBox.left;
-const boundryRight = shipBox.right;
-const boundryTop = shipBox.top;
-const boundryBottom = shipBox.bottom;
+  document.addEventListener("keydown", (event) => {
+      if (keyMap[event.keyCode]) {
+        event.preventDefault();
+        crewmate.move(keyMap[event.keyCode]);
+      }
 
-document.addEventListener("keydown", (event) => {
+      // space
+      if (event.keyCode === 32) {   
+        const activeTask = tasks.find(task => task.active);
+        if (activeTask) activeTask.open();
+      }
+
+  });
+
+  document.addEventListener("keyup", (event) => {
     if (keyMap[event.keyCode]) {
       event.preventDefault();
-      crewmate.move(keyMap[event.keyCode]);
+      crewmate.stopMoving(keyMap[event.keyCode]);
     }
-
-    // space
-    if (event.keyCode === 32) {
-      const activeObstacle = _obstacles.find(obstacle => obstacle.active);
-      if (activeObstacle) activeObstacle.finish();
-    }
-
-});
-
-document.addEventListener("keyup", (event) => {
-  if (keyMap[event.keyCode]) {
-    event.preventDefault();
-    crewmate.stopMoving(keyMap[event.keyCode]);
-  }
-});
-
-
+  });
+})()

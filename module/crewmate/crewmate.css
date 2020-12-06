@@ -1,0 +1,261 @@
+#crewmate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 11.5vh;
+    width: 7vh;
+}
+
+#crewmate::before {
+    content: "";
+    display: inline-block;
+    height: 2vh;
+    width: 8vh;
+    background-color: #000;
+    opacity: 0.6;
+    position: absolute;
+    left: -0.6vh;
+    border-radius: 100%;
+    top: 105%
+}
+
+.crewmate__figure {
+    height: 10.5vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.crewmate__body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #8a071d;
+    border: 0.6vh solid #000;
+    border-radius: 36vh 44vh 0 0;
+    z-index: 2;
+}
+
+.crewmate__body::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 80%;
+    height: 80%;
+    background-color: #d9041a;
+    transform: rotate(-2deg);
+    border-radius: 40% 50% 36% 30%;
+}
+
+.crewmate__mask { 
+    position: absolute;
+    right: -1vh;
+    top: 1.2vh;
+    z-index: 2;
+
+    background-color: #73989e;
+    width: 5.5vh;
+    height: 4.5vh;
+    transform: rotate(-4deg);
+
+    border: 0.6vh solid #000;
+    border-radius: 35vh 45vh 55vh 55vh;
+}
+
+.crewmate__mask::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.7vh;
+    height: 2.5vh;
+    margin: 0 0.6vh;
+    background-color: #CAE8ED;
+    border-radius: 30% 40% 55% 50%;
+    display: inline-block;
+}
+
+.crewmate__backpack{
+    position: absolute;
+    left: 0;
+    top: 2.25vh;
+    width: 2.5vh;
+    height: 6vh;
+    transform: translate(-100%);
+    background-color: #8a071d;
+    border: 0.6vh solid #000;
+    border-radius: 40% 0 0 50%;
+}
+
+.leg {
+    background-color: #8a071d;
+    position: absolute;
+    top: 100%;
+    margin-top: -0.6vh;
+    border: 0.6vh solid #000;
+    border-top: none;     
+    border-radius: 0 0 60% 40%;
+    z-index: 2;
+
+}
+
+.leg--left {
+    width: 3.5vh;
+    height: 3vh;
+    left: 0;
+}
+
+.leg--right {
+    width: 3.2vh;
+    height: 2.5vh;
+    right: 0;
+}
+
+.moving--1 .crewmate__body,
+.moving--2 .crewmate__body,
+.moving--3 .crewmate__body,
+.moving--4 .crewmate__body,
+.moving--7 .crewmate__body,
+.moving--8 .crewmate__body,
+.moving--9 .crewmate__body,
+.moving--10 .crewmate__body {
+    border-radius: 36vh 44vh 40vh 35vh;
+}
+
+.moving--5 .crewmate__body,
+.moving--6 .crewmate__body,
+.moving--11 .crewmate__body,
+.moving--12 .crewmate__body {
+    border-radius: 36vh 44vh 28vh 30vh;
+}
+
+.moving--5 .crewmate__figure,
+.moving--6 .crewmate__figure,
+.moving--11 .crewmate__figure,
+.moving--12 .crewmate__figure {
+    height: 9.5vh;
+}
+
+
+.moving--1 .leg--left,
+.moving--2 .leg--left,
+.moving--3 .leg--left,
+.moving--4 .leg--left {
+    height: 2.2vh;
+    width: 5.2vh;
+    transform: translate(-1.7vh, -1vh) rotate(20deg);
+    border-radius: 39% 0 60% 40%;
+}
+
+.moving--1 .leg--right,
+.moving--2 .leg--right,
+.moving--3 .leg--right,
+.moving--4 .leg--right {
+    z-index: 1;
+    height: 3.2vh;
+    transform: translate(1vh, -1.4vh) rotate(-45deg);
+}
+
+.moving--5 .leg--left,
+.moving--6 .leg--left {
+    z-index: 3;
+    height: 2.2vh;
+    width: 4.5vh;
+    left: 0vh;
+    border-radius: 58% 27% 60% 40%;
+}
+
+.moving--5 .leg--right,
+.moving--6 .leg--right {
+    z-index: 1;
+    height: 3.2vh;
+    right: 1.5vh;
+}
+
+
+.moving--7 .leg--left,
+.moving--8 .leg--left,
+.moving--9 .leg--left,
+.moving--10 .leg--left {
+    z-index: 1;
+    width: 3.7vh;
+    height: 2.5vh;
+    transform: translate(-0.75vh, -0.75vh) rotate(25deg);
+}
+
+.moving--7 .leg--right,
+.moving--8 .leg--right,
+.moving--9 .leg--right,
+.moving--10 .leg--right {
+    z-index: 3;
+    height: 3.8vh;
+    transform: translate(1vh, -1.4vh) rotate(-45deg);
+}
+
+.moving--11 .leg--left,
+.moving--12 .leg--left {
+    z-index: 1;
+    height: 2.2vh;
+    width: 5vh;
+    left: 1vh;
+    border-radius: 58% 27% 60% 40%;
+}
+
+.moving--11 .leg--right,
+.moving--12 .leg--right {
+    z-index: 3;
+    height: 3.2vh;
+    right: 1.5vh;
+}
+
+.moving--1 .crewmate__figure,
+.moving--3 .crewmate__figure,
+.moving--7 .crewmate__figure,
+.moving--9 .crewmate__figure {
+    bottom: 0.6vh;
+}
+
+.moving--2 .crewmate__figure,
+.moving--8 .crewmate__figure {
+    bottom: 1vh;
+}
+
+.moving--4 .crewmate__figure,
+.moving--10 .crewmate__figure {
+    bottom: 0.6vh;
+}
+
+/*top: 2.25vh; */
+
+.moving--1 .crewmate__backpack,
+.moving--7 .crewmate__backpack {
+    /* top: 2.85vh; */
+}
+
+.moving--2 .crewmate__backpack,
+.moving--8 .crewmate__backpack {
+    /* top: 3.25vh; */
+}
+
+.moving--3 .crewmate__backpack,
+.moving--4 .crewmate__backpack,
+.moving--5 .crewmate__backpack,
+.moving--9 .crewmate__backpack,
+.moving--10 .crewmate__backpack,
+.moving--11 .crewmate__backpack {
+    top: 1.65vh;
+}
+
+#crewmate.moving {
+}
+
+#crewmate.moving--right {
+}
+
+#crewmate.moving--left  {
+
+}

@@ -2,7 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
 
+:root {
+    --floor: #515c60;
+    --floor-line: #7a7256;
+    --stair-dark: #4e565f;
+    --stair-light: #677076;
+    --floor-light-line: rgba(0,0,0,0.05);
+    --floor-dark-line: rgba(0,0,0,0.1);
+    --floor-darker-line: rgba(0,0,0,0.2);
+    --corridor: #576266;
+    --corridor-light: #6d7b7d;
+    --corridor-nail: rgb(75, 75, 75);
+    --row-light: #687176; 
 }
 
 body {
@@ -15,55 +28,21 @@ body {
 .ship {
     background-color: #fff;
     border: 2vh gray solid;
-    height: 100vh;
+    height: 92.6vh;
     width: 100vh;
     display: inline-block;
     position: relative;
 }
 
-.ship__floor {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: indigo;
-    height: 66%;
-}
-
-.ship__wall {
-    height: 34%;
-}
-
-.ship__wall__part {
-    display: inline-block;
-    width: 33%;
-    background-color: red;
-    height: 100%;
-    border: black solid 1px;
-
-}
-
-.ship__wall__part--center {
-    width:34%;
-}
-
-#crewmate {
-    width: 4vh;
-    height: 6vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-}
-
 .obstacle {
     position: absolute;
     display: inline-block;
-    left: 10%;
+    left: 50%;
     top: 30%;
     width: 15%;
     height: 15%;
     background-color: yellow;
+    z-index: 2;
 }
 
 .obstacle.active {
@@ -73,3 +52,199 @@ body {
 .obstacle.finished {
     background-color: green;
 }
+
+.ship__floor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: indigo;
+    height: 69%;
+    background-color: var(--floor-line);
+    z-index: 1;
+}
+
+.ship__floor__upper-part {
+    width: 100%;
+    height: 23.8vh;
+    position: relative;
+}
+
+.ship__floor__corridor {
+    width: 19.5%;
+    height: 100%;
+    position: absolute;
+    right: 6.5vh;
+    top: 0;
+    background-color: var(--corridor);
+    border-left: solid 1.5vh var(--floor-light-line);
+    border-right: solid 1.5vh var(--floor-light-line);
+
+}
+
+.ship__floor__corridor::before,
+.ship__floor__corridor::after {
+    content: "";
+    display: block;
+    width: 1vh;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border: solid 0.25vh var(--floor-darker-line);
+    background-color: var(--corridor-light);
+}
+
+.ship__floor__corridor::before {
+    left: -2.5vh;
+}
+
+.ship__floor__corridor::after {
+    right: -2.5vh;
+}
+
+.ship__floor__corridor__tail {
+    width: 100%;
+    height: 30%;
+    border-top: solid 0.2vh var(--floor-dark-line);
+    border-bottom: solid 0.2vh var(--floor-dark-line);
+    position: relative;
+}
+
+.ship__floor__corridor__tail:before,
+.ship__floor__corridor__tail:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.5vh;
+    position: absolute;
+    background-color: red;
+    left: 0;
+    background:
+        radial-gradient(var(--corridor-nail) 15%, transparent 16%) 0 0,
+        radial-gradient(var(--corridor-nail) 15%, transparent 16%) 1vh 1vh;
+    background-size: 2vh 2vh;
+}
+
+.ship__floor__corridor__tail:before {
+    top: 0.3vh;
+}
+
+.ship__floor__corridor__tail:after {
+    bottom: 0;
+}
+
+.ship__floor__row {
+    width: 100%;
+    height: 33.3%;
+    background-color: var(--row-light);
+    border-top: solid 0.5vh var(--floor-dark-line);
+    border-bottom: solid 0.5vh var(--floor-dark-line);
+    position: relative;
+}
+
+.ship__floor__row:before,
+.ship__floor__row:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2vh;
+    position: absolute;
+    left: 0;
+    background:
+        radial-gradient(var(--floor-light-line) 49%, transparent 50%) 0 0,
+        radial-gradient(var(--floor-light-line) 49%, transparent 50%) 1vh 2vh;
+    background-size: 1vh 2vh;
+}
+
+.ship__floor__row:before {
+    top: 0;
+    border-bottom: solid 0.1vh var(--floor-dark-line);
+}
+
+.ship__floor__row:after {
+    bottom: 0;
+    border-top: solid 0.1vh var(--floor-dark-line);
+}
+
+.ship__floor__stairs {
+    box-sizing: initial;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 4vh;
+    background-color: var(--stair-dark);
+    z-index: 1;
+    border-top: solid 0.5vh var(--floor-dark-line);
+    border-bottom: solid 0.5vh var(--floor-dark-line);
+}
+
+.ship__floor__stairs:after,
+.ship__floor__stairs:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 18%;
+    background-color: var(--stair-light);
+    position: absolute;
+    left: 0;
+    box-sizing: initial;
+}
+
+.ship__floor__stairs:after {
+    top: 20%;
+}
+
+.ship__floor__stairs:before { 
+    bottom: 20%;
+}
+
+.ship__floor__tails {
+    width: 100%;
+    height: 37.3vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.ship__floor__tail {
+    width: 19.5%;
+    height: 30%;
+    margin-bottom: 0.5%;
+    background-color: var(--floor);
+    position: relative;
+}
+
+.ship__floor__tail::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 2%;
+    top: 5%;
+    bottom: 5%;
+    right: 2%;
+    border: solid 0.5vh var(--floor-dark-line);
+}
+
+
+/* 
+.ship__floor__line {
+    background-color: var(--floor-line);
+}
+
+.ship__floor__lines--v, 
+.ship__floor__lines--h {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.ship__floor__lines--v {
+    justify-content: space-evenly;
+}
+
+.ship__floor__lines--v .ship__floor__line {
+    width: 1.Z5vh;
+    height: 100%;
+} */

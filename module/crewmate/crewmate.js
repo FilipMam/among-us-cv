@@ -1,63 +1,81 @@
+const pace = 0.6;
+const pacePXL = pace*window.innerHeight/100;
+
 class Crewmate {
-    moving = {
-        "left": false,
-        "right": false,
-        "up": false,
-        "down": false
+    _state = {
+        moving: {
+            "left": false,
+            "right": false,
+            "up": false,
+            "down": false
+        },
+        movingInterval: null,
+        isMovingLeft: false,
+        movingAnimtationFrame: 0,
+        movingAnimtationInterval: null,
+        marginBottom: 2.5*window.innerHeight/100, // legs positioned absolute, adding margin to get "proper" boundingClientRect 
+        posX: 0,
+        posY: 0,
+        pace: 0.6
     }
 
-    constructor(state, obstacles) {
-        this.state = state;
+    constructor(globalState, obstacles) {
+        this.globalState = globalState;
         this.obstacles = obstacles;
         this.element = document.querySelector("#crewmate");
-        this.posX = 0;
-        this.posY = 0;
     }
 
     move(dir) {
-        const pace = 0.6;
-        const pacePXL = pace*window.innerHeight/100;
-        this.moving[dir] = true;
+        const boundries = this.globalState.state.boundries;
+        this._state.moving[dir] = true;
 
-        if (!interval) {
-            interval = setInterval(() => {
-                let box = this.getBox();
+        if (!this._state.movingInterval) {
+            this._state.movingInterval = setInterval(() => {
+                let box = this._getBox();
+                let positionBottom = box.bottom + this._state.marginBottom;
 
-                if (this.moving.left) {
+                if (this._state.moving.left) {
                     let newPosX = box.left - pacePXL;
-                    if (newPosX > boundryLeft && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
-                        this.posX = this.posX - pace;
+                    if (newPosX > boundries.left && !this._willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
+                        this._state.posX = this._state.posX - pace;
+                        this._state.isMovingLeft = true;
                     }
+                    
                 };
 
-                if (this.moving.right) {
-                    let newPosX = box.left + pacePXL;
-                    if (newPosX < boundryRight && !this.willHitObstacle(newPosX, newPosX + box.width, box.bottom, box.height)) {
-                        this.posX = this.posX + pace;                        
+                if (this._state.moving.right) {
+                    let newPosX = box.right + pacePXL;
+                    if (newPosX < boundries.right && !this._willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
+                        this._state.posX = this._state.posX + pace;
+                        this._state.isMovingLeft = false;                   
                     } 
                 };
 
 
-                if (this.moving.down) {
-                    let newPosY = box.bottom + pacePXL;
-                    if (newPosY < boundryBottom && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
-                        this.posY = this.posY + pace;                        
+                if (this._state.moving.down) {
+                    let newPosY = positionBottom  + pacePXL;
+                    if (newPosY < boundries.bottom && !this._willHitObstacle(box.left, box.right, newPosY, box.height)) {
+                        this._state.posY = this._state.posY + pace;                        
                     }
                     
                 };
                 
-                if (this.moving.up) {
-                    let newPosY = box.bottom - pacePXL;
-                    if (newPosY > boundryTop && !this.willHitObstacle(box.left, box.right, newPosY, box.height)) {
-                        this.posY = this.posY - pace;
+                if (this._state.moving.up) {
+                    let newPosY = positionBottom - (this._state.marginBottom/2) - pacePXL;
+                    if (newPosY > boundries.top && !this._willHitObstacle(box.left, box.right, newPosY, box.height)) {
+                        this._state.posY = this._state.posY - pace;
                     };
                 }
 
-                this.element.style.transform = `translate3d(${this.posX}vh, ${this.posY}vh, 0)`;
+                const scale = this._state.isMovingLeft ? "scaleX(-1)" : "";
+                this.element.style.transform = `translate3d(${this._state.posX}vh, ${this._state.posY}vh, 0) ${scale}`;
 
-                box = this.getBox();
-
-                this.state.publish({crewmateX: box.left + box.width/2, crewmateY: box.bottom});
+                if (this._state.movingAnimtationFrame === 0) {
+                    this._changeAnimationFrame();
+                } 
+                
+                box = this._getBox();
+                this.globalState.publish({crewmateX: box.left + box.width/2, crewmateY: box.bottom});
 
             } , 12);
         }
@@ -65,26 +83,39 @@ class Crewmate {
 
 
     stopMoving = (dir) => {
-        this.moving[dir] = false;
-        if (!Object.entries(this.moving).some(entry => entry[1])) {
-            clearInterval(interval);
-            interval = null;
+        this._state.moving[dir] = false;
+        if (!Object.entries(this._state.moving).some(entry => entry[1])) {
+            clearInterval(this._state.movingInterval);
+            clearInterval(this._state.movingAnimtationInterval);
+            this._state.movingInterval = null;
+            this._state.movingAnimtationInterval = null;
+            this.element.classList.remove(`moving--${this._state.movingAnimtationFrame}`);
+            this._state.movingAnimtationFrame = 0;
         }
     }
 
-    willHitObstacle = (xL, xR, y, height) => {
-        return this.obstacles.some(obstacle => {
-            return (obstacle.left < xR) && 
+    _willHitObstacle = (xL, xR, y) => {
+        return this.obstacles.some(obstacle => (obstacle.left < xR) && 
             obstacle.right > xL && 
             obstacle.top < y && 
-            obstacle.bottom > y - height/3;
-        })
+            obstacle.bottom > y - this._state.marginBottom);
     };
 
-    getBox = () => {
+    _getBox = () => {
         return this.element.getBoundingClientRect();
     }
 
-}
+    _changeAnimationFrame = () => {
+        this._updateAnimationFrame();
+        this._state.movingAnimtationInterval = setInterval(() => {
+            this._updateAnimationFrame();
+        }, 60);
+    }
 
-let interval = null;
+    _updateAnimationFrame = () => {
+        this.element.classList.remove(`moving--${this._state.movingAnimtationFrame}`);
+        this._state.movingAnimtationFrame = this._state.movingAnimtationFrame === 12 ? 1 : this._state.movingAnimtationFrame + 1;
+        this.element.classList.add(`moving--${this._state.movingAnimtationFrame}`);
+    }
+
+}
