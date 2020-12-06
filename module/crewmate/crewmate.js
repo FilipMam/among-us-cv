@@ -45,7 +45,7 @@ class Crewmate {
 
                 if (this._state.moving.right) {
                     let newPosX = box.right + pacePXL;
-                    if (newPosX < boundries.right && !this._willHitObstacle(newPosX, newPosX + box.width, positionBottom, box.height)) {
+                    if (newPosX < boundries.right && !this._willHitObstacle(newPosX, newPosX, positionBottom, box.height)) {
                         this._state.posX = this._state.posX + pace;
                         this._state.isMovingLeft = false;                   
                     } 

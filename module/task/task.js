@@ -41,5 +41,16 @@ class PanelTask extends Task {
         document.querySelector("#panel").style.transform = "scale(2)";
         this.finish();
     }
+}
+
+class ComputerTask extends Task {
+    constructor() {
+        super("computer");
+    }
+
+    open = () => {
+        document.querySelector("#computer").style.transform = "scale(2)";
+        this.finish();
+    }
 
 }

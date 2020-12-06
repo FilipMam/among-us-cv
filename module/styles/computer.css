@@ -1,0 +1,184 @@
+:root {
+    --computer-desk: #503d31;
+    --computer-desk-dark: #28322f;
+    --computer-desk--light: #5c5849;
+    --computer-screen: #1da14b;
+    --computer-frame: #30313a;
+    --computer-frame-dark: #000300;
+    --mouse-pad: #5b756e;
+    --mouse-pad-dark: #2d3c37;
+    --mouse: #303437;
+    --mouse-dark: #000001;
+    --keyboard: #55595d;
+}
+
+
+#computer {
+    width: 10vh;
+    height: 15vh;
+    position: absolute;    
+    left: 0;
+    top: 5vh;
+}
+
+.computer__desk {
+    width: 100%;
+    height: 100%;
+    background-color: var(--computer-desk);
+    border: solid 0.5vh var(--computer-desk-dark);
+    border-left: none;
+    border-radius: 0 2vh 2vh 0;
+}
+
+.computer__desk:after {
+    content: "";
+    width: 100%;
+    height: 92%;
+    position: relative;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    background-color:var(--computer-desk--light);
+    border-radius: 0 2vh 1vh 0;
+}
+
+.computer__desk:before {
+    content: "";
+    width: 85%;
+    height: 2vh;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: inline-block;
+    background-color: rgba(0,0, 0, 0.3);
+    border-radius: 0 0 1vh 0;
+}
+
+.computer__monitor {
+    width: 1vh;
+    height: 7vh;
+    position: absolute;
+    left: 0.5vh;
+    top: 5.5vh;
+    z-index: 101;
+}
+
+.computer__monitor__frame {
+    width: 1vh;
+    height: 7vh;
+    position: absolute;
+    left: -0.3vh;
+    top: 0;
+    background-color: var(--computer-frame);
+    border: solid 0.25vh var(--computer-frame-dark);
+    z-index: 101;
+}
+
+
+.computer__monitor__top {
+    height: 6.7vh;
+    width: 1vh;
+    position: absolute;
+    bottom: 100%;
+    left: 1.6vh;
+    background-color: var(--computer-frame);
+    border: solid 0.25vh var(--computer-frame-dark);
+    transform: skewX(-30deg);
+}
+
+
+.computer__monitor__screen {
+    height: 100%;
+    width: 4vh;
+    position: absolute;
+    top: -3.25vh;
+    left: 0.5vh;
+    background-color: var(--computer-screen);
+    border: solid 0.25vh var(--computer-frame-dark);
+    border-right-width: 0.4vh;
+    border-bottom-width: 1vh;
+    transform: skewY(-60deg);
+}
+
+.computer__mouse-pad {
+    width: 3vh;
+    height: 4vh;
+    position: absolute;
+    left: 5vh;
+    top: 2.5vh;
+    background-color: var(--mouse-pad);
+    border-radius: 10% / 20%;
+    border: solid 0.25vh var(--mouse-pad-dark);
+    transform: rotate(15deg) skew(-5deg, 1deg);
+    z-index: 1;
+}
+
+.computer__mouse {
+    width: 1.75vh;
+    height: 1.25vh;
+    position: absolute;
+    left: 0.5vh;
+    top: 1vh;
+    background-color: var(--mouse);
+    border: solid 0.1vh var(--mouse-dark);
+    border-radius: 100%;
+}
+
+.computer__mouse:before {
+    content: "";
+    width: 3vh;
+    height: 2vh;
+    position: absolute;
+    right: 1vh;
+    bottom: 0.35vh;
+    border-bottom: solid 0.2vh var(--mouse-dark);
+    border-radius: 0 0 50% 50%/0 0 20% 70%;
+}
+
+.computer__mouse:after {
+    content: "";
+    width: 0.25vh;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    background-color: var(--mouse-dark);
+}
+
+.computer__keyboard {
+    width: 2.5vh;
+    height: 4.75vh;
+    position: absolute;
+    left: 3.5vh;
+    top: 7vh;
+    background-color: var(--keyboard);   
+    background-image: radial-gradient(circle, var(--mouse-dark) 20%, transparent 10%), radial-gradient(circle, var(--mouse-dark) 20%, transparent 10%);
+    background-size: 0.5vh 0.5vh;
+    border: solid 0.25vh var(--mouse);
+    transform: rotate(35deg) skew(-5deg, -5deg);
+    z-index: 1;
+}
+
+.computer__keyboard:before {
+    content: "";
+    width: 3.5vh;
+    height: 2.2vh;
+    position: absolute;
+    right: 100%;
+    top: 1vh;
+    border-top: solid 0.25vh var(--mouse);
+    border-radius: 50% 50% 0 0/20% 70% 0 0;
+}
+
+#computer.active:not(.finished) + .computer__monitor:before {
+    content: "";
+    display: block;
+    width: 5.5vh;
+    height: 12vh;
+    position: absolute;
+    left: -0.5vh;
+    top: -6vh;
+    background-color: yellow;
+    transform: skewY(-64deg);
+    border-radius: 0 5vh;
+}
