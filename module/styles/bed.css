@@ -14,9 +14,21 @@
     height: 17vh;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 5vh;
     border-radius: 0 0.5vh 0 0;
+}
+
+#bed:before {
+    content: "";
+    width: 90%;
+    height: 3vh;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0.5vh;
+    border-radius: 0 0 2vh 0;
     background-color: rgba(0, 0, 0, 0.3);
+
 }
 
 .mattress {
@@ -56,14 +68,13 @@
 .pillow {
     position: absolute;
     left: 0;
-    bottom: 7vh;
+    top: 0;
     width: 6.5vh;
-    height: 12vh;
+    height: 10vh;
     background-color: var(--pillow-dark);
     border: solid 0.4vh var(--pillow-border);
     border-radius: 95% 200% 50% 0.5vh / 50% 50% 30% 0.5vh;
     overflow: hidden;
-    z-index: 101;
 }
 
 .pillow:after {
