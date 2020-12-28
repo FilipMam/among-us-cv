@@ -1,0 +1,89 @@
+:root {
+    --table: #503d31;
+    --table--light: #5c5849;
+    --papper-dark: #28322f;
+    --paper: #c2bfbf;
+}
+
+
+#table {
+    width: 20vh;
+    height: 10vh;
+    position: absolute;
+    left: 40vh;
+    top: 7vh;
+}
+
+.table__top {
+    width: 100%;
+    height: 7vh;
+    position: relative;
+    border-radius: 100%;
+    background-color: var(--table--light);
+    border: solid 0.5vh var(--table);
+}
+
+.table__leg {
+    width: 2vh;
+    height: 8.5vh;
+    position: absolute;
+    top: 3.5vh;
+    background-color: var(--table--light);
+    border: solid 0.5vh var(--table);
+    border-radius: 0 0 0.75vh 0.75vh;
+}
+
+.table__leg--left {
+    left: 2vh;
+}
+
+.table__leg--center {
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.table__leg--right {
+    right: 2vh;
+}
+
+.table__page {
+    width: 3vh;
+    height: 5vh;
+    position: absolute;
+    left: 8vh;
+    top: 0.5vh;
+    background-color: var(--paper);
+    border: solid 0.15vh var(--papper-dark);
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 0.3vh;
+    z-index: 1;
+}
+
+.table__page--front {
+    transform: rotate(-100deg);
+}
+
+.table__page--back {
+    transform: rotate(-87deg);
+}
+
+#table.active:not(.finished) .table__top:before,
+#table.active:not(.finished) .table__top:after {
+    content: "";
+    display: inline-block;
+    width: 3vh;
+    height: 5vh;
+    position: absolute;
+    left: 8vh;
+    top: 0.5vh;
+    background-color: yellow;
+}
+
+#table.active:not(.finished) .table__top:before {
+    transform: scale(1.3) rotate(-100deg);    
+}
+
+#table.active:not(.finished) .table__top:after {
+    transform: scale(1.3) rotate(-87deg);
+}

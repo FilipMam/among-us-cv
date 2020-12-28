@@ -2,7 +2,8 @@
   const tasks = [
     new WhiteboardTask(),
     new PanelTask(),
-    new ComputerTask()
+    new ComputerTask(),
+    new TableTask()
   ];
 
   const globalState = new State(tasks);
@@ -11,7 +12,6 @@
     tasks.map(task => 
       new Obstacle(`${task.key}`, globalState, task))
     .concat([
-      new Obstacle("obstacle1", globalState),
       new Obstacle("bed", globalState)
     ]);
   

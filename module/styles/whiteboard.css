@@ -26,7 +26,6 @@
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 1vh;
     text-align: left;
-    filter: blur(0.75px);
 }
 
 .whiteboard.active:not(.finished) {

@@ -54,3 +54,15 @@ class ComputerTask extends Task {
     }
 
 }
+
+class TableTask extends Task {
+    constructor() {
+        super("table");
+    }
+
+    open = () => {
+        document.querySelector("#table").style.transform = "scale(2)";
+        this.finish();
+    }
+
+}

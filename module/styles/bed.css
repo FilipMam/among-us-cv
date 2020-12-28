@@ -16,6 +16,7 @@
     left: 0;
     bottom: 5vh;
     border-radius: 0 0.5vh 0 0;
+    transform: scaleY(0.9);
 }
 
 #bed:before {

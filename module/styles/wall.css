@@ -106,7 +106,6 @@
     width: 65%;
     height: 17vh;
     background-color: var(--doors-border);
-    filter: blur(0.5px)
 }
 
 .doors__entrance {
