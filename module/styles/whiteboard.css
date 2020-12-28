@@ -1,8 +1,8 @@
 .whiteboard-container {
     position: absolute;
-    left: 35vh;
+    left: 33vh;
     bottom: 100%;
-    width: 25vh;
+    width: 30vh;
     height: 20vh;
     z-index: 1;
 }
@@ -19,7 +19,7 @@
     position: relative;
     top: 2.5%;
     left: 2%;
-    padding: 1.5vh 1vh;
+    padding: 0.75vh 1vh;
     border-radius: 1vh;
     border: solid 0.5vh #000;
     background-color: rgb(212, 212, 212);
@@ -32,15 +32,18 @@
     background-color: yellow;
 }
 
+.whiteboard p {
+    line-height: 1.5vh;
+}
+
 .whiteboard p:first-child {
-    line-height: 1.3vh;
     transform: rotate(-3deg);
     text-decoration: line-through;
     padding-bottom: 0.5vh;
 }
 
-.whiteboard p:nth-child(5) {
-    padding-top: 1vh;
+.whiteboard__content__note {
+    padding-top: 0;
     font-size: 0.6vh;
     transform: rotate(-3deg);
     text-align: right;
