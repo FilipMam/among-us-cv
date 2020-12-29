@@ -87,3 +87,52 @@
 #table.active:not(.finished) .table__top:after {
     transform: scale(1.3) rotate(-87deg);
 }
+
+.task--table {
+    height: 80vh;
+    width: 120vh;
+}
+
+.task--table .table__top {
+    height: 120vh;
+    width: 200vh;
+    position: absolute;
+    left: -40vh;
+    top: -20vh;
+}
+
+.task--table .table__page {
+    left: 50%;
+    top: 50%;
+    width: 50vh;
+    height: 70vh;
+    font-size: 2vh;
+    text-align: left;
+    padding: 2vh;
+}
+
+.task--table .table__page--front {
+    transform: translate(-50%, -50%) rotate(-10deg);
+}
+
+.task--table .table__page--back {
+    transform: translate(-40%, -50%) rotate(13deg);
+    cursor: pointer;
+}
+
+.table__page__border {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50vh;
+    height: 70vh;
+    transform: translate(-40%, -50%) rotate(13deg) scale(1.05);
+}
+
+.task--table .table__page--back:hover {
+    border: none;
+}
+
+.task--table .table__page--back:hover + .table__page__border {
+    background-color: yellow;
+}

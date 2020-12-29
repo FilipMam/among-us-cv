@@ -27,16 +27,18 @@
 
   document.addEventListener("keydown", (event) => {
       if (!taskManager.taskOpened) {
-
         if (keyMap[event.keyCode]) {
           event.preventDefault();
           crewmate.move(keyMap[event.keyCode]);
         }
 
-        // space
-        if (event.keyCode === 32) {   
+        if (event.keyCode === 32) { // space
           const activeTask = tasks.find(task => task.active);
           if (activeTask) activeTask.open();
+        }
+      } else {
+        if (event.keyCode === 27) { // esc
+          taskManager.closeTaskWrapper();
         }
       }
   });

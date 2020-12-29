@@ -1,12 +1,106 @@
-#task.active {
+:root {
+    --close-dark: #333;
+    --close-light: #eee;
+    --close-border: #869193;
+}
+
+#task__wrapper,
+#task__wrapper.hidden {
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
+    top: 130%;
     left: 0;
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.9);
     z-index: 100;
 }
+
+#task__wrapper.active {
+    top: 0;
+    animation: slideUp 0.15s;
+}
+
+#task__wrapper.hidden { 
+    animation: slideDown 0.15s;
+}
+
+.task {
+    display: none;
+}
+
+.task.active {
+    display: block;
+}
+
+.task__content {
+    position: relative;
+}
+
+.task__close {
+    position: absolute;
+    right: 100%;
+    top: 0;
+    width: 4vh;
+    height: 4vh;
+    font-weight: 700;
+    font-size: 4vh;
+    line-height: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--close-dark);
+    cursor: pointer;
+    background-color: var(--close-border);
+    border: solid 0.1vh var(--close-dark);
+    border-radius: 100%;
+    z-index: 100;
+    filter: blur(0.05vh);
+}
+
+.task__close span {
+    width: 3.5vh;
+    height: 3.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--close-light);
+    border: solid 0.1vh var(--close-dark);
+    border-radius: 100%;
+    z-index: 100;
+}
+
+.task__prompt {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10vh;
+    color: #fff;
+    -webkit-text-stroke: 0.3vh #000;
+    z-index: 100;
+}
+
+.task__prompt.active {
+    animation: slideFromBottom 1.5s;
+}
+
+@keyframes slideUp {
+    from {top: 100%;}
+    to {top: 0;}
+}
+
+@keyframes slideDown {
+    from {top: 0;}
+    to {top: 100%;}
+} 
+
+@keyframes slideFromBottom {
+    0% {top: 100%;}
+    12% {top: 40%;}
+    88% {top: 40%;}
+    100% {top: -10%;}
+} 

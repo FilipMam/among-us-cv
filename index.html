@@ -72,12 +72,12 @@
             <div class="whiteboard-container">
                 <div id="whiteboard" class="whiteboard">
                     <div class="whiteboard__content">
-                        <p>This page was made with Blender, Unity, machine learning and quantuum computing.</p>
-                        <p>Just kidding.</p> 
-                        <p>It's HTML, CSS and Javascript.</p>
-                        <p>No frameworks or images. I felt like I needed a break from the overwhelming frontend stack.</p>
-                        <p>You can check out the code <a href="https://github.com/FilipMam/among-us-cv" target="_blank">here</a>*</p>
-                        <p class="whiteboard__content__note">* feel free to give the repo a star!</p>
+                        <p class="whiteboard__content__text">This page was made with Blender, Unity, machine learning and quantuum computing.</p>
+                        <p class="whiteboard__content__text">LOL, just kidding.</p> 
+                        <p class="whiteboard__content__text">It's HTML, CSS and Javascript.</p>
+                        <p class="whiteboard__content__text">No frameworks or images. I felt like I needed a break from the overwhelming frontend stack.</p>
+                        <p class="whiteboard__content__text">You can check out the code <a class="whiteboard__content__link" href="https://github.com/FilipMam/among-us-cv" target="_blank">here</a>*</p>
+                        <p class="whiteboard__content__text whiteboard__content__note">* feel free to give the repo a star!</p>
                     </div>
                 </div>
             </div>
@@ -209,9 +209,36 @@
     <ul class="tasks-list">
         <li class="tasks-list-item tasks-list-item--whiteboard">Learn how this page was made</li>
     </ul>
-    <div id="task">
-
+    <div id="task__wrapper">
+        <div class="task__content">
+            <div class="task__close">
+                <span>&#215;</span>
+            </div>
+            <div class="task task--whiteboard active">
+                <div class="whiteboard__content">
+                    <p class="whiteboard__content__text">This page was made with Blender, Unity, machine learning and quantuum computing.</p>
+                    <p class="whiteboard__content__text">LOL, just kidding.</p> 
+                    <p class="whiteboard__content__text">It's HTML, CSS and Javascript.</p>
+                    <p class="whiteboard__content__text">No frameworks or images. I felt like I needed a break from the overwhelming frontend stack.</p>
+                    <p class="whiteboard__content__text">You can check out the code <a class="whiteboard__content__link" href="https://github.com/FilipMam/among-us-cv" target="_blank">here</a>*</p>
+                    <p class="whiteboard__content__text whiteboard__content__note">* feel free to give the repo a star!</p>
+                </div>
+            </div>
+            <div class="task task--table">
+                <div class="table__top">
+                    <div class="table__page table__page--back"></div>
+                    <div class="table__page__border"></div>
+                    <div class="table__page table__page--front">
+                        <p>Hi!</p>
+                        <p>My name is Filip. I'm a fronted developer and a huge among us fan.</p>
+                        <p>This is my online... CV?</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>  
     </div>
+    <div class="task__prompt">Task complete!</div>
     <script src="module/state/state.js"></script>
     <script src="module/task/task_manager.js"></script>
     <script src="module/task/task.js"></script>

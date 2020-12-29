@@ -1,20 +1,37 @@
 class Task {
 
+    _taskOpenedCallbacks = [];
+    _taskFinishedCallbacks = [];
+
     finished = false;
     active = false;
     
     constructor(key) {
         this.key = key;
-        this.taskListElement = document.querySelector(`.tasks-list-item--${key}`);
     }
 
     open = () => {
-        this.taskManager.open(this);
+        this.publishTaskOpen();
+    }
+
+    publishTaskOpen = () => {
+        this._taskOpenedCallbacks.forEach(cb => cb(this.key));
+    }
+
+    publishTaskFinished = () => {
+        this._taskFinishedCallbacks.forEach(cb => cb(this.key));
+    }
+
+    subscribeToTaskOpen = (cb) => {
+        this._taskOpenedCallbacks.push(cb);
+    }
+
+    subscribeToTaskFinished = (cb) => {
+        this._taskFinishedCallbacks.push(cb);
     }
 
     finish = () => {
-        this.finished = true;
-        this.taskListElement.classList.add("finished");
+        this.publishTaskFinished(this.key);
     }
 
     setActiveState = (active) => {
