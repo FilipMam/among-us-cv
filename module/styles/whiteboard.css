@@ -54,4 +54,7 @@
 }
 
 
-/* .white */
+.whiteboard-task-wrapper {
+    width: 30vh;
+    height: 15vh;
+}

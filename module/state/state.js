@@ -1,4 +1,4 @@
-class State {
+class ShipManager {
     
     _callbacks = []
 
@@ -6,9 +6,8 @@ class State {
         boundries: {}
     }
 
-    constructor(tasks) {
+    constructor() {
         this._setBoundries();
-        this.state.tasks = tasks;
     }
 
     publish = (state) => {

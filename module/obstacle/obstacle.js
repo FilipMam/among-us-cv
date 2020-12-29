@@ -4,12 +4,10 @@ class Obstacle {
 
     active = false;
 
-    constructor(selector, globalState) {
+    constructor(selector, globalState, task) {
         this.state = globalState.state;
         this.element = document.querySelector(`#${selector}`);
         this.box = this.element.getBoundingClientRect();
-
-        const task = this.state.tasks.find(task => task.key === selector);
         
         if (task) {
             this.task = task;

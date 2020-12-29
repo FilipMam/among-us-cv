@@ -1,21 +1,22 @@
 (function() {
   const tasks = [
-    new WhiteboardTask(),
-    new PanelTask(),
-    new ComputerTask(),
-    new TableTask()
+    new Task("whiteboard"),
+    new Task("panel"),
+    new Task("computer"),
+    new Task("table")
   ];
 
-  const globalState = new State(tasks);
+  const shipManager = new ShipManager();
+  const taskManager = new TasksManager(tasks);
 
   const obstacles = 
     tasks.map(task => 
-      new Obstacle(`${task.key}`, globalState, task))
+      new Obstacle(`${task.key}`, shipManager, task))
     .concat([
-      new Obstacle("bed", globalState)
+      new Obstacle("bed", shipManager)
     ]);
   
-  const crewmate = new Crewmate(globalState, obstacles);
+  const crewmate = new Crewmate(shipManager, obstacles);
 
   const keyMap = {
     37: "left",
@@ -25,17 +26,19 @@
   };
 
   document.addEventListener("keydown", (event) => {
-      if (keyMap[event.keyCode]) {
-        event.preventDefault();
-        crewmate.move(keyMap[event.keyCode]);
-      }
+      if (!taskManager.taskOpened) {
 
-      // space
-      if (event.keyCode === 32) {   
-        const activeTask = tasks.find(task => task.active);
-        if (activeTask) activeTask.open();
-      }
+        if (keyMap[event.keyCode]) {
+          event.preventDefault();
+          crewmate.move(keyMap[event.keyCode]);
+        }
 
+        // space
+        if (event.keyCode === 32) {   
+          const activeTask = tasks.find(task => task.active);
+          if (activeTask) activeTask.open();
+        }
+      }
   });
 
   document.addEventListener("keyup", (event) => {
