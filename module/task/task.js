@@ -33,10 +33,7 @@ class TableTask extends Task {
         this._bindEvents();
     }
 
-    // open = () => {
-    //     this.tableTaskElement.classList.remove("clicked");
-
-    // }
+    open = () => {}
 
     _assignDOMElements = () => {
         this.tableTaskElement = document.querySelector(".task.task--table");
@@ -63,5 +60,33 @@ class TableTask extends Task {
                 togglePage();
             }
         });
+    }
+}
+
+
+class whiteboardTask extends Task {
+    constructor() {
+        super("whiteboard");       
+        this._assignDOMElements();
+        this._bindEvents();
+    }
+
+    open = () => {}
+
+    _assignDOMElements = () => {
+        this.whiteboardTaskElement = document.querySelector(".task.task--whiteboard");
+        this.whiteboardSwitchElement = this.whiteboardTaskElement.querySelector(".whiteboard__lamp__switch");
+        this.whiteboardPreviewElement = document.querySelector("#whiteboard");
+    }
+    
+    _bindEvents = () => {
+        this.whiteboardSwitchElement.addEventListener("click", () => {
+            if (!this.finished) {
+                this.finish();
+            }
+
+            this.whiteboardTaskElement.classList.toggle("light-on");
+            this.whiteboardPreviewElement.classList.toggle("light-on");
+        })
     }
 }

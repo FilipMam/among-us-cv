@@ -1,9 +1,9 @@
 (function() {
   const tasks = [
-    new Task("whiteboard"),
     new Task("panel"),
     new Task("computer"),
-    new TableTask()
+    new TableTask(),
+    new whiteboardTask()
   ];
 
   const shipManager = new ShipManager();

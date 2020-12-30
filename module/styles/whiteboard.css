@@ -1,3 +1,13 @@
+:root {
+    --lamp-border: #171c1d;
+    --lamp: #515c60;
+    --switch-border: #202628;
+    --switch-bg: #4b5359;
+    --switch-light: #778f94;
+    --switch-dark: #475c60;
+    --switch-shade: #778f94;
+}
+
 .whiteboard-container {
     font-size: 1vh;
     position: absolute;
@@ -29,6 +39,97 @@
     text-align: left;
 }
 
+.whiteboard__content:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -1%;
+    top: -1%;
+    width: 102%;
+    height: 102%;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 60%, rgba(253,187,45,0) 140%);
+}
+
+.whiteboard__lamp {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lamp);
+    border: 0.15em solid var(--lamp-border);
+    filter: blur(0.015em);
+    z-index: 1;
+}
+
+.whiteboard__lamp__light {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 15em;
+    height: 0.75em;
+    background-color: #5d5656;
+    border: 0.1em solid rgba(0, 0, 0, 0.5); 
+    border-radius: 50%;
+}
+
+.whiteboard__lamp__switch {
+    position: relative;
+    width: 3em;
+    height: 1em;
+    transform: scaleX(-1);
+    background-color: var(--switch-bg);
+    border: 0.05em solid var(--switch-border);
+}
+
+.whiteboard__lamp__switch__button {
+    position: absolute;
+    top: -0.01em;
+    width: 1.5em;
+    height: 1em;
+    border: 0.05em solid var(--switch-border);
+}
+
+.whiteboard__lamp__switch__button--left {
+    left: -0.05em;
+    top: -0.35em;
+    transform: skewY(5deg);
+    background-color: var(--switch-light);
+}
+
+.whiteboard__lamp__switch__button--left:after,
+.whiteboard__lamp__switch__button--right:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5%;
+    width: 10%;
+    height: 80%;
+    border: 0.05em solid var(--switch-border);
+
+} 
+
+.whiteboard__lamp__switch__button--left:after {
+    left: 5%;
+    border-right: none;
+}
+
+.whiteboard__lamp__switch__button--right:after {
+    right: 5%;
+    border-left: none;
+}
+
+.whiteboard__lamp__switch__button--right {
+    right: -0.05em;
+    top: -0.2vh;
+    background-color: var(--switch-dark);
+}
+
 .whiteboard.active:not(.finished) {
     background-color: yellow;
 }
@@ -39,7 +140,6 @@
 
 .whiteboard__content__text:first-child {
     transform: rotate(-3deg);
-    text-decoration: line-through;
     padding-bottom: 0.5em;
 }
 
@@ -58,4 +158,31 @@
     height: 60vh;
     width: 120vh;
     font-size: 4vh;
+}
+
+.task--whiteboard .whiteboard__lamp__switch {
+    cursor: pointer;
+}
+
+.task--whiteboard .whiteboard__lamp__switch__button--left {
+    top: -0.45vh;
+}
+
+
+
+.light-on .whiteboard__lamp__switch {
+    transform: scaleX(1);
+}
+
+.light-on .whiteboard__lamp__light {
+    background-color: rgb(253 187 45);
+    box-shadow: 0 1em 3.5em 0.5em rgb(253 187 45);
+}
+
+.light-on .whiteboard__content {
+    background: linear-gradient(0deg, rgb(255 255 255) 35%, rgb(253 187 45) 143%);
+}
+
+.light-on .whiteboard__content:after {
+    content: none;
 }

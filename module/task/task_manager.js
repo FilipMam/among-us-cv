@@ -50,6 +50,7 @@ class TasksManager {
     _finishTask = (key) => {
         this._getTask(key).finished = true;
         document.querySelector(`.tasks-list-item--${key}`).classList.add("finished");
+        document.querySelector(`#${key}`).classList.add("finished");
         this.taskCompletePrompt.classList.add("active");
     }
 }
