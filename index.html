@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="module/styles/bed.css">
     <link rel="stylesheet" href="module/styles/computer.css">
     <link rel="stylesheet" href="module/styles/panel.css">
+    <link rel="stylesheet" href="module/styles/ship.css">
+    <link rel="stylesheet" href="module/styles/stars.css">
     <link rel="stylesheet" href="module/styles/table.css">
     <link rel="stylesheet" href="module/styles/task.css">
     <link rel="stylesheet" href="module/styles/wall.css">
@@ -19,188 +21,215 @@
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="ship">
-        <div class="wall">
-        <div class="wall__part wall__part--left">
-            <div class="wall__upper">
-                <div class="wall__upper__part"></div>
-                <div class="wall__upper__part"></div>
-                <div class="wall__upper__part"></div>
-                <div class="wall__upper__part"></div>
+    <div id="stars"></div>
+    <div class="ship__container">
+        <div class="ship__trunk ship__trunk--outer">
+            <div class="ship__trunk__upper"></div>
+            <div class="ship__wing ship__wing--left"></div>
+            <div class="ship__wing ship__wing--right"></div>
+            <div class="ship__engine ship__engine--left">
+                <div class="ship__engine__front"></div>
+                <div class="ship__engine__side"></div>
+                <div class="ship__engine__arm"></div>
             </div>
-            <div class="wall__lower">
-                <div class="wall__lower__part"></div>
-                <div class="wall__lower__part"></div>
-                <div class="wall__lower__part"></div>
-            </div>
-        </div><!--
-        --><div class="wall__part wall__part--center">
-            <div class="wall__upper">
-                <div class="wall__upper__part"></div>
-                <div class="wall__upper__part"></div>
-                <div class="wall__upper__part"></div>
-                <div class="wall__upper__part"></div>
-            </div>
-            <div class="wall__lower">
-                <div class="wall__lower__part"></div>
-                <div class="wall__lower__part"></div>
-                <div class="wall__lower__part"></div>
-            </div>
-        </div><!--
-        --><div class="wall__part wall__part--right">
-            <div class="wall__upper">
-                <div class="wall__upper__part"></div>
-                <div class="wall__upper__part"></div>
-                <div class="wall__upper__part"></div>
-                <div class="wall__upper__part"></div>
-            </div>
-            <div class="wall__lower">
-                <div class="wall__lower__part"></div>
-                <div class="wall__lower__part"></div>
-                <div class="wall__lower__part"></div>
-            </div>
-            <div class="doors">
-                <div class="doors__entrance">
-                    <div class="doors__center">
-                        <div class="doors__button"></div>
-                    </div>
-                </div>
+            <div class="ship__engine ship__engine--right">
+                <div class="ship__engine__front"></div>
+                <div class="ship__engine__side"></div>
+                <div class="ship__engine__arm"></div>
             </div>
         </div>
+        <div class="ship__trunk">
+            <div class="ship__trunk__upper"></div>
+            <div class="ship__trunk__lower">
+                <div class="ship__trunk__lower--inner"></div>
+            </div>
         </div>
-        <div class="ship__floor">
-            <div class="whiteboard-container">
-                <div id="whiteboard" class="whiteboard">
-                    <div class="whiteboard__content">
-                        <p class="whiteboard__content__text">This page was made with Blender, Unity, machine learning and quantuum computing.</p>
-                        <p class="whiteboard__content__text">LOL, just kidding.</p> 
-                        <p class="whiteboard__content__text">It's HTML, CSS and Javascript.</p>
-                        <p class="whiteboard__content__text">No frameworks or images. I felt like I needed a break from the overwhelming frontend stack.</p>
-                        <p class="whiteboard__content__text">You can check out the code <a class="whiteboard__content__link" href="https://github.com/FilipMam/among-us-cv" target="_blank">here</a>*</p>
-                        <p class="whiteboard__content__text whiteboard__content__note">* feel free to give the repo a star!</p>
-                    </div>
+        <div class="ship__trunk ship__trunk--inner">
+            <div class="ship__trunk__upper"></div>
+        </div>
+        <div class="ship">
+            <div class="wall">
+            <div class="wall__part wall__part--left">
+                <div class="wall__upper">
+                    <div class="wall__upper__part"></div>
+                    <div class="wall__upper__part"></div>
+                    <div class="wall__upper__part"></div>
+                    <div class="wall__upper__part"></div>
                 </div>
-            </div>
-            <div class="ship__floor__upper-part">
-                <div class="ship__floor__row"></div>
-                <div class="ship__floor__row"></div>
-                <div class="ship__floor__row"></div>
-                <div class="ship__floor__corridor">
-                    <div class="ship__floor__corridor__tail"></div>
-                    <div class="ship__floor__corridor__tail"></div>
-                    <div class="ship__floor__corridor__tail"></div>
-                    <div class="ship__floor__corridor__tail"></div>
+                <div class="wall__lower">
+                    <div class="wall__lower__part"></div>
+                    <div class="wall__lower__part"></div>
+                    <div class="wall__lower__part"></div>
                 </div>
-
-            </div>
-            <div class="ship__floor__tails">
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__tail"></div>
-                <div class="ship__floor__stairs"></div>
-            </div>
-
-            <div id="table">
-                <div class="table__leg table__leg--left"></div>
-                <div class="table__leg table__leg--center"></div>
-                <div class="table__leg table__leg--right"></div>
-                <div class="table__top">
-                    
-                    <div class="table__page table__page--back"></div>
-                    <div class="table__page table__page--front">
-                        <p>Hi!</p>
-                        <p>My name is Filip. I'm a fronted developer and a huge among us fan.</p>
-                        <p>This is my online CV</p>
-                    </div>
+            </div><!--
+            --><div class="wall__part wall__part--center">
+                <div class="wall__upper">
+                    <div class="wall__upper__part"></div>
+                    <div class="wall__upper__part"></div>
+                    <div class="wall__upper__part"></div>
+                    <div class="wall__upper__part"></div>
                 </div>
-            </div>
-            
-            <div id="computer">
-                <div class="computer__desk">
-                    <div class="computer__mouse-pad">
-                        <div class="computer__mouse"></div>
-                    </div>
-                    <div class="computer__keyboard"></div>
+                <div class="wall__lower">
+                    <div class="wall__lower__part"></div>
+                    <div class="wall__lower__part"></div>
+                    <div class="wall__lower__part"></div>
                 </div>
-            </div>
-            <div class="computer__monitor">
-                <div class="computer__monitor__frame"></div>
-                <div class="computer__monitor__top"></div>
-                <div class="computer__monitor__screen"></div>
-            </div>
-            
-            <div id="panel">
-                <div class="panel__desk">
-                    <div class="panel__part panel__part--left">
-                        <div class="panel__slider"></div> 
-                        <div class="panel__slider"></div> 
-                        <div class="panel__slider"></div> 
-                        <div class="panel__slider"></div> 
-                        <div class="panel__slider"></div> 
-                    </div>
-                    <div class="panel__part panel__part--center">
-                        <p>Feel free to contact me or add me to your friends!</p>
-                        <p>We can code, work or play togheter!</p>
-                    </div>
-                    <div class="panel__part panel__part--right">
-                        <div class="panel__button">
-                            <span class="panel__note  panel__note--facebook"></span>
-                            <a class="panel__link" href="https://www.facebook.com/filip.mamcarczyk" target="_blank"></a>
-                        </div>
-                        <div class="panel__button">
-                            <span class="panel__note panel__note--mail"></span>
-                            <a class="panel__link" href="mailto:filip.mamcarczyk@gmail.com" target="_blank"></a>
-                        </div>
-                        <div class="panel__button">
-                            <span class="panel__note panel__note--li"></span>
-                            <a class="panel__link"href="https://www.linkedin.com/in/filip-mamcarczyk-7a1b84b4/" target="_blank"></a>
-                        </div>
-                        <div class="panel__button">
-                            <span class="panel__note panel__note--twitter"></span>
-                            <a class="panel__link"href="https://twitter.com/FilipMam" target="_blank"></a>
+            </div><!--
+            --><div class="wall__part wall__part--right">
+                <div class="wall__upper">
+                    <div class="wall__upper__part"></div>
+                    <div class="wall__upper__part"></div>
+                    <div class="wall__upper__part"></div>
+                    <div class="wall__upper__part"></div>
+                </div>
+                <div class="wall__lower">
+                    <div class="wall__lower__part"></div>
+                    <div class="wall__lower__part"></div>
+                    <div class="wall__lower__part"></div>
+                </div>
+                <div class="doors">
+                    <div class="doors__entrance">
+                        <div class="doors__center">
+                            <div class="doors__button"></div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="bed">
-                <div class="mattress">
-                    <div class="pillow"></div>
-                    <div class="towel">
-                        <div class="towel__part towel__part--center"></div> 
-                        <div class="towel__part towel__part--lower"></div> 
+            </div>
+            <div class="ship__floor">
+                <div class="whiteboard-container">
+                    <div id="whiteboard" class="whiteboard">
+                        <div class="whiteboard__content">
+                            <p class="whiteboard__content__text">This page was made with Blender, Unity, machine learning and quantuum computing.</p>
+                            <p class="whiteboard__content__text">LOL, just kidding.</p> 
+                            <p class="whiteboard__content__text">It's HTML, CSS and Javascript.</p>
+                            <p class="whiteboard__content__text">No frameworks or images. I felt like I needed a break from the overwhelming frontend stack.</p>
+                            <p class="whiteboard__content__text">You can check out the code <a class="whiteboard__content__link" href="https://github.com/FilipMam/among-us-cv" target="_blank">here</a>*</p>
+                            <p class="whiteboard__content__text whiteboard__content__note">* feel free to give the repo a star!</p>
+                        </div>
                     </div>
                 </div>
-                <div class="bed__frame"></div>
-                <div class="bed__arm"></div>
-            </div>
-
-            <div id="crewmate" class="moving">
-                <div class="crewmate__figure">
-                    <div class="crewmate__body">
-                        <div class="crewmate__mask"></div>
-                        <div class="crewmate__backpack"></div>
+                <div class="ship__floor__upper-part">
+                    <div class="ship__floor__row"></div>
+                    <div class="ship__floor__row"></div>
+                    <div class="ship__floor__row"></div>
+                    <div class="ship__floor__corridor">
+                        <div class="ship__floor__corridor__tail"></div>
+                        <div class="ship__floor__corridor__tail"></div>
+                        <div class="ship__floor__corridor__tail"></div>
+                        <div class="ship__floor__corridor__tail"></div>
                     </div>
+
+                </div>
+                <div class="ship__floor__tails">
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__tail"></div>
+                    <div class="ship__floor__stairs"></div>
+                </div>
+
+                <div id="table">
+                    <div class="table__leg table__leg--left"></div>
+                    <div class="table__leg table__leg--center"></div>
+                    <div class="table__leg table__leg--right"></div>
+                    <div class="table__top">
+                        
+                        <div class="table__page table__page--back"></div>
+                        <div class="table__page table__page--front">
+                            <p>Hi!</p>
+                            <p>My name is Filip. I'm a fronted developer and a huge among us fan.</p>
+                            <p>This is my online CV</p>
+                        </div>
+                    </div>
+                </div>
                 
-                    <div class="leg leg--left"></div>
-                    <div class="leg leg--right"></div>
+                <div id="computer">
+                    <div class="computer__desk">
+                        <div class="computer__mouse-pad">
+                            <div class="computer__mouse"></div>
+                        </div>
+                        <div class="computer__keyboard"></div>
+                    </div>
+                </div>
+                <div class="computer__monitor">
+                    <div class="computer__monitor__frame"></div>
+                    <div class="computer__monitor__top"></div>
+                    <div class="computer__monitor__screen"></div>
+                </div>
+                
+                <div id="panel">
+                    <div class="panel__desk">
+                        <div class="panel__part panel__part--left">
+                            <div class="panel__slider"></div> 
+                            <div class="panel__slider"></div> 
+                            <div class="panel__slider"></div> 
+                            <div class="panel__slider"></div> 
+                            <div class="panel__slider"></div> 
+                        </div>
+                        <div class="panel__part panel__part--center">
+                            <p>Feel free to contact me or add me to your friends!</p>
+                            <p>We can code, work or play togheter!</p>
+                        </div>
+                        <div class="panel__part panel__part--right">
+                            <div class="panel__button">
+                                <span class="panel__note  panel__note--facebook"></span>
+                                <a class="panel__link" href="https://www.facebook.com/filip.mamcarczyk" target="_blank"></a>
+                            </div>
+                            <div class="panel__button">
+                                <span class="panel__note panel__note--mail"></span>
+                                <a class="panel__link" href="mailto:filip.mamcarczyk@gmail.com" target="_blank"></a>
+                            </div>
+                            <div class="panel__button">
+                                <span class="panel__note panel__note--li"></span>
+                                <a class="panel__link"href="https://www.linkedin.com/in/filip-mamcarczyk-7a1b84b4/" target="_blank"></a>
+                            </div>
+                            <div class="panel__button">
+                                <span class="panel__note panel__note--twitter"></span>
+                                <a class="panel__link"href="https://twitter.com/FilipMam" target="_blank"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bed">
+                    <div class="mattress">
+                        <div class="pillow"></div>
+                        <div class="towel">
+                            <div class="towel__part towel__part--center"></div> 
+                            <div class="towel__part towel__part--lower"></div> 
+                        </div>
+                    </div>
+                    <div class="bed__frame"></div>
+                    <div class="bed__arm"></div>
+                </div>
+
+                <div id="crewmate" class="moving">
+                    <div class="crewmate__figure">
+                        <div class="crewmate__body">
+                            <div class="crewmate__mask"></div>
+                            <div class="crewmate__backpack"></div>
+                        </div>
+                    
+                        <div class="leg leg--left"></div>
+                        <div class="leg leg--right"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -209,6 +238,7 @@
     <ul class="tasks-list">
         <li class="tasks-list-item tasks-list-item--whiteboard">Learn how this page was made</li>
     </ul>
+
     <div id="task__wrapper">
         <div class="task__content">
             <div class="task__close">
@@ -224,15 +254,14 @@
                     <p class="whiteboard__content__text whiteboard__content__note">* feel free to give the repo a star!</p>
                 </div>
             </div>
+            
             <div class="task task--table">
-                <div class="table__top">
-                    <div class="table__page table__page--back"></div>
-                    <div class="table__page__border"></div>
-                    <div class="table__page table__page--front">
-                        <p>Hi!</p>
-                        <p>My name is Filip. I'm a fronted developer and a huge among us fan.</p>
-                        <p>This is my online... CV?</p>
-                    </div>
+                <div class="table__page table__page--back"></div>
+                <div class="table__page__border"></div>
+                <div class="table__page table__page--front">
+                    <p>Hi!</p>
+                    <p>My name is Filip. I'm a fronted developer and a huge among us fan.</p>
+                    <p>This is my online... CV?</p>
                 </div>
             </div>
             </div>
