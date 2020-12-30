@@ -16,6 +16,8 @@ class TasksManager {
             
             document.querySelector(".task.active").classList.remove("active");
             document.querySelector(`.task--${activeTask.key}`).classList.add("active");
+
+            activeTask.open();
         }
     }
 

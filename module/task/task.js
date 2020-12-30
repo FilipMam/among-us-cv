@@ -26,6 +26,40 @@ class Task {
     } 
 }
 
+class PanelTask extends Task {
+    constructor() {
+        super("panel");       
+        this._assignDOMElements();
+        this._bindEvents();
+    }
+
+    open = () => {
+        if (!this.finished) {
+            let message = "";
+            let messageArray = "Feel free to contact me or add me to your friends! We can code, work or play Among Us togheter!".split("");
+            const inreval = setInterval(() => {
+                message += messageArray.shift();
+                this.screenPanelElement.innerText = message;
+                this.screenPanelPreviewElement.innerText = message;
+                if (messageArray.length === 0) {
+                    clearInterval(inreval);
+                    setTimeout(this.finish, 500);
+                }
+            }, 50);
+        }
+
+    }
+
+    _assignDOMElements = () => {
+        this.screenPanelElement = document.querySelector(".task--panel .panel__part--center");
+        this.screenPanelPreviewElement = document.querySelector("#panel .panel__part--center");
+        
+    }
+    
+    _bindEvents = () => {
+    }
+}
+
 class TableTask extends Task {
     constructor() {
         super("table");       
@@ -64,7 +98,7 @@ class TableTask extends Task {
 }
 
 
-class whiteboardTask extends Task {
+class WhiteboardTask extends Task {
     constructor() {
         super("whiteboard");       
         this._assignDOMElements();
