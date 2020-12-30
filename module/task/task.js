@@ -36,7 +36,7 @@ class PanelTask extends Task {
     open = () => {
         if (!this.finished) {
             let message = "";
-            let messageArray = "Feel free to contact me or add me to your friends! We can code, work or play Among Us togheter!".split("");
+            let messageArray = "     Feel free to contact me or add me to your friends! We can code, work or play Among Us togheter!".split("");
             const inreval = setInterval(() => {
                 message += messageArray.shift();
                 this.screenPanelElement.innerText = message;
@@ -45,7 +45,7 @@ class PanelTask extends Task {
                     clearInterval(inreval);
                     setTimeout(this.finish, 500);
                 }
-            }, 50);
+            }, 75);
         }
 
     }
