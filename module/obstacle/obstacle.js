@@ -51,12 +51,4 @@ class Obstacle {
             (this.top - this.boxMargin < y) &&
             (y < this.bottom + this.boxMargin);
     }
-
-    finish = () => {
-        if (this.task && !this.task.finished) {
-            this.element.classList.add("finished");
-            this.task.finish();
-        }
-    }
-
 }

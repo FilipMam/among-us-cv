@@ -3,7 +3,7 @@
     new Task("whiteboard"),
     new Task("panel"),
     new Task("computer"),
-    new Task("table")
+    new TableTask()
   ];
 
   const shipManager = new ShipManager();
@@ -26,15 +26,14 @@
   };
 
   document.addEventListener("keydown", (event) => {
-      if (!taskManager.taskOpened) {
+      if (!taskManager.taskWrapperOpened) {
         if (keyMap[event.keyCode]) {
           event.preventDefault();
           crewmate.move(keyMap[event.keyCode]);
         }
 
         if (event.keyCode === 32) { // space
-          const activeTask = tasks.find(task => task.active);
-          if (activeTask) activeTask.open();
+          taskManager.openTaskWrapper();
         }
       } else {
         if (event.keyCode === 27) { // esc

@@ -1,5 +1,5 @@
 class TasksManager {
-    taskOpened = false;
+    taskWrapperOpened = false;
     
     constructor(tasks) {
         this.state = tasks;
@@ -7,15 +7,20 @@ class TasksManager {
         this._bindEvents();
     }
 
-    openTaskWrapper = (taskKey) => {
-        this.taskOpened = true;
-        this.taskWrapperElement.classList.add("active");
-        this.taskWrapperElement.classList.remove("hidden");
-        this.openTask(taskKey);
+    openTaskWrapper = () => {
+        const activeTask = this.state.find(task => task.active);
+        if (activeTask) {
+            this.taskWrapperOpened = true;
+            this.taskWrapperElement.classList.add("active");
+            this.taskWrapperElement.classList.remove("hidden");
+            
+            document.querySelector(".task.active").classList.remove("active");
+            document.querySelector(`.task--${activeTask.key}`).classList.add("active");
+        }
     }
 
     closeTaskWrapper = () => {
-        this.taskOpened = false;
+        this.taskWrapperOpened = false;
         this.taskWrapperElement.classList.remove("active");
         this.taskWrapperElement.classList.add("hidden");
     }
@@ -27,18 +32,6 @@ class TasksManager {
     openTableTask = () => {
     }
 
-    openTask = (key) => {
-        document.querySelector(".task.active").classList.remove("active");
-        document.querySelector(`.task--${key}`).classList.add("active");
-
-        const tasksCallbacks = {
-            whiteboard: this.openWhiteboardTask,
-            table: this.openTableTask
-        };
-
-        tasksCallbacks[key]();
-    }
-
     _assignDOMElements = () => {
         this.taskWrapperElement = document.querySelector("#task__wrapper");
         this.closeButtonElement = document.querySelector(".task__close");
@@ -46,7 +39,6 @@ class TasksManager {
     }
 
     _bindEvents = () => {
-        this.state.forEach(task => task.subscribeToTaskOpen(this.openTaskWrapper));
         this.state.forEach(task => task.subscribeToTaskFinished(this._finishTask));
         this.closeButtonElement.addEventListener("click", this.closeTaskWrapper);
     }
@@ -56,7 +48,7 @@ class TasksManager {
     }
 
     _finishTask = (key) => {
-        this._getTask(key).finish = true;
+        this._getTask(key).finished = true;
         document.querySelector(`.tasks-list-item--${key}`).classList.add("finished");
         this.taskCompletePrompt.classList.add("active");
     }
