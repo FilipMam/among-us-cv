@@ -26,6 +26,52 @@ class Task {
     } 
 }
 
+
+class ComputerTask extends Task {
+    neverOpened = true;
+
+    constructor() {
+        super("computer");       
+        this._assignDOMElements();
+        this._bindEvents();
+    }
+
+    open = () => {
+        this.monitorScreenElement.classList.remove("loading");
+        
+        if (this.neverOpened) {
+            this.neverOpened = false;
+            this.monitorScreenElement.classList.add("loading");
+            let i = 0;
+            let interval = setInterval(() => {
+                if (i === 105) {
+                    clearInterval(interval);
+                    setTimeout(() => this.monitorScreenElement.classList.add("loaded"), 500);
+                } else {
+                    this.monitorProgressBarElement.style.width = `${i}%`;
+                    i++;
+                }
+        }, 24)
+        }
+
+    }
+
+    _assignDOMElements = () => {
+        this.monitorScreenElement = document.querySelector(".monitor__screen");
+        this.monitorProgressBarElement = this.monitorScreenElement.querySelector(".monitor__loading__progress__bar");
+        this.monitorLinkElement = this.monitorScreenElement.querySelector(".monitor__content__link");
+    }
+    
+    _bindEvents = () => {
+        this.monitorLinkElement.addEventListener("click", () => {
+            if (!this.finished) {
+                this.finish();
+            }
+        });
+    }
+}
+
+
 class PanelTask extends Task {
     constructor() {
         super("panel");       

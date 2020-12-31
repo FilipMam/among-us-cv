@@ -2,9 +2,10 @@
     --computer-desk: #503d31;
     --computer-desk-dark: #28322f;
     --computer-desk--light: #5c5849;
-    --computer-screen: #1da14b;
+    --computer-screen: #4d719e;
     --computer-frame: #30313a;
     --computer-frame-dark: #000300;
+    --computer-progress-bar: #167616;
     --mouse-pad: #5b756e;
     --mouse-pad-dark: #2d3c37;
     --mouse: #303437;
@@ -181,4 +182,108 @@
     background-color: yellow;
     transform: skewY(-64deg);
     border-radius: 0 5vh;
+}
+
+.monitor {
+    height: 70vh;
+    width: 130vh;
+    padding: 2vh;
+    background-color: var(--computer-frame);
+    border: 1vh solid var(--computer-frame-dark)
+}
+
+.monitor__screen {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    background-color: var(--computer-screen);
+    border: 1vh solid var(--computer-frame-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+
+.monitor__loading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 10vh;
+    -webkit-text-stroke: 0.3vh #000;
+}
+
+.monitor__screen.loaded .monitor__loading  {
+    animation: slideScreenUp 0.3s;
+    margin-top: -50%;
+}
+
+
+.monitor__loading__progress {
+    width: 80vh;
+    height: 6vh;
+    background-color: #fff;
+    border: 0.5vh solid var(--computer-frame-dark);
+    border-radius: 1vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.monitor__loading__progress__bar {
+    position: absolute;
+    left: -1%;
+    top: -1%;
+    height: 102%;
+    width: 50%;
+    background-color: var(--computer-progress-bar);
+}
+
+.monitor__content {
+    width: 100%;
+    height: 100%;
+    padding: 3vh;
+    font-size: 5vh;
+    -webkit-text-stroke: 0.15vh #000;
+}
+
+.monitor__content__logo {
+    width: 20vh;
+    height: 15vh;
+    margin: 3vh auto;
+    background: #983434;
+    border-radius: 50% / 10%;
+    color: white;
+    text-align: center;
+    text-indent: .1em;
+    position: relative;
+  }
+
+  .monitor__content__logo:before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    right: -5%;
+    left: -5%;
+    background: inherit;
+    border-radius: 5% / 50%;
+  }
+
+  .monitor__content__logo__triangle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-40%, -50%);
+    width: 0;
+    height: 0;
+    border-top: 2.5vh solid transparent;
+    border-left: 5vh solid #fff;
+    border-bottom: 2.5vh solid transparent;
+  }
+
+@keyframes slideScreenUp {
+    from {margin-top: 0;}
+    to {margin-top: 50%;}
 }

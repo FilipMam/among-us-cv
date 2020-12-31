@@ -1,7 +1,7 @@
 (function() {
   const tasks = [
+    new ComputerTask(),
     new PanelTask(),
-    new Task("computer"),
     new TableTask(),
     new WhiteboardTask()
   ];
