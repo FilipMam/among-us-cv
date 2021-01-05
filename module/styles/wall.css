@@ -176,3 +176,53 @@
     border-color:  var(--doors--light) transparent transparent transparent;
     filter: drop-shadow(0 0.25vh 0 var(--doors--dark));
 } 
+
+.picture {
+    position: absolute;
+    left: 10vh;
+    top: 11vh;
+    width: 12vh;
+    height: 7vh;
+    background-color: #fff;
+    border: 0.5vh solid var(--wall-line--black);
+    overflow: hidden;
+}
+
+.picture__crewmate {
+    position: absolute;
+}
+
+.picture__crewmate--blue {
+    top: -2.5vh;
+    left: -1vh;
+    transform: scale(0.6);
+}
+
+.picture__crewmate--yellow {
+    top: -2vh;
+    right: -1.2vh;
+    transform: scale(-0.6, 0.6);
+}
+
+.picture__crewmate--pink {
+    top: -1vh;
+    right: 2vh;
+    transform: scale(-0.4, 0.4);
+}
+
+.picture__crewmate--blue .crewmate__body {
+    background-color: #3e57ce;
+}
+
+.picture__crewmate--yellow .crewmate__body {
+    background-color: #ecec7d;
+}
+
+.picture__crewmate--pink .crewmate__body {
+    background-color: #e56aca;
+}
+
+
+.picture .crewmate__body::after {
+    background-color: transparent;
+}

@@ -1,4 +1,4 @@
-#crewmate {
+.crewmate {
     position: absolute;
     bottom: 99%;
     right: 10vh;
@@ -7,7 +7,7 @@
     width: 7vh;
 }
 
-#crewmate::before {
+.crewmate::before {
     content: "";
     display: inline-block;
     height: 2vh;
@@ -250,12 +250,12 @@
     top: 1.65vh;
 }
 
-#crewmate.moving {
+.crewmate.moving {
 }
 
-#crewmate.moving--right {
+.crewmate.moving--right {
 }
 
-#crewmate.moving--left  {
+.crewmate.moving--left  {
 
 }
