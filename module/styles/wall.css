@@ -222,7 +222,63 @@
     background-color: #e56aca;
 }
 
-
 .picture .crewmate__body::after {
     background-color: transparent;
+}
+
+.camera {
+    position: absolute;
+    right: 1vh;
+    top: 1vh;
+}
+
+.camera__foundation {
+    width: 3vh;
+    height: 3vh;
+    border: 0.25vh solid var(--wall-line--black);
+    border-radius: 100%;
+    background-color: #fff;
+}
+
+.camera__object {
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    width: 6vh;
+	height: 0;
+	border-right: 0 solid transparent;
+	border-left: 2vh solid transparent;
+    border-top: 2vh solid #fff;
+    transform: scale(0.9) rotate(-15deg);
+}
+
+.camera__object__border {
+    content: "";
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    width: 6vh;
+	height: 0;
+	border-right: 0 solid transparent;
+	border-left: 2vh solid transparent;
+    border-top: 2vh solid var(--wall-line--black);
+    transform: rotate(-15deg);
+}
+
+.camera__button {
+    position: absolute;
+    top: -2.5vh;
+    right: 3vh;
+    width: 2vh;
+    height: 1vh;
+    border: 0.25vh solid var(--wall-line--black);
+    border-radius: 100%;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% {background-color: var(--wall)}
+    50% {background-color: var(--wall)}
+    51% {background-color: red}
+    100% {background-color: red}
 }
