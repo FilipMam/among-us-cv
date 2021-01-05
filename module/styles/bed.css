@@ -38,9 +38,9 @@
     position: relative;
     top: 0;
     background-color: var(--mattress);
-    border-top: solid 0.5vh var(--mattress-dark);
-    border-right: solid 0.75vh var(--mattress-dark);
-    border-bottom: solid 1vh var(--mattress-dark);
+    border-top: 0.5vh solid var(--mattress-dark);
+    border-right: 0.75vh solid var(--mattress-dark);
+    border-bottom: 1vh solid var(--mattress-dark);
     border-radius: 0 0.5vh 0.5vh 0;
 }
 
@@ -48,7 +48,7 @@
     width: 99%;
     height: 1.5vh;
     background-color: var(--frame);
-    border: solid 0.5vh var(--frame-border);
+    border: 0.5vh solid var(--frame-border);
     border-left: none;
     border-radius: 0 0.25vh 0.5vh 0;
 }
@@ -57,8 +57,8 @@
     width: 50%;
     height: 1.5vh;
     background-color: var(--frame);
-    border-right: solid 0.5vh var(--frame-border);
-    border-bottom: solid 0.5vh var(--frame-border);
+    border-right: 0.5vh solid var(--frame-border);
+    border-bottom: 0.5vh solid var(--frame-border);
     border-radius: 0 0 100% 0;
     position: relative;
     background-image: radial-gradient(var(--frame-border) 20%, transparent 20%);
@@ -73,7 +73,7 @@
     width: 6.5vh;
     height: 10vh;
     background-color: var(--pillow-dark);
-    border: solid 0.4vh var(--pillow-border);
+    border: 0.4vh solid var(--pillow-border);
     border-radius: 95% 200% 50% 0.5vh / 50% 50% 30% 0.5vh;
     overflow: hidden;
 }
@@ -110,9 +110,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    border-left: solid 0.4vh var(--pillow-border);
-    border-right: solid 0.4vh var(--pillow-border);
-    border-top: solid 0.4vh var(--pillow-border);
+    border-left: 0.4vh solid var(--pillow-border);
+    border-right: 0.4vh solid var(--pillow-border);
+    border-top: 0.4vh solid var(--pillow-border);
     border-radius: 50% 60% 0 0 / 30% 20% 0 0;
 }
 
@@ -122,7 +122,7 @@
     position: absolute;
     bottom: -0.5vh;
     border-radius: 100%;
-    border: solid 0.4vh var(--pillow-border);
+    border: 0.4vh solid var(--pillow-border);
 }
 
 .towel__part--lower:after {
@@ -135,6 +135,6 @@
     width: 50%;
     height: 0.05vh;
     border-radius: 25%;
-    border: solid 0.25vh var(--pillow-border);
+    border: 0.25vh solid var(--pillow-border);
 
 }

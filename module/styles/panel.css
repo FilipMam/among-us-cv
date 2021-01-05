@@ -16,7 +16,7 @@
     height: 10em;
     transform: rotate(-90deg) scale(-0.8, -1);
     filter: blur(1px);
-    border: solid 0.5em transparent;
+    border: 0.5em solid transparent;
     border-radius: 0 0 2em 2em;
     border-top: none;
     font-size: 1vh;
@@ -41,7 +41,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--desk-shadow);
-    border: solid 0.25em var(--desk-dark);
+    border: 0.25em solid var(--desk-dark);
     border-top: none;
     border-radius: 0 0 2em 2em;
     position: relative;
@@ -99,7 +99,7 @@
     left: -50%;
     transform: translate(-0.35em, -50%);
     background-color: var(--desk);
-    border: solid 0.25em var(--desk-dark);
+    border: 0.25em solid var(--desk-dark);
     border-radius: 10% 10% 10% 10% / 20% 20% 20% 20%;
 }
 
@@ -131,7 +131,7 @@
     justify-content: space-evenly;
     font-size: 1em;
     background-color: var(--screen);
-    border: solid 0.25em var(--desk-dark);
+    border: 0.25em solid var(--desk-dark);
     border-radius: 25% 25% 10% 10% / 25% 25% 25% 25%;
     font-family: 'VT323', monospace;
     color: #22b455;
@@ -165,7 +165,7 @@
     display: inline-block;
     border-radius: 100%;
     background-color: rgb(121, 38, 38);
-    border: solid 0.25em var(--desk-dark);
+    border: 0.25em solid var(--desk-dark);
     text-decoration: none;
 }
 
@@ -177,7 +177,7 @@
     top: -1.5em;
     left: 0;
     background-color: var(--note-dark);
-    border: solid 0.125em var(--desk-dark);
+    border: 0.125em solid var(--desk-dark);
     border-bottom: none;
 }
 
@@ -190,7 +190,7 @@
     top: 90%;
     left: 0;
     background-color: var(--note);
-    border: solid 0.25em var(--desk-dark);
+    border: 0.25em solid var(--desk-dark);
     border-top: none;
     transform: skewX(13deg);
     font-family: 'Gloria Hallelujah', cursive;
@@ -234,14 +234,14 @@
 .task--panel {
     width: 35em;
     height: 10em;
-    border: solid 0.5em transparent;
+    border: 0.5em solid transparent;
     border-radius: 0 0 2em 2em;
     font-size: 4vh;
     filter: blur(0.01em);
 }
 
 .task--panel .panel__desk {
-    border-top: solid 0.25em var(--desk-dark);
+    border-top: 0.25em solid var(--desk-dark);
     background-color: var(--desk);
     width: auto;
 }

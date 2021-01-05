@@ -20,7 +20,7 @@
     position: relative;
     border-radius: 100%;
     background-color: var(--table--light);
-    border: solid 0.5vh var(--table);
+    border: 0.5vh solid var(--table);
 }
 
 .table__leg {
@@ -29,7 +29,7 @@
     position: absolute;
     top: 3.5vh;
     background-color: var(--table--light);
-    border: solid 0.5vh var(--table);
+    border: 0.5vh solid var(--table);
     border-radius: 0 0 0.75vh 0.75vh;
 }
 
@@ -54,7 +54,7 @@
     left: 8vh;
     top: 0.5vh;
     background-color: var(--paper);
-    border: solid 0.15vh var(--papper-dark);
+    border: 0.15vh solid var(--papper-dark);
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 0.3vh;
     z-index: 1;
