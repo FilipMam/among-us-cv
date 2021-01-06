@@ -46,20 +46,22 @@ class ComputerTask extends Task {
             let interval = setInterval(() => {
                 if (i === 105) {
                     clearInterval(interval);
-                    setTimeout(() => this.monitorScreenElement.classList.add("loaded"), 500);
+                    setTimeout(() => {
+                        this.monitorScreenElement.classList.add("loaded");
+                        this.monitorScreenPreviewElement.classList.add("loaded");
+                    }, 500);
                 } else {
                     this.monitorProgressBarElement.style.width = `${i}%`;
                     i++;
                 }
-        }, 24)
-        }
-
+        }, 24)}
     }
 
     _assignDOMElements = () => {
         this.monitorScreenElement = document.querySelector(".monitor__screen");
+        this.monitorScreenPreviewElement = document.querySelector(".computer__monitor__screen__content");
         this.monitorProgressBarElement = this.monitorScreenElement.querySelector(".monitor__loading__progress__bar");
-        this.monitorLinkElement = this.monitorScreenElement.querySelector(".monitor__content__link");
+        this.monitorLinkElement = this.monitorScreenElement.querySelector(".monitor__content__logo");
     }
     
     _bindEvents = () => {
