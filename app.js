@@ -13,7 +13,9 @@
     tasks.map(task => 
       new Obstacle(`${task.key}`, shipManager, task))
     .concat([
-      new Obstacle("bed", shipManager)
+      new Obstacle("bed", shipManager),
+      new Obstacle("cube", shipManager)
+      
     ]);
   
   const crewmate = new Crewmate(shipManager, obstacles);

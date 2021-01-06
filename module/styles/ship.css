@@ -350,6 +350,80 @@
     border: 0.5vh solid var(--floor-dark-line);
 }
 
+#cube {
+    display: none;
+    position: absolute;
+    left: 55vh;
+    bottom: 0;
+    width: 15vh;
+    height: 15vh;
+    z-index: 101;
+}
+
+.cube {
+    position: absolute;
+    left: 50%;
+    top: 6vh;
+    z-index: 1;
+    animation: spin 5s infinite linear;
+}
+
+.cube__part {
+    position: absolute;
+    width: 8vh;
+    height: 8vh;
+    border: 0.25vh solid #1b2723;
+}
+
+.cube__part--1 {
+    bottom: top;
+    right: -1vh;
+    background-color: #5a8270;
+    transform: skewY(20deg) scaleX(0.75);
+}
+
+.cube__part--2 {
+    top: 0;
+    left: -1vh;
+    background-color: #3f615a;
+    transform: skewY(-20deg) scaleX(0.75);
+}
+
+.cube__container {
+    transform: scale(1.05, 0.5);
+}
+
+.cube__part--3 {
+    bottom: -2vh;
+    left: -4vh;
+    background-color: #2a4d4a;
+    transform: rotate(45deg);
+}
+
+.platform {
+    position: absolute;
+    left: 47.5vh;
+    bottom: 0;
+    width: 20vh;
+    height: 10vh;
+    border: 0.25vh solid var(--ship-inner-border);
+    background: repeating-linear-gradient(-45deg, #e1c646, #e1c646 1vh, var(--ship-inner-border) 1vh, var(--ship-inner-border) 2vh);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.platform:after {
+    content: "";
+    position: relative;
+    top: 10%;
+    left: 0;
+    display: inline-block;
+    width: 90%;
+    height: 95%;
+    border: 0.25vh solid var(--ship-inner-border);
+    background: repeating-linear-gradient(45deg, var(--corridor-light), var(--corridor-light) 0.9vh, var(--ship-outer-border-light) 0.9vh, var(--ship-outer-border-light) 1vh);
+}
+
 @keyframes shakeLeft {
     0% {transform:translateY(-0.15vh) rotate(3deg)}
     10% {transform: translateY(-0.5vh) rotate(3deg)}
@@ -376,4 +450,9 @@
     80% {transform: translateY(-1vh) rotate(-3deg) scaleX(-1)}
     90% {transform: translateY(-0.5vh) rotate(-3deg) scaleX(-1)}
     60% {transform: translateY(-0.3vh) rotate(-3deg) scaleX(-1)}
+}
+
+@keyframes spin {
+    form {transform: rotate(0)}
+    to {transform: rotate(360deg)}
 }
