@@ -14,7 +14,7 @@
     height: 17vh;
     position: absolute;
     left: 0;
-    bottom: 5vh;
+    bottom: 10vh;
     border-radius: 0 0.5vh 0 0;
     transform: scaleY(0.9);
 }

@@ -424,6 +424,30 @@
     background: repeating-linear-gradient(45deg, var(--corridor-light), var(--corridor-light) 0.9vh, var(--ship-outer-border-light) 0.9vh, var(--ship-outer-border-light) 1vh);
 }
 
+.vent {
+    position: absolute;
+    left: 1vh;
+    bottom: 1vh;
+    width: 9vh;
+    height: 6vh;
+    padding: 0.5vh 0.75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 0.5vh solid var(--ship-dark);
+    border-radius: 1vh 1vh 1vh 1vh / 1.5vh 1.5vh 10% 10%;
+    background-color: var(--stair-light);
+    z-index: 10;
+}
+
+.vent__stripe {
+    width: 100%;
+    height: 0.25vh;
+    background-color: var(--stair-dark);
+}
+
 @keyframes shakeLeft {
     0% {transform:translateY(-0.15vh) rotate(3deg)}
     10% {transform: translateY(-0.5vh) rotate(3deg)}
