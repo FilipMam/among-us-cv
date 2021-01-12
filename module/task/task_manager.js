@@ -35,6 +35,8 @@ class TasksManager {
     }
 
     _assignDOMElements = () => {
+        this.taskListButtonElement = document.querySelector(".tasks-list__button");
+        this.taskListElement = document.querySelector(".tasks-list");
         this.taskWrapperElement = document.querySelector("#task__wrapper");
         this.closeButtonElement = document.querySelector(".task__close");
         this.taskCompletePrompt = document.querySelector(".task__prompt")
@@ -43,6 +45,7 @@ class TasksManager {
     _bindEvents = () => {
         this.state.forEach(task => task.subscribeToTaskFinished(this._finishTask));
         this.closeButtonElement.addEventListener("click", this.closeTaskWrapper);
+        this.taskListButtonElement.addEventListener("click", () => this.taskListElement.classList.toggle("hidden"));
     }
 
     _getTask = (key) => {
@@ -51,7 +54,7 @@ class TasksManager {
 
     _finishTask = (key) => {
         this._getTask(key).finished = true;
-        document.querySelector(`.tasks-list-item--${key}`).classList.add("finished");
+        document.querySelector(`.tasks-list__item--${key}`).classList.add("finished");
         document.querySelector(`#${key}`).classList.add("finished");
         this.taskCompletePrompt.classList.add("active");
     }
