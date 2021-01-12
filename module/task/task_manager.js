@@ -37,9 +37,10 @@ class TasksManager {
     _assignDOMElements = () => {
         this.taskListButtonElement = document.querySelector(".tasks-list__button");
         this.taskListElement = document.querySelector(".tasks-list");
+        this.taskProgressBarElement = document.querySelector(".tasks__progress__bar ");
         this.taskWrapperElement = document.querySelector("#task__wrapper");
         this.closeButtonElement = document.querySelector(".task__close");
-        this.taskCompletePrompt = document.querySelector(".task__prompt")
+        this.taskCompletePromptElement = document.querySelector(".task__prompt")
     }
 
     _bindEvents = () => {
@@ -56,6 +57,7 @@ class TasksManager {
         this._getTask(key).finished = true;
         document.querySelector(`.tasks-list__item--${key}`).classList.add("finished");
         document.querySelector(`#${key}`).classList.add("finished");
-        this.taskCompletePrompt.classList.add("active");
+        this.taskCompletePromptElement.classList.add("active");
+        this.taskProgressBarElement.classList.add(`tasks__progress__bar--${this.state.filter(task => task.finished).length}-finished`);
     }
 }
