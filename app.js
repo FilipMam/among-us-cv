@@ -7,39 +7,42 @@
   ];
 
   const shipManager = new ShipManager();
-  const taskManager = new TasksManager(tasks);
+  const tasksManager = new TasksManager(tasks);
 
   const obstacles = 
     tasks.map(task => 
-      new Obstacle(`${task.key}`, shipManager, task))
+      new Obstacle(`${task.key}`, shipManager, tasksManager, task))
     .concat([
-      new Obstacle("bed", shipManager),
-      new Obstacle("cube", shipManager)
-      
+      new Obstacle("bed", shipManager, tasksManager),
+      new Obstacle("cube", shipManager, tasksManager,)
     ]);
   
   const crewmate = new Crewmate(shipManager, obstacles);
 
   const keyMap = {
     37: "left",
+    65: "left",
     38: "up",
+    87: "up",
     39: "right",
-    40: "down"  
+    68: "right",
+    40: "down",
+    83: "down"  
   };
 
   document.addEventListener("keydown", (event) => {
-      if (!taskManager.taskWrapperOpened) {
+      if (!tasksManager.taskWrapperOpened) {
         if (keyMap[event.keyCode]) {
           event.preventDefault();
           crewmate.move(keyMap[event.keyCode]);
         }
 
         if (event.keyCode === 32) { // space
-          taskManager.openTaskWrapper();
+          tasksManager.openTaskWrapper();
         }
       } else {
         if (event.keyCode === 27) { // esc
-          taskManager.closeTaskWrapper();
+          tasksManager.closeTaskWrapper();
         }
       }
   });

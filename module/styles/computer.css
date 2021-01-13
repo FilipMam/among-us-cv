@@ -243,7 +243,7 @@
     overflow: hidden;
 }
 
-.monitor__loading__progress__bar {
+.monitor__loading__progress__bar { 
     position: absolute;
     left: -1%;
     top: -1%;

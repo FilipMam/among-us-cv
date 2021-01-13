@@ -27,6 +27,20 @@ class TasksManager {
         this.taskWrapperElement.classList.add("hidden");
     }
 
+    activateTask = (task) => {
+        if (!task.active) {
+            task.setActiveState(true);
+            this.useButtonElement.classList.add("active");
+        }
+    }
+
+    deactivateTask = (task) => {
+        if (task.active) {
+            task.setActiveState(false);
+            this.useButtonElement.classList.remove("active");
+        }
+    }
+
     openWhiteboardTask = () => {
         setTimeout(this._getTask("whiteboard").finish, 200);
     }
@@ -41,12 +55,14 @@ class TasksManager {
         this.taskWrapperElement = document.querySelector("#task__wrapper");
         this.closeButtonElement = document.querySelector(".task__close");
         this.taskCompletePromptElement = document.querySelector(".task__prompt")
+        this.useButtonElement = document.querySelector(".use");
     }
 
     _bindEvents = () => {
         this.state.forEach(task => task.subscribeToTaskFinished(this._finishTask));
         this.closeButtonElement.addEventListener("click", this.closeTaskWrapper);
         this.taskListButtonElement.addEventListener("click", () => this.taskListElement.classList.toggle("hidden"));
+        this.useButtonElement.addEventListener("click", this.openTaskWrapper);
     }
 
     _getTask = (key) => {

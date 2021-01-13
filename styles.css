@@ -35,3 +35,8 @@ body {
 .ship__floor > *:not(#crewmate) {
     filter: blur(0.085vh);
 }
+
+@font-face {
+    font-family: "Joff";
+    src: url(./module/styles/font/joff.ttf)
+}

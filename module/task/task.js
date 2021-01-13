@@ -75,6 +75,8 @@ class ComputerTask extends Task {
 
 
 class PanelTask extends Task {
+    message = "";
+
     constructor() {
         super("panel");       
         this._assignDOMElements();
@@ -82,13 +84,12 @@ class PanelTask extends Task {
     }
 
     open = () => {
-        if (!this.finished) {
-            let message = "";
+        if (!this.finished && this.message.length === 0) {
             let messageArray = "     Feel free to contact me or add me to your friends! We can code, work or play Among Us togheter!".split("");
             const inreval = setInterval(() => {
-                message += messageArray.shift();
-                this.screenPanelElement.innerText = message;
-                this.screenPanelPreviewElement.innerText = message;
+                this.message += messageArray.shift();
+                this.screenPanelElement.innerText = this.message;
+                this.screenPanelPreviewElement.innerText = this.message;
                 if (messageArray.length === 0) {
                     clearInterval(inreval);
                     setTimeout(this.finish, 500);

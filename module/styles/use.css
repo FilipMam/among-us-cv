@@ -1,0 +1,62 @@
+.use {
+    position: absolute;
+    bottom: 5vh;
+    right: 7vh;
+    width: 22vh;
+    height: 20vh;
+    z-index: 101;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.use.active {
+    opacity: 1;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.use__triangle {
+    position: absolute;
+    right: 50%;
+    width: 0;
+    height: 0;
+    transform: translateX(50%);
+}
+
+.use__triangle--outer {
+    bottom: 0;
+    border-left: 11vh solid transparent;
+    border-right: 11vh solid transparent;
+    border-top: 20vh solid #fff;
+}
+
+.use__triangle--middle {
+    bottom: 1.5vh;
+    border-left: 10vh solid transparent;
+    border-right: 10vh solid transparent;
+    border-top: 18vh solid red;
+}
+
+.use__triangle--inner {
+    bottom: 3.5vh;
+    border-left: 10vh solid transparent;
+    border-right: 10vh solid transparent;
+    border-top: 16vh solid #000;
+}
+
+.use__triangle--inner--small {
+    bottom: 5.25vh;
+    border-left: 9vh solid transparent;
+    border-right: 9vh solid transparent;
+    border-top: 14vh solid #fff;
+}
+
+.use__text {
+    position: absolute;
+    bottom: 3vh;
+    right: 50%;
+    transform: translateX(50%) scaleY(0.6);
+    font-size: 17vh;
+    font-family: "Joff";
+    -webkit-text-stroke: 0.25vh #fff;
+}
