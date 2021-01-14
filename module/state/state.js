@@ -6,8 +6,13 @@ class ShipManager {
         boundries: {}
     }
 
-    constructor() {
+    constructor(globalEventsManager) {
         this._setBoundries();
+        globalEventsManager.subscribe(event => {
+            if (event === "resize") {
+                this._setBoundries();
+            }
+        })
     }
 
     publish = (state) => {

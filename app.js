@@ -6,15 +6,16 @@
     new WhiteboardTask()
   ];
 
-  const shipManager = new ShipManager();
+  const globalEventsManager = new GlobalEventsManager();
+  const shipManager = new ShipManager(globalEventsManager);
   const tasksManager = new TasksManager(tasks);
 
   const obstacles = 
     tasks.map(task => 
-      new Obstacle(`${task.key}`, shipManager, tasksManager, task))
+      new Obstacle(`${task.key}`, globalEventsManager, shipManager, tasksManager, task))
     .concat([
-      new Obstacle("bed", shipManager, tasksManager),
-      new Obstacle("cube", shipManager, tasksManager,)
+      new Obstacle("bed", globalEventsManager, shipManager, tasksManager),
+      new Obstacle("cube", globalEventsManager, shipManager, tasksManager,)
     ]);
   
   const crewmate = new Crewmate(shipManager, obstacles);
