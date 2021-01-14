@@ -20,6 +20,17 @@
     top: 105%
 }
 
+.crewmate__name {
+    position: absolute;
+    left: 50%;
+    bottom: 95%;
+    font-size: 3.5vh;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-stroke: 0.1vh #000;
+    color: #fff;
+    transform: translate3d(-50%, 0, 0);
+}
+
 .crewmate__figure {
     height: 10.5vh;
     width: 100%;

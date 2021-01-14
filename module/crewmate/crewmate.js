@@ -23,6 +23,9 @@ class Crewmate {
         this.globalState = globalState;
         this.obstacles = obstacles;
         this.element = document.querySelector("#crewmate");
+        this.nameElement = this.element.querySelector(".crewmate__name");
+        const url = new URL(window.location)
+        this.nameElement.innerText = url.searchParams.get("name") || "Player";
     }
 
     move(dir) {
@@ -69,6 +72,7 @@ class Crewmate {
 
                 const scale = this._state.isMovingLeft ? "scaleX(-1)" : "";
                 this.element.style.transform = `translate3d(${this._state.posX}vh, ${this._state.posY}vh, 0) ${scale}`;
+                this.nameElement.style.transform = `translate3d(-50%, 0, 0) ${scale}`;;
 
                 if (this._state.movingAnimtationFrame === 0) {
                     this._changeAnimationFrame();
