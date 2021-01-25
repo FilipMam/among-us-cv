@@ -1,0 +1,57 @@
+main {
+    width: 100vh;
+    margin: 0 auto;
+    padding: 10vh 2vh;
+    position: relative;
+    font-family: "Joff";
+    z-index: 200;
+}
+
+article {
+    padding: 2vh 4vh;
+    background-color: #000;
+    color: #fff;
+    border: 0.5vh solid;
+    border-radius: 1vh;
+    font-size: 4vh;
+    text-align: left;
+}
+
+article p {
+    padding: 1vh 0;
+}
+
+article ul {
+    list-style-type: none;
+}
+
+input, 
+.btn {
+    margin: 3vh auto 0;
+    padding: 1vh 2vh;
+    background-color: #000;
+    color: #fff;
+    border: 0.5vh solid;
+    border-radius: 1vh;
+    font-size: 6vh;
+    text-align: center;
+}
+
+input {
+    width: 50vh;
+    font-size: 6vh;
+    font-family: "Varela", Arial, Helvetica, sans-serif;
+}
+
+.btn {
+    width: 20vh;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: yellow;
+}
+
+input:focus {
+    outline: none;
+}

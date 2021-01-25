@@ -1,3 +1,12 @@
+:root {
+    --crewmate-black: #3E474E;
+    --crewmate-cyan: #39FEDD;
+    --crewmate-red: #8a071d;
+    --crewmate-red-light: #d9041a;
+    --crewmate-white: #D6DFF1;
+    --crewmate-yellow: #F6F657;
+}
+
 .crewmate {
     position: absolute;
     bottom: 99%;
@@ -42,7 +51,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: #8a071d;
+    background-color: var(--crewmate-red);
     border: 0.6vh solid #000;
     border-radius: 36vh 44vh 0 0;
     z-index: 2;
@@ -57,7 +66,7 @@
     z-index: 1;
     width: 80%;
     height: 80%;
-    background-color: #d9041a;
+    background-color: var(--crewmate-red-light);
     transform: rotate(-2deg);
     border-radius: 40% 50% 36% 30%;
 }
@@ -67,7 +76,6 @@
     right: -1vh;
     top: 1.2vh;
     z-index: 2;
-
     background-color: #73989e;
     width: 5.5vh;
     height: 4.5vh;
@@ -97,13 +105,13 @@
     width: 2.5vh;
     height: 6vh;
     transform: translate(-100%);
-    background-color: #8a071d;
+    background-color: var(--crewmate-red);
     border: 0.6vh solid #000;
     border-radius: 40% 0 0 50%;
 }
 
 .leg {
-    background-color: #8a071d;
+    background-color: var(--crewmate-red);
     position: absolute;
     top: 100%;
     margin-top: -0.6vh;
@@ -261,12 +269,132 @@
     top: 1.65vh;
 }
 
-.crewmate.moving {
+
+/* colors */
+
+.crewmate--red {
+    top: 0;
+    left: 5vh;
+    animation: crewmate-red 11s infinite linear;
 }
 
-.crewmate.moving--right {
+.crewmate--black {
+    top: 40vh;
+    left: 5vh;
+    animation: crewmate-black 10s infinite linear;
 }
 
-.crewmate.moving--left  {
+.crewmate--cyan {
+    top: -5vh;
+    right: 25vh;
+    animation: crewmate-cyan 4s infinite linear;
+}
 
+.crewmate--white {
+    top: 50%;
+    right: 0;
+    animation: crewmate-white 12s infinite linear;
+}
+
+.crewmate--yellow {
+    top: 0;
+    left: 40%;
+    animation: crewmate-yellow 8s infinite linear;
+}
+
+.crewmate--red .crewmate__body,
+.crewmate--red .crewmate__backpack,
+.crewmate--red .leg {
+    background-color: var(--crewmate-red);
+}
+
+.crewmate--black .crewmate__body,
+.crewmate--black .crewmate__backpack,
+.crewmate--black .leg {
+    background-color: var(--crewmate-black);
+}
+
+.crewmate--cyan .crewmate__body,
+.crewmate--cyan .crewmate__backpack,
+.crewmate--cyan .leg  {
+    background-color: var(--crewmate-cyan);
+}
+
+.crewmate--white .crewmate__body,
+.crewmate--white .crewmate__backpack,
+.crewmate--white .leg {
+    background-color: var(--crewmate-white);
+}
+
+.crewmate--yellow .crewmate__body,
+.crewmate--yellow .crewmate__backpack,
+.crewmate--yellow .leg {
+    background-color: var(--crewmate-yellow);
+}
+
+.crewmate--red .crewmate__body::after,
+.crewmate--black .crewmate__body::after,
+.crewmate--cyan .crewmate__body::after,
+.crewmate--white .crewmate__body::after,
+.crewmate--yellow .crewmate__body::after {
+    background-color: transparent;
+}
+
+.crewmate--red::before,
+.crewmate--black::before,
+.crewmate--cyan::before,
+.crewmate--white::before,
+.crewmate--yellow::before {
+    display: none;
+}
+
+
+@keyframes crewmate-red {
+    from {
+        transform: scale(1) translate3d(5vh, -15vh, 0) rotate(0);
+    }
+    to {
+        transform: scale(1) translate3d(5vh, 110vh, 0) rotate(360deg);
+
+    }
+}
+
+@keyframes crewmate-black {
+    from {
+        transform: scale(0.8) translate3d(-10vw, 0, 0) rotate(0);
+    }
+    to {
+        transform: scale(0.8) translate3d(120vw, 0, 0) rotate(360deg);
+
+    }
+}
+
+@keyframes crewmate-cyan {
+    from {
+        transform: scale(0.8) translate3d(-25vh, -15vh, 0) rotate(0);
+    }
+    to {
+        transform: scale(0.8) translate3d(40vh, 15vh, 0) rotate(360deg);
+
+    }
+}
+
+@keyframes crewmate-white {
+    from {
+        transform: scale(1.5) translate3d(10vh, -10vh, 0) rotate(0);
+    }
+    to {
+        transform: scale(1.5) translate3d(-70vh, 45vh, 0) rotate(360deg);
+
+    }
+}
+
+@keyframes crewmate-yellow {
+    from {
+        transform: scale(1.3) translate3d(-10vh, 90vh, 0) rotate(0);
+    }
+    to {
+        transform: scale(1.3) translate3d(5vh, -10vh, 0) rotate(360deg);
+
+    }
 }
