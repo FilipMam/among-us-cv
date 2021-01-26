@@ -1,12 +1,5 @@
 (function() {
-  const tasks = [
-    new ComputerTask(),
-    new PanelTask(),
-    new TableTask(),
-    new WhiteboardTask()
-  ];
-
-  const tasksManager = new TasksManager(tasks);
+  const tasksManager = new TasksManager();
   const domEventsManager = new DOMEventsManager(tasksManager);
   const shipManager = new ShipManager(tasksManager, domEventsManager);
   

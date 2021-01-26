@@ -3,8 +3,13 @@ class TasksManager {
 
     taskWrapperOpened = false;
     
-    constructor(tasks) {
-        this.tasks = tasks;
+    constructor() {
+        this.tasks = [
+            new ComputerTask(),
+            new PanelTask(),
+            new TableTask(),
+            new WhiteboardTask()
+        ];
         this.assignDOMElements();
         this.bindEvents();
     }

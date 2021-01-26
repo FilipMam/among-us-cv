@@ -31,9 +31,22 @@ class Obstacle {
         return this.box.bottom;
     }
 
+    willBeHitByCrewmate = (
+        crewmatePositionLeft, 
+        crewmatePositionRight, 
+        crewmatePositionBottom, 
+        crewmatePositionTop
+    ) => {
+        this.activateIfCrewmateIsNerby((crewmatePositionLeft + crewmatePositionRight)/2, crewmatePositionTop);
+        
+        return this.left < crewmatePositionRight && 
+            this.right > crewmatePositionLeft && 
+            this.top < crewmatePositionBottom && 
+            this.bottom > crewmatePositionTop;
+    }
+
     activateIfCrewmateIsNerby = (x, y) => {
         if (this.task) {
-
             if (this.isCrewmateInActivationBoundries(x, y)) {
                 this.element.classList.add("active");
                 this.taskManager.activateTask(this.task);
