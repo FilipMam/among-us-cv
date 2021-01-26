@@ -10,6 +10,8 @@ class Obstacle {
         
         domEventsManager.subscribe("resize", () => {
             this.box = this.element.getBoundingClientRect();
+            this.boxMargin = window.innerHeight*5/100;
+
         });
 
         this.task = task;

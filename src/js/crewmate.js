@@ -1,6 +1,3 @@
-const pace = 0.6;
-const pacePXL = pace*window.innerHeight/100;
-
 class Crewmate {
     state = {
         moving: {
@@ -13,7 +10,6 @@ class Crewmate {
         isMovingLeft: true,
         movingAnimtationFrame: 0,
         movingAnimtationInterval: null,
-        marginBottom: 2.5*window.innerHeight/100, // legs positioned absolute, adding margin to get "proper" boundingClientRect 
         posX: 0,
         posY: 0,
         pace: 0.6
@@ -25,13 +21,22 @@ class Crewmate {
         this.nameElement = this.element.querySelector(".crewmate__name");
         const url = new URL(window.location)
         this.nameElement.innerText = url.searchParams.get("name") || "Player";
+        this.setDynamicValues();
         domEventsManager.subscribe("arrowDown", this.move.bind(this));
         domEventsManager.subscribe("arrowUp", this.stopMoving.bind(this));
+        domEventsManager.subscribe("resize", this.setDynamicValues.bind(this));
+    }
 
+    setDynamicValues = () => {
+        console.log('xxxx')
+        this.state.pacePXL = this.state.pace*window.innerHeight/100;
+        this.state.marginBottom = 2.5*window.innerHeight/100 // legs positioned absolute, adding margin to get "proper" boundingClientRect 
     }
 
     move(dir) {
         const boundries = this.shipManager.boundries;
+        const pace = this.state.pace;
+        const pacePXL = this.state.pacePXL;
 
         this.state.moving[dir] = true;
 
@@ -82,7 +87,6 @@ class Crewmate {
                 } 
                 
                 box = this.getBox();
-                // this.shipManager.publish("positionChange", {crewmateX: box.left + box.width/2, crewmateY: box.bottom});
             } , 12);
         }
     }
