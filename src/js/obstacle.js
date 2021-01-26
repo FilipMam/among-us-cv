@@ -3,8 +3,7 @@ class Obstacle {
 
     active = false;
 
-    constructor(selector, domEventsManager, shipManager, taskManager, task) {
-        this.state = shipManager.state;
+    constructor(selector, domEventsManager, taskManager, task) {
         this.taskManager = taskManager;
         this.element = document.querySelector(`#${selector}`);
         this.box = this.element.getBoundingClientRect();
@@ -13,13 +12,7 @@ class Obstacle {
             this.box = this.element.getBoundingClientRect();
         });
 
-        if (task) {
-            this.task = task;
-            shipManager.subscribe(state => {
-                this.state = state;
-                this.activateIfCrewmateIsNerby();
-            });
-        }
+        this.task = task;
     }
 
     get left() {
@@ -38,20 +31,23 @@ class Obstacle {
         return this.box.bottom;
     }
 
-    activateIfCrewmateIsNerby = () => {
-        if (this.isInBoundries(this.state.crewmateX, this.state.crewmateY)) {
-            this.element.classList.add("active");
-            this.taskManager.activateTask(this.task);
-        } else {
-            this.element.classList.remove("active");
-            this.taskManager.deactivateTask(this.task);
+    activateIfCrewmateIsNerby = (x, y) => {
+        if (this.task) {
+
+            if (this.isCrewmateInActivationBoundries(x, y)) {
+                this.element.classList.add("active");
+                this.taskManager.activateTask(this.task);
+            } else {
+                this.element.classList.remove("active");
+                this.taskManager.deactivateTask(this.task);
+            }
         }
     }
 
-    isInBoundries = (x, y) => { 
-        return (this.left - this.boxMargin < x) && 
-            (x < this.right + this.boxMargin) &&
-            (this.top - this.boxMargin < y) &&
-            (y < this.bottom + this.boxMargin);
+    isCrewmateInActivationBoundries = (x, y) => {
+        return this.left - this.boxMargin < x && 
+            x < this.right + this.boxMargin &&
+            this.top - this.boxMargin < y &&
+            y < this.bottom + this.boxMargin;
     }
 }

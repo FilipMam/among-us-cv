@@ -19,9 +19,8 @@ class Crewmate {
         pace: 0.6
     }
 
-    constructor(globalState, obstacles, domEventsManager) {
-        this.globalState = globalState;
-        this.obstacles = obstacles;
+    constructor(shipManager, domEventsManager) {
+        this.shipManager = shipManager;
         this.element = document.querySelector("#crewmate");
         this.nameElement = this.element.querySelector(".crewmate__name");
         const url = new URL(window.location)
@@ -32,7 +31,8 @@ class Crewmate {
     }
 
     move(dir) {
-        const boundries = this.globalState.state.boundries;
+        const boundries = this.shipManager.boundries;
+
         this.state.moving[dir] = true;
 
         if (!this.state.movingInterval) {
@@ -82,8 +82,7 @@ class Crewmate {
                 } 
                 
                 box = this.getBox();
-                this.globalState.publish({crewmateX: box.left + box.width/2, crewmateY: box.bottom});
-
+                // this.shipManager.publish("positionChange", {crewmateX: box.left + box.width/2, crewmateY: box.bottom});
             } , 12);
         }
     }
@@ -101,12 +100,14 @@ class Crewmate {
     }
 
     willHitObstacle = (xL, xR, y) => {
-        return this.obstacles.some(obstacle => 
-            obstacle.left < xR && 
-            obstacle.right > xL && 
-            obstacle.top < y && 
-            obstacle.bottom > y - this.state.marginBottom);
-    };
+        return this.shipManager.obstacles.filter(obstacle => {
+            obstacle.activateIfCrewmateIsNerby((xL+xR)/2 , y - this.state.marginBottom);
+            return obstacle.left < xR && 
+                obstacle.right > xL && 
+                obstacle.top < y && 
+                obstacle.bottom > y - this.state.marginBottom;
+            }).length > 0
+        };
 
     getBox = () => {
         return this.element.getBoundingClientRect();
