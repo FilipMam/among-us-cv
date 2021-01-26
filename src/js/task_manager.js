@@ -4,7 +4,7 @@ class TasksManager {
     taskWrapperOpened = false;
     
     constructor(tasks) {
-        this.state = tasks;
+        this.tasks = tasks;
         this.assignDOMElements();
         this.bindEvents();
     }
@@ -16,7 +16,7 @@ class TasksManager {
     }
 
     openTaskWrapper = () => {
-        const activeTask = this.state.find(task => task.active);
+        const activeTask = this.tasks.find(task => task.active);
         if (activeTask) {
             this.taskWrapperOpened = true;
             this.taskWrapperElement.classList.add("active");
@@ -64,14 +64,14 @@ class TasksManager {
     }
 
     bindEvents = () => {
-        this.state.forEach(task => task.subscribe("finish", this.finishTask));
+        this.tasks.forEach(task => task.subscribe("finish", this.finishTask));
         this.closeButtonElement.addEventListener("click", this.closeTaskWrapper);
         this.taskListButtonElement.addEventListener("click", () => this.taskListElement.classList.toggle("hidden"));
         this.useButtonElement.addEventListener("click", this.openTaskWrapper);
     }
 
     getTask = (key) => {
-        return this.state.find(task => task.key === key);
+        return this.tasks.find(task => task.key === key);
     }
 
     finishTask = (key) => {
@@ -79,6 +79,6 @@ class TasksManager {
         document.querySelector(`.tasks-list__item--${key}`).classList.add("finished");
         document.querySelector(`#${key}`).classList.add("finished");
         this.taskCompletePromptElement.classList.add("active");
-        this.taskProgressBarElement.classList.add(`tasks__progress__bar--${this.state.filter(task => task.finished).length}-finished`);
+        this.taskProgressBarElement.classList.add(`tasks__progress__bar--${this.tasks.filter(task => task.finished).length}-finished`);
     }
 }
