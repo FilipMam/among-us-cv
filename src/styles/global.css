@@ -40,3 +40,9 @@ body {
     font-family: "Joff";
     src: url(./font/joff.ttf)
 }
+
+
+@font-face {
+    font-family: "VCR";
+    src: url(./font/vcr.ttf)
+}

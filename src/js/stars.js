@@ -1,6 +1,6 @@
-
-  // render stars
+(function()  {
   const starContainer = document.querySelector("#stars"); 
+  
   for (let i=0; i<100; i++) {
     const randomNumber = Math.random();
     const translateX = randomNumber*100;
@@ -11,3 +11,4 @@
     starElement.style.animationDelay = `${delay}s`;
     starContainer.appendChild(starElement);
   }
+})()

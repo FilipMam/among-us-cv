@@ -1,10 +1,18 @@
 class TasksManager {
+    callbacks = {};
+
     taskWrapperOpened = false;
     
     constructor(tasks) {
         this.state = tasks;
-        this._assignDOMElements();
-        this._bindEvents();
+        this.assignDOMElements();
+        this.bindEvents();
+    }
+
+    subscribe = (event, cb) => {
+        if (!this.callbacks[event]) {
+
+        }
     }
 
     openTaskWrapper = () => {
@@ -42,13 +50,10 @@ class TasksManager {
     }
 
     openWhiteboardTask = () => {
-        setTimeout(this._getTask("whiteboard").finish, 200);
+        setTimeout(this.getTask("whiteboard").finish, 200);
     }
 
-    openTableTask = () => {
-    }
-
-    _assignDOMElements = () => {
+    assignDOMElements = () => {
         this.taskListButtonElement = document.querySelector(".tasks-list__button");
         this.taskListElement = document.querySelector(".tasks-list");
         this.taskProgressBarElement = document.querySelector(".tasks__progress__bar ");
@@ -58,19 +63,19 @@ class TasksManager {
         this.useButtonElement = document.querySelector(".use");
     }
 
-    _bindEvents = () => {
-        this.state.forEach(task => task.subscribeToTaskFinished(this._finishTask));
+    bindEvents = () => {
+        this.state.forEach(task => task.subscribe("finish", this.finishTask));
         this.closeButtonElement.addEventListener("click", this.closeTaskWrapper);
         this.taskListButtonElement.addEventListener("click", () => this.taskListElement.classList.toggle("hidden"));
         this.useButtonElement.addEventListener("click", this.openTaskWrapper);
     }
 
-    _getTask = (key) => {
+    getTask = (key) => {
         return this.state.find(task => task.key === key);
     }
 
-    _finishTask = (key) => {
-        this._getTask(key).finished = true;
+    finishTask = (key) => {
+        this.getTask(key).finished = true;
         document.querySelector(`.tasks-list__item--${key}`).classList.add("finished");
         document.querySelector(`#${key}`).classList.add("finished");
         this.taskCompletePromptElement.classList.add("active");

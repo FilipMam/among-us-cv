@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filip Mamcarczyk</title>
-    <link rel="stylesheet" href="../module/styles/bed.css">
-    <link rel="stylesheet" href="../module/styles/computer.css">
-    <link rel="stylesheet" href="../module/styles/crewmate.css">
-    <link rel="stylesheet" href="../module/styles/global.css">
-    <link rel="stylesheet" href="../module/styles/panel.css">
-    <link rel="stylesheet" href="../module/styles/ship.css">
-    <link rel="stylesheet" href="../module/styles/stars.css">
-    <link rel="stylesheet" href="../module/styles/table.css">
-    <link rel="stylesheet" href="../module/styles/task.css">
-    <link rel="stylesheet" href="../module/styles/use.css">
-    <link rel="stylesheet" href="../module/styles/wall.css">
-    <link rel="stylesheet" href="../module/styles/whiteboard.css">    
+    <link rel="stylesheet" href="../src/styles/global.css">
+    <link rel="stylesheet" href="../src/styles/bed.css">
+    <link rel="stylesheet" href="../src/styles/computer.css">
+    <link rel="stylesheet" href="../src/styles/crewmate.css">
+    <link rel="stylesheet" href="../src/styles/mask.css">
+    <link rel="stylesheet" href="../src/styles/panel.css">
+    <link rel="stylesheet" href="../src/styles/ship.css">
+    <link rel="stylesheet" href="../src/styles/stars.css">
+    <link rel="stylesheet" href="../src/styles/table.css">
+    <link rel="stylesheet" href="../src/styles/task.css">
+    <link rel="stylesheet" href="../src/styles/use.css">
+    <link rel="stylesheet" href="../src/styles/wall.css">
+    <link rel="stylesheet" href="../src/styles/whiteboard.css">    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
@@ -278,7 +279,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="crewmate" class="crewmate moving">
+                <div id="crewmate" class="crewmate">
                     <div class="crewmate__name">Player</div>
                     <div class="crewmate__figure">
                         <div class="crewmate__body">
@@ -405,12 +406,34 @@
         </div>  
     </div>
     <div class="task__prompt">Task complete!</div>
-    <script src="../module/state/global_events_manager.js"></script>
-    <script src="../module/state/state.js"></script>
-    <script src="../module/task/task_manager.js"></script>
-    <script src="../module/task/task.js"></script>
-    <script src="../module/obstacle/obstacle.js"></script>
-    <script src="../module/crewmate/crewmate.js"></script>
-    <script src="../app.js"></script>
+    <div class="mask">
+        <h1 class="mask__heading">Crewmate</h1>
+        <h2 class="mask__subheading">
+            There is <span>1 Frontend dev</span> among us
+        </h2>
+        <div class="mask__wrapper">
+            <div class="mask__crewmate crewmate">
+                <div class="crewmate__figure">
+                    <div class="crewmate__body">
+                        <div class="crewmate__mask"></div>
+                        <div class="crewmate__backpack"></div>
+                    </div>
+                    <div class="leg leg--left"></div>
+                    <div class="leg leg--right"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mask__cover"></div> 
+    </div>
+    <script src="../src/js/stars.js"></script>
+    <script src="../src/js/subject.js"></script>
+    <script src="../src/js/global_events_manager.js"></script>
+    <script src="../src/js/mask_manager.js"></script>
+    <script src="../src/js/ship_manager.js"></script>
+    <script src="../src/js/task_manager.js"></script>
+    <script src="../src/js/task.js"></script>
+    <script src="../src/js/obstacle.js"></script>
+    <script src="../src/js/crewmate.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -1,24 +1,15 @@
-class Task {
-
-    _taskFinishedCallbacks = [];
+class Task extends Subject {
 
     finished = false;
     active = false;
     
     constructor(key) {
+        super();
         this.key = key;
     }
 
-    publishTaskFinished = () => {
-        this._taskFinishedCallbacks.forEach(cb => cb(this.key));
-    }
-
-    subscribeToTaskFinished = (cb) => {
-        this._taskFinishedCallbacks.push(cb);
-    }
-
     finish = () => {
-        this.publishTaskFinished(this.key);
+        this.publish("finish", this.key);
     }
 
     setActiveState = (active) => {
@@ -32,8 +23,8 @@ class ComputerTask extends Task {
 
     constructor() {
         super("computer");       
-        this._assignDOMElements();
-        this._bindEvents();
+        this.assignDOMElements();
+        this.bindEvents();
     }
 
     open = () => {
@@ -57,14 +48,14 @@ class ComputerTask extends Task {
         }, 24)}
     }
 
-    _assignDOMElements = () => {
+    assignDOMElements = () => {
         this.monitorScreenElement = document.querySelector(".monitor__screen");
         this.monitorScreenPreviewElement = document.querySelector(".computer__monitor__screen__content");
         this.monitorProgressBarElement = this.monitorScreenElement.querySelector(".monitor__loading__progress__bar");
         this.monitorLinkElement = this.monitorScreenElement.querySelector(".monitor__content__logo");
     }
     
-    _bindEvents = () => {
+    bindEvents = () => {
         this.monitorLinkElement.addEventListener("click", () => {
             if (!this.finished) {
                 this.finish();
@@ -73,14 +64,13 @@ class ComputerTask extends Task {
     }
 }
 
-
 class PanelTask extends Task {
     message = "";
 
     constructor() {
         super("panel");       
-        this._assignDOMElements();
-        this._bindEvents();
+        this.assignDOMElements();
+        this.bindEvents();
     }
 
     open = () => {
@@ -99,32 +89,32 @@ class PanelTask extends Task {
 
     }
 
-    _assignDOMElements = () => {
+    assignDOMElements = () => {
         this.screenPanelElement = document.querySelector(".task--panel .panel__part--center");
         this.screenPanelPreviewElement = document.querySelector("#panel .panel__part--center");
         
     }
     
-    _bindEvents = () => {
+    bindEvents = () => {
     }
 }
 
 class TableTask extends Task {
     constructor() {
         super("table");       
-        this._assignDOMElements();
-        this._bindEvents();
+        this.assignDOMElements();
+        this.bindEvents();
     }
 
     open = () => {}
 
-    _assignDOMElements = () => {
+    assignDOMElements = () => {
         this.tableTaskElement = document.querySelector(".task.task--table");
         this.backPageElement = this.tableTaskElement.querySelector(".table__page--back");
         this.frontPageElement = this.tableTaskElement.querySelector(".table__page--front");
     }
     
-    _bindEvents = () => {
+    bindEvents = () => {
         const togglePage = () => {
             this.tableTaskElement.classList.toggle("flipped");
             if (!this.finished) {
@@ -150,19 +140,19 @@ class TableTask extends Task {
 class WhiteboardTask extends Task {
     constructor() {
         super("whiteboard");       
-        this._assignDOMElements();
-        this._bindEvents();
+        this.assignDOMElements();
+        this.bindEvents();
     }
 
     open = () => {}
 
-    _assignDOMElements = () => {
+    assignDOMElements = () => {
         this.whiteboardTaskElement = document.querySelector(".task.task--whiteboard");
         this.whiteboardSwitchElement = this.whiteboardTaskElement.querySelector(".whiteboard__lamp__switch");
         this.whiteboardPreviewElement = document.querySelector("#whiteboard");
     }
     
-    _bindEvents = () => {
+    bindEvents = () => {
         this.whiteboardSwitchElement.addEventListener("click", () => {
             if (!this.finished) {
                 this.finish();

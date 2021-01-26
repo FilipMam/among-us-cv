@@ -1,34 +1,28 @@
 class ShipManager {
     
-    _callbacks = []
+    callbacks = []
 
     state = {
         boundries: {}
     }
 
-    constructor(globalEventsManager) {
-        this._setBoundries();
-        globalEventsManager.subscribe(event => {
-            if (event === "resize") {
-                this._setBoundries();
-            }
-        })
+    constructor(domEventsManager) {
+        this.setBoundries();
+        domEventsManager.subscribe("resize", () => {
+            this.setBoundries();
+        });
     }
 
     publish = (state) => {
         this.state = Object.assign(this.state, state);
-        this._callbacks.forEach(cb => cb(this.state));
+        this.callbacks.forEach(cb => cb(this.state));
     }
 
     subscribe = (cb) => {
-        this._callbacks.push(cb);
+        this.callbacks.push(cb);
     }
 
-    unsubscribe = (cb) => {
-        this._callbacks = this._callbacks.filter(subscribedCb => subscribedCb !== cb);
-    }
-
-    _setBoundries() {
+    setBoundries() {
         const shipBox = document.querySelector(".ship__floor").getBoundingClientRect();
         this.state.boundries.left = shipBox.left;
         this.state.boundries.right = shipBox.right;

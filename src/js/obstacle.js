@@ -1,19 +1,16 @@
 class Obstacle {
-
     boxMargin = window.innerHeight*5/100;
 
     active = false;
 
-    constructor(selector, globalEventsManager, shipManager, taskManager, task) {
+    constructor(selector, domEventsManager, shipManager, taskManager, task) {
         this.state = shipManager.state;
         this.taskManager = taskManager;
         this.element = document.querySelector(`#${selector}`);
         this.box = this.element.getBoundingClientRect();
         
-        globalEventsManager.subscribe(event => {
-            if (event === "resize") {
-                this.box = this.element.getBoundingClientRect();
-            }
+        domEventsManager.subscribe("resize", () => {
+            this.box = this.element.getBoundingClientRect();
         });
 
         if (task) {

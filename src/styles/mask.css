@@ -1,0 +1,102 @@
+:root {
+    --cyan: #8ffffc
+}
+
+.mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    font-family: "VCR";
+    z-index: 1000;
+}
+
+.mask__heading {
+    margin: 15vh 0 5vh;
+    color: var(--cyan);
+    font-size: 15vh;
+    font-weight: 100;
+    letter-spacing: 1vh;
+}
+
+.mask__subheading {
+    color: #fff;
+    font-size: 3vh;
+}
+
+.mask__subheading span {
+    color: red;
+}
+
+.mask__wrapper {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 40vh;
+    margin: 0 auto;
+    background: transparent;
+    background: -webkit-radial-gradient(var(--cyan) 0, rgba(0, 0, 0, 0) 55%);
+    background: -moz-radial-gradient(var(--cyan) 0, rgba(0, 0, 0, 0) 55%);
+    background: radial-gradient(var(--cyan) 0, rgba(0, 0, 0, 0) 55%);
+    background-repeat: no-repeat;
+}
+
+.mask__crewmate {
+    position: relative;
+    left: auto;
+    top: 10vh;
+    bottom: auto;
+    right: auto;
+    transform: scale(1.8);
+}
+
+.mask__cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.mask--shown .mask__heading {
+    animation: moveDown 2s ease-out;
+}
+
+.mask--shown .mask__cover {
+    animation: reveal 2.5s ease-out;
+    opacity: 0;
+}
+
+.mask--hidding .mask__cover {
+    animation: hide 1s ease-in;
+    opacity: 100%;
+}
+
+.mask--hidding {
+    animation: reveal 2s ease-out 1s;
+}
+
+.mask--hidden {
+    display: none;
+}
+
+
+@keyframes moveDown {
+    from {transform: translate3d(0, -10vh, 0)}
+    to {transform: translate3d(0, 0, 0)}
+}
+
+@keyframes reveal {
+    from {opacity: 100%}
+    to {opacity: 0%}
+}
+
+@keyframes hide {
+    0% {opacity: 0;}
+    80% {opacity: 100%;}
+    100% {opacity: 100%;}
+}
