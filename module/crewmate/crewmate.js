@@ -10,7 +10,7 @@ class Crewmate {
             "down": false
         },
         movingInterval: null,
-        isMovingLeft: false,
+        isMovingLeft: true,
         movingAnimtationFrame: 0,
         movingAnimtationInterval: null,
         marginBottom: 2.5*window.innerHeight/100, // legs positioned absolute, adding margin to get "proper" boundingClientRect 

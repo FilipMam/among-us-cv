@@ -68,9 +68,21 @@
     bottom: -3vh;
     width: 15vh;
     height: 25vh;
+    display: flex;
+    justify-content: center;
     background-color: var(--ship-outer-border-light);
     border: 0.25vh solid var(--ship-inner-border);
     transform: skewY(-15deg);
+    overflow: hidden;
+}
+
+.ship__engine__front:before {
+    content: "";
+    width: 10vh;
+    height: 3vh;
+    border: 0.25vh solid rgba(0, 0, 0, 0.5);
+    border-top: none;
+    background-color: var(--ship-outer-border-dark);
 }
 
 .ship__engine__side {
