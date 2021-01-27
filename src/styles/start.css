@@ -8,6 +8,7 @@ main {
 }
 
 article {
+    margin-bottom: 10vh;
     padding: 2vh 4vh;
     background-color: #000;
     color: #fff;

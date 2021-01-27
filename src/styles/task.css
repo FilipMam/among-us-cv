@@ -81,7 +81,7 @@
     font-size: 10vh;
     color: #fff;
     -webkit-text-stroke: 0.3vh #000;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .task__prompt.active {
