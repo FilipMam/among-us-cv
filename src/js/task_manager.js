@@ -1,9 +1,10 @@
-class TasksManager {
-    callbacks = {};
+class TasksManager extends Subject {
 
     taskWrapperOpened = false;
     
     constructor() {
+        super();
+
         this.tasks = [
             new ComputerTask(),
             new PanelTask(),
@@ -12,12 +13,6 @@ class TasksManager {
         ];
         this.assignDOMElements();
         this.bindEvents();
-    }
-
-    subscribe = (event, cb) => {
-        if (!this.callbacks[event]) {
-
-        }
     }
 
     openTaskWrapper = () => {
@@ -85,5 +80,9 @@ class TasksManager {
         document.querySelector(`#${key}`).classList.add("finished");
         this.taskCompletePromptElement.classList.add("active");
         this.taskProgressBarElement.classList.add(`tasks__progress__bar--${this.tasks.filter(task => task.finished).length}-finished`);
+        
+        if (this.tasks.every(task => task.finished)) {
+            this.publish("victory");
+        }
     }
 }
