@@ -24,32 +24,6 @@
     border-radius: 1em;
 }
 
-.whiteboard__content {
-    width: 96%;
-    height: 95%;
-    position: relative;
-    top: 2.5%;
-    left: 2%;
-    padding: 0.75em 1em;
-    border-radius: 1em;
-    border: 0.5em solid #000;
-    background-color: rgb(212, 212, 212);
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 1em;
-    text-align: left;
-}
-
-.whiteboard__content:after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: -1%;
-    top: -1%;
-    width: 102%;
-    height: 102%;
-    background: linear-gradient(0deg, rgba(0,0,0,1) 60%, rgba(253,187,45,0) 140%);
-}
-
 .whiteboard__lamp {
     position: absolute;
     bottom: 100%;
@@ -134,6 +108,33 @@
     background-color: yellow;
 }
 
+
+.whiteboard__content {
+    width: 96%;
+    height: 95%;
+    position: relative;
+    top: 2.5%;
+    left: 2%;
+    padding: 0.75em 1em;
+    border-radius: 1em;
+    border: 0.5em solid #000;
+    background-color: rgb(212, 212, 212);
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 1em;
+    text-align: left;
+}
+
+.whiteboard__content:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -1%;
+    top: -1%;
+    width: 102%;
+    height: 102%;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 60%, rgba(253,187,45,0) 140%);
+}
+
 .whiteboard__content__text {
     line-height: 1.5em;
 }
@@ -143,10 +144,10 @@
     padding-bottom: 0.5em;
 }
 
-.whiteboard__content__note {
+.whiteboard__content__text--note {
     padding-top: 0;
-    font-size: 0.6em;
     transform: rotate(-3deg);
+    font-size: 0.6em;
     text-align: right;
 }
 
@@ -167,7 +168,6 @@
 .task--whiteboard .whiteboard__lamp__switch__button--left {
     top: -0.45vh;
 }
-
 
 
 .light-on .whiteboard__lamp__switch {

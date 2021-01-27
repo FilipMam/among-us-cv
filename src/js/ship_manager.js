@@ -19,16 +19,12 @@ class ShipManager extends Subject {
             this.setBoundries();
         });
     }
-
-    // publish = (state) => {
-    //     this.state = Object.assign(this.state, state);
-    //     this.callbacks.forEach(cb => cb(this.state));
-    // }
+    
     setBoundries() {
-        const shipBox = document.querySelector(".ship__floor").getBoundingClientRect();
-        this.boundries.left = shipBox.left;
-        this.boundries.right = shipBox.right;
-        this.boundries.top = shipBox.top;
-        this.boundries.bottom = shipBox.bottom;
+        const floorBox = document.querySelector(".floor").getBoundingClientRect();
+        this.boundries.left = floorBox.left;
+        this.boundries.right = floorBox.right;
+        this.boundries.top = floorBox.top;
+        this.boundries.bottom = floorBox.bottom;
     }
 }

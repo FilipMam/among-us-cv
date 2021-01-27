@@ -188,7 +188,7 @@
 }
 
 
-.ship__floor {
+.floor {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -199,13 +199,13 @@
     z-index: 1;
 }
 
-.ship__floor__upper-part {
+.floor__upper-part {
     width: 100%;
     height: 23.8vh;
     position: relative;
 }
 
-.ship__floor__corridor {
+.floor__corridor {
     width: 19.5%;
     height: 100%;
     position: absolute;
@@ -217,8 +217,8 @@
 
 }
 
-.ship__floor__corridor::before,
-.ship__floor__corridor::after {
+.floor__corridor::before,
+.floor__corridor::after {
     content: "";
     display: block;
     width: 1vh;
@@ -229,15 +229,15 @@
     background-color: var(--corridor-light);
 }
 
-.ship__floor__corridor::before {
+.floor__corridor::before {
     left: -2.5vh;
 }
 
-.ship__floor__corridor::after {
+.floor__corridor::after {
     right: -2.5vh;
 }
 
-.ship__floor__corridor__tail {
+.floor__corridor__tail {
     width: 100%;
     height: 30%;
     border-top: 0.2vh solid var(--floor-dark-line);
@@ -245,8 +245,8 @@
     position: relative;
 }
 
-.ship__floor__corridor__tail:before,
-.ship__floor__corridor__tail:after {
+.floor__corridor__tail:before,
+.floor__corridor__tail:after {
     content: "";
     display: block;
     width: 100%;
@@ -260,15 +260,15 @@
     background-size: 2vh 2vh;
 }
 
-.ship__floor__corridor__tail:before {
+.floor__corridor__tail:before {
     top: 0.3vh;
 }
 
-.ship__floor__corridor__tail:after {
+.floor__corridor__tail:after {
     bottom: 0;
 }
 
-.ship__floor__row {
+.floor__row {
     width: 100%;
     height: 33.3%;
     background-color: var(--row-light);
@@ -277,8 +277,8 @@
     position: relative;
 }
 
-.ship__floor__row:before,
-.ship__floor__row:after {
+.floor__row:before,
+.floor__row:after {
     content: "";
     display: block;
     width: 100%;
@@ -291,17 +291,17 @@
     background-size: 1vh 2vh;
 }
 
-.ship__floor__row:before {
+.floor__row:before {
     top: 0;
     border-bottom:  0.1vh solid var(--floor-dark-line);
 }
 
-.ship__floor__row:after {
+.floor__row:after {
     bottom: 0;
     border-top: 0.1vh solid var(--floor-dark-line);
 }
 
-.ship__floor__stairs {
+.floor__stairs {
     box-sizing: initial;
     position: absolute;
     top: 0;
@@ -314,8 +314,8 @@
     border-bottom: 0.5vh solid var(--floor-dark-line);
 }
 
-.ship__floor__stairs:after,
-.ship__floor__stairs:before {
+.floor__stairs:after,
+.floor__stairs:before {
     content: "";
     display: block;
     width: 100%;
@@ -326,15 +326,15 @@
     box-sizing: initial;
 }
 
-.ship__floor__stairs:after {
+.floor__stairs:after {
     top: 20%;
 }
 
-.ship__floor__stairs:before { 
+.floor__stairs:before { 
     bottom: 20%;
 }
 
-.ship__floor__tails {
+.floor__tails {
     width: 100%;
     height: 37.3vh;
     display: flex;
@@ -343,7 +343,7 @@
     overflow: hidden;
 }
 
-.ship__floor__tail {
+.floor__tail {
     width: 19.5%;
     height: 30%;
     margin-bottom: 0.5%;
@@ -351,7 +351,7 @@
     position: relative;
 }
 
-.ship__floor__tail::after {
+.floor__tail::after {
     content: "";
     display: block;
     position: absolute;
@@ -412,7 +412,7 @@
     transform: rotate(45deg);
 }
 
-.platform {
+.floor__platform {
     position: absolute;
     left: 47.5vh;
     bottom: 0;
@@ -424,7 +424,7 @@
     z-index: 1;
 }
 
-.platform:after {
+.floor__platform:after {
     content: "";
     position: relative;
     top: 10%;
