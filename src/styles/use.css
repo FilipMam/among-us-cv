@@ -58,5 +58,6 @@
     transform: translateX(50%) scaleY(0.6);
     font-size: 17vh;
     font-family: "Joff";
-    -webkit-text-stroke: 0.25vh #fff;
+    text-shadow: -0.15vh 0 #fff, 0 0.15vh #fff, 0.15vh 0 #fff, 0 -0.15vh #fff;
+
 }

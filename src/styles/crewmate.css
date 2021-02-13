@@ -36,7 +36,7 @@
     bottom: 95%;
     font-size: 3.5vh;
     font-family: Arial, Helvetica, sans-serif;
-    -webkit-text-stroke: 0.1vh #000;
+    text-shadow: -0.15vh 0 black, 0 0.15vh black, 0.15vh 0 black, 0 -0.15vh black;
     color: #fff;
     transform: translate3d(-50%, 0, 0) scaleX(-1);
 }

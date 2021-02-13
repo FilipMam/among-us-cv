@@ -80,7 +80,8 @@
     font-family:"Varela", Arial, Helvetica, sans-serif;
     font-size: 10vh;
     color: #fff;
-    -webkit-text-stroke: 0.3vh #000;
+    text-shadow: -0.3vh 0 black, 0 0.3vh black, 0.3vh 0 black, 0 -0.3vh black;
+
     z-index: 1000;
 }
 
@@ -145,7 +146,7 @@
     display: block;
     text-align: left;
     color: #fff;
-    -webkit-text-stroke: 0.095vh #000;
+    text-shadow: -0.15vh 0 black, 0 0.15vh black, 0.15vh 0 black, 0 -0.15vh black;
     font-family: "Varela", Arial, Helvetica, sans-serif;
     font-size: 2.5vh;
     z-index: 1;
@@ -163,7 +164,7 @@
     padding: 1vh 2vh;
     background-color: rgba(200, 200, 200, 0.3);
     color: #fff;
-    -webkit-text-stroke: 0.095vh #000;
+    text-shadow: -0.15vh 0 black, 0 0.15vh black, 0.15vh 0 black, 0 -0.15vh black;
     font-family: "Varela", Arial, Helvetica, sans-serif;
     font-size: 3vh;
     list-style: none;

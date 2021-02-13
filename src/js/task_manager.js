@@ -33,6 +33,9 @@ class TasksManager extends Subject {
         this.taskWrapperOpened = false;
         this.taskWrapperElement.classList.remove("active");
         this.taskWrapperElement.classList.add("hidden");
+        if (this.tasks.every(task => task.finished)) {
+            this.publish("victory");
+        }
     }
 
     activateTask = (task) => {
@@ -80,9 +83,6 @@ class TasksManager extends Subject {
         document.querySelector(`#${key}`).classList.add("finished");
         this.taskCompletePromptElement.classList.add("active");
         this.taskProgressBarElement.classList.add(`tasks__progress__bar--${this.tasks.filter(task => task.finished).length}-finished`);
-        
-        if (this.tasks.every(task => task.finished)) {
-            this.publish("victory");
-        }
+    
     }
 }

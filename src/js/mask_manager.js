@@ -21,7 +21,7 @@ class MaskManager {
         setTimeout(() => {
             this.maskElemenet.classList.remove("mask--hidding", "mask--hidden");
             this.maskElemenet.classList.add("mask--shown", "mask--victory");
-        }, 1500);
+        }, 500);
 
     }
 

@@ -224,7 +224,7 @@
     align-items: center;
     flex-wrap: wrap;
     font-size: 10vh;
-    -webkit-text-stroke: 0.25vh #000;
+    text-shadow: -0.15vh 0 #000, 0 0.15vh #000, 0.15vh 0 #000, 0 -0.15vh #000;
 }
 
 .monitor__screen.loaded .monitor__loading  {
