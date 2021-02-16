@@ -3,7 +3,7 @@ main {
     margin: 0 auto;
     padding: 10vh 2vh;
     position: relative;
-    font-family: "Joff";
+    font-family: "Joff", Helvetica, sans-serif;
     z-index: 200;
 }
 

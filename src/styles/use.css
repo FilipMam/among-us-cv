@@ -57,7 +57,7 @@
     right: 50%;
     transform: translateX(50%) scaleY(0.6);
     font-size: 17vh;
-    font-family: "Joff";
+    font-family: "Joff", Helvetica, sans-serif;
     text-shadow: -0.15vh 0 #fff, 0 0.15vh #fff, 0.15vh 0 #fff, 0 -0.15vh #fff;
 
 }
