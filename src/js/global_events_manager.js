@@ -13,8 +13,9 @@ class DOMEventsManager extends Subject {
 
     constructor(tasksManager) {
         super();
+        this.checkWindowSize();
 
-        window.addEventListener("resize", () => this.publish("resize"));
+        window.addEventListener("resize", () => this.onWindowResize());
 
         document.addEventListener("keydown", (event) => {
             if (!tasksManager.taskWrapperOpened) {
@@ -41,5 +42,17 @@ class DOMEventsManager extends Subject {
         });
     }
 
+    onWindowResize = () => {
+        this.publish("resize");
+        this.checkWindowSize();
+    }
+
+    checkWindowSize = () => {
+        if (window.innerWidth < window.innerHeight) {
+            document.querySelector("body").classList.add("mobile");
+        } else {
+            document.querySelector("body").classList.remove("mobile");
+        }
+    }
 
 }

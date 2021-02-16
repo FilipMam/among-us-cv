@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     width: 100vw;
     height: 100vh;
@@ -11,6 +12,47 @@ body {
     text-align: center;
     overflow: hidden;
 }
+
+body.mobile {
+    width: auto;
+    height: auto;
+    padding: 10vw 5vw;
+    overflow: initial;
+    font-family: Helvetica, sans-serif;
+    color: #fff;
+}
+
+body:not(.mobile) .container--mobile {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+}
+
+body.mobile .container--desktop {
+    display: none;
+}
+
+body.mobile h1 {    
+    font-size: 10vw;
+}
+
+body.mobile section {
+    margin: 10vw 0;
+}
+
+body.mobile p {   
+    margin: 5vw 0;
+    font-size: 6vw;
+}
+
+body.mobile a {
+    color: #38CCAE;
+}
+
 .obstacle {
     position: absolute;
     display: inline-block;
