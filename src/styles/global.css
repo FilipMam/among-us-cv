@@ -80,11 +80,13 @@ body.mobile a {
 
 @font-face {
     font-family: "Joff";
+    font-display: swap;
     src: url(./font/joff.ttf)
 }
 
 
 @font-face {
     font-family: "VCR";
+    font-display: swap;
     src: url(./font/vcr.ttf)
 }
