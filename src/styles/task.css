@@ -98,6 +98,7 @@
     padding: 0.35vh;
     background-color: rgba(255, 255, 255, 0.8);
     border: 0.5vh solid #000;
+    z-index: 1;
 }
 
 .tasks__progress__background {

@@ -78,6 +78,7 @@ class TasksManager extends Subject {
     }
 
     finishTask = (key) => {
+        debugger
         this.getTask(key).finished = true;
         document.querySelector(`.tasks-list__item--${key}`).classList.add("finished");
         document.querySelector(`#${key}`).classList.add("finished");

@@ -340,6 +340,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: relative;
     overflow: hidden;
 }
 
@@ -421,6 +422,7 @@
     border: 0.25vh solid var(--ship-inner-border);
     background: repeating-linear-gradient(-45deg, #e1c646, #e1c646 1vh, var(--ship-inner-border) 1vh, var(--ship-inner-border) 2vh);
     overflow: hidden;
+    filter: blur(0.085vh);
     z-index: 1;
 }
 

@@ -28,7 +28,6 @@ class Crewmate {
     }
 
     setDynamicValues = () => {
-        console.log('xxxx')
         this.state.pacePXL = this.state.pace*window.innerHeight/100;
         this.state.marginBottom = 2.5*window.innerHeight/100 // legs positioned absolute, adding margin to get "proper" boundingClientRect 
     }

@@ -57,6 +57,7 @@
     border: 0.15vh solid var(--papper-dark);
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 0.3vh;
+    filter: blur(0.055vh);
     z-index: 1;
 }
 

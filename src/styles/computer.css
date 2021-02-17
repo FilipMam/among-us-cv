@@ -13,13 +13,13 @@
     --keyboard: #55595d;
 }
 
-
 #computer {
     width: 10vh;
     height: 15vh;
     position: absolute;    
     left: 0;
     top: 5vh;
+    filter: blur(0.085vh);
 }
 
 .computer__desk {
@@ -62,6 +62,7 @@
     left: 0.5vh;
     top: 5vh;
     z-index: 101;
+    filter: blur(0.085vh);
 }
 
 .computer__monitor__frame {
