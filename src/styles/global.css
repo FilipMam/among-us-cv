@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+.hidden {
+    opacity: 0 !important;
+}
 
 body {
     width: 100vw;
