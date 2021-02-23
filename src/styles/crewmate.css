@@ -15,6 +15,8 @@
     height: 11.5vh;
     width: 7vh;
     transform: scaleX(-1);
+    transition: bottom 0.06s linear, top 0.06s linear, left 0.06s linear, right 0.06s linear;
+
 }
 
 .crewmate::before {
@@ -46,6 +48,8 @@
     width: 100%;
     position: absolute;
     bottom: 0;
+    transition: bottom 0.06s linear, top 0.06s linear, left 0.06s linear, right 0.06s linear;
+
 }
 
 .crewmate__body {
@@ -56,6 +60,7 @@
     border: 0.6vh solid #000;
     border-radius: 36vh 44vh 0 0;
     z-index: 2;
+    transition: bottom 0.06s linear, top 0.06s linear, left 0.06s linear, right 0.06s linear, height 0.06s linear;
 }
 
 .crewmate__body::after {
@@ -109,6 +114,7 @@
     background-color: var(--crewmate-red);
     border: 0.6vh solid #000;
     border-radius: 40% 0 0 50%;
+    transition: bottom 0.06s linear, top 0.06s linear, left 0.06s linear, right 0.06s linear, height 0.06s linear;
 }
 
 .leg {
@@ -120,7 +126,7 @@
     border-top: none;     
     border-radius: 0 0 60% 40%;
     z-index: 2;
-
+    transition: bottom 0.06s linear, top 0.06s linear, left 0.06s linear, right 0.06s linear, height 0.06s linear;
 }
 
 .leg--left {
