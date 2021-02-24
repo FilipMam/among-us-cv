@@ -1,3 +1,17 @@
+.container--desktop:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    animation: hideStartingMask 3s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
 main {
     width: 100vh;
     margin: 0 auto;
@@ -56,4 +70,9 @@ input {
 
 input:focus {
     outline: none;
+}
+
+@keyframes hideStartingMask {
+    from {opacity: 100%;}
+    to {opacity: 0;}
 }
