@@ -150,7 +150,52 @@
     transform: rotate(-3deg);
     font-size: 0.6em;
     text-align: right;
+    position: relative;
 }
+
+.whiteboard__content__text__star {
+    position: absolute;
+    left: 101%;
+    top: 50%;
+    display: block;
+    color: #000;
+    width: 0px;
+    height: 0px;
+    border-right: 1vh solid transparent;
+    border-bottom: 0.7vh solid #000;
+    border-left: 1vh solid transparent;
+    transform: rotate(35deg);
+  }
+
+ .whiteboard__content__text__star:before {
+    border-bottom: 0.8vh solid #000;
+    border-left: 0.3vh solid transparent;
+    border-right: 0.3vh solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -0.45vh;
+    left: -0.65vh;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+  }
+
+ .whiteboard__content__text__star:after {
+    position: absolute;
+    display: block;
+    color: #000;
+    top: 0.03vh;
+    left: -1.05vh;
+    width: 0;
+    height: 0;
+    border-right: 1vh solid transparent;
+    border-bottom: 0.7vh solid #000;
+    border-left: 1vh solid transparent;
+    transform: rotate(-70deg);
+    content: '';
+  }
+
 
 .whiteboard__content__link {
     color: black;
