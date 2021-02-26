@@ -199,7 +199,7 @@
 
 .monitor {
     height: 70vh;
-    width: 130vh;
+    width: 120vh;
     padding: 2vh;
     background-color: var(--computer-frame);
     border: 1vh solid var(--computer-frame-dark)

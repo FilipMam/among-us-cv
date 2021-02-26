@@ -1,5 +1,4 @@
 class DOMEventsManager extends Subject {
-    
     keyMap = {
         37: "left",
         65: "left",
@@ -19,18 +18,18 @@ class DOMEventsManager extends Subject {
 
         document.addEventListener("keydown", (event) => {
             if (!tasksManager.taskWrapperOpened) {
-            if (this.keyMap[event.keyCode]) {
-                event.preventDefault();
-                this.publish("arrowDown", this.keyMap[event.keyCode]);
-            }
+                if (this.keyMap[event.keyCode]) {
+                    event.preventDefault();
+                    this.publish("arrowDown", this.keyMap[event.keyCode]);
+                }
 
-            if (event.keyCode === 32) { // space
-                tasksManager.openTaskWrapper();
-            }
-            } else {
-            if (event.keyCode === 27) { // esc
-                tasksManager.closeTaskWrapper();
-            }
+                if (event.keyCode === 32) { // space
+                    tasksManager.openTaskWrapper();
+                }
+                } else {
+                if (event.keyCode === 27) { // esc
+                    tasksManager.closeTaskWrapper();
+                }
             }
         });
 
@@ -48,7 +47,7 @@ class DOMEventsManager extends Subject {
     }
 
     checkWindowSize = () => {
-        if (window.innerWidth < window.innerHeight) {
+        if (window.innerWidth < 1.25*window.innerHeight) {
             document.querySelector("body").classList.add("mobile");
         } else {
             document.querySelector("body").classList.remove("mobile");
