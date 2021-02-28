@@ -67,7 +67,26 @@
     top: -0.01em;
     width: 1.5em;
     height: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 0.05em solid var(--switch-border);
+}
+
+.whiteboard__lamp__switch__on,
+.whiteboard__lamp__switch__off {
+    font-size: 0.5vh;
+    font-family: Helvetica, sans-serif;
+}
+
+.whiteboard__lamp__switch .whiteboard__lamp__switch__button--left .whiteboard__lamp__switch__on,
+.whiteboard__lamp__switch .whiteboard__lamp__switch__button--right .whiteboard__lamp__switch__off {
+    display: inline-block;
+}
+
+.whiteboard__lamp__switch .whiteboard__lamp__switch__button--left .whiteboard__lamp__switch__off,
+.whiteboard__lamp__switch .whiteboard__lamp__switch__button--right .whiteboard__lamp__switch__on {
+    display: none;
 }
 
 .whiteboard__lamp__switch__button--left {
@@ -108,7 +127,6 @@
 .whiteboard.active:not(.finished) {
     background-color: yellow;
 }
-
 
 .whiteboard__content {
     width: 96%;
@@ -215,6 +233,12 @@
     top: -0.45vh;
 }
 
+.task--whiteboard .whiteboard__lamp__switch__on, 
+.task--whiteboard .whiteboard__lamp__switch__off {
+    font-size: 2.5vh;
+    opacity: 0.75
+}
+
 
 .light-on .whiteboard__lamp__switch {
     transform: scaleX(1);
@@ -231,4 +255,15 @@
 
 .light-on .whiteboard__content:after {
     content: none;
+}
+
+
+.light-on .whiteboard__lamp__switch .whiteboard__lamp__switch__button--left .whiteboard__lamp__switch__on,
+.light-on .whiteboard__lamp__switch .whiteboard__lamp__switch__button--right .whiteboard__lamp__switch__off {
+    display: none;
+}
+
+.light-on .whiteboard__lamp__switch .whiteboard__lamp__switch__button--left .whiteboard__lamp__switch__off,
+.light-on .whiteboard__lamp__switch .whiteboard__lamp__switch__button--right .whiteboard__lamp__switch__on {
+    display: inline-block;
 }
