@@ -36,7 +36,6 @@ class Crewmate {
         const boundries = this.shipManager.boundries;
         const pace = this.state.pace;
         const pacePXL = this.state.pacePXL;
-
         this.state.moving[dir] = true;
 
         if (!this.state.movingInterval) {
