@@ -49,7 +49,7 @@
     width: 15em;
     height: 0.75em;
     background-color: #5d5656;
-    border: 0.1em solid rgba(0, 0, 0, 0.5); 
+    border: 0.1em solid rgba(0, 0, 0, 0.5);
     border-radius: 50%;
 }
 
@@ -79,13 +79,21 @@
     font-family: Helvetica, sans-serif;
 }
 
-.whiteboard__lamp__switch .whiteboard__lamp__switch__button--left .whiteboard__lamp__switch__on,
-.whiteboard__lamp__switch .whiteboard__lamp__switch__button--right .whiteboard__lamp__switch__off {
+.whiteboard__lamp__switch
+    .whiteboard__lamp__switch__button--left
+    .whiteboard__lamp__switch__on,
+.whiteboard__lamp__switch
+    .whiteboard__lamp__switch__button--right
+    .whiteboard__lamp__switch__off {
     display: inline-block;
 }
 
-.whiteboard__lamp__switch .whiteboard__lamp__switch__button--left .whiteboard__lamp__switch__off,
-.whiteboard__lamp__switch .whiteboard__lamp__switch__button--right .whiteboard__lamp__switch__on {
+.whiteboard__lamp__switch
+    .whiteboard__lamp__switch__button--left
+    .whiteboard__lamp__switch__off,
+.whiteboard__lamp__switch
+    .whiteboard__lamp__switch__button--right
+    .whiteboard__lamp__switch__on {
     display: none;
 }
 
@@ -105,8 +113,7 @@
     width: 10%;
     height: 80%;
     border: 0.05em solid var(--switch-border);
-
-} 
+}
 
 .whiteboard__lamp__switch__button--left:after {
     left: 5%;
@@ -138,9 +145,10 @@
     border-radius: 1em;
     border: 0.5em solid #000;
     background-color: rgb(212, 212, 212);
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: "Gloria Hallelujah", cursive;
     font-size: 1em;
     text-align: left;
+    overflow: hidden;
 }
 
 .whiteboard__content:after {
@@ -151,7 +159,11 @@
     top: -1%;
     width: 102%;
     height: 102%;
-    background: linear-gradient(0deg, rgba(0,0,0,1) 60%, rgba(253,187,45,0) 140%);
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 1) 60%,
+        rgba(253, 187, 45, 0) 140%
+    );
 }
 
 .whiteboard__content__text {
@@ -183,9 +195,9 @@
     border-bottom: 0.7vh solid #000;
     border-left: 1vh solid transparent;
     transform: rotate(35deg);
-  }
+}
 
- .whiteboard__content__text__star:before {
+.whiteboard__content__text__star:before {
     border-bottom: 0.8vh solid #000;
     border-left: 0.3vh solid transparent;
     border-right: 0.3vh solid transparent;
@@ -195,11 +207,11 @@
     top: -0.45vh;
     left: -0.65vh;
     display: block;
-    content: '';
+    content: "";
     transform: rotate(-35deg);
-  }
+}
 
- .whiteboard__content__text__star:after {
+.whiteboard__content__text__star:after {
     position: absolute;
     display: block;
     color: #000;
@@ -211,9 +223,8 @@
     border-bottom: 0.7vh solid #000;
     border-left: 1vh solid transparent;
     transform: rotate(-70deg);
-    content: '';
-  }
-
+    content: "";
+}
 
 .whiteboard__content__link {
     color: black;
@@ -233,12 +244,11 @@
     top: -0.45vh;
 }
 
-.task--whiteboard .whiteboard__lamp__switch__on, 
+.task--whiteboard .whiteboard__lamp__switch__on,
 .task--whiteboard .whiteboard__lamp__switch__off {
     font-size: 2.5vh;
-    opacity: 0.75
+    opacity: 0.75;
 }
-
 
 .light-on .whiteboard__lamp__switch {
     transform: scaleX(1);
@@ -250,20 +260,35 @@
 }
 
 .light-on .whiteboard__content {
-    background: linear-gradient(0deg, rgb(255 255 255) 35%, rgb(253 187 45) 143%);
+    background: linear-gradient(
+        0deg,
+        rgb(255 255 255) 35%,
+        rgb(253 187 45) 143%
+    );
 }
 
 .light-on .whiteboard__content:after {
     content: none;
 }
 
-
-.light-on .whiteboard__lamp__switch .whiteboard__lamp__switch__button--left .whiteboard__lamp__switch__on,
-.light-on .whiteboard__lamp__switch .whiteboard__lamp__switch__button--right .whiteboard__lamp__switch__off {
+.light-on
+    .whiteboard__lamp__switch
+    .whiteboard__lamp__switch__button--left
+    .whiteboard__lamp__switch__on,
+.light-on
+    .whiteboard__lamp__switch
+    .whiteboard__lamp__switch__button--right
+    .whiteboard__lamp__switch__off {
     display: none;
 }
 
-.light-on .whiteboard__lamp__switch .whiteboard__lamp__switch__button--left .whiteboard__lamp__switch__off,
-.light-on .whiteboard__lamp__switch .whiteboard__lamp__switch__button--right .whiteboard__lamp__switch__on {
+.light-on
+    .whiteboard__lamp__switch
+    .whiteboard__lamp__switch__button--left
+    .whiteboard__lamp__switch__off,
+.light-on
+    .whiteboard__lamp__switch
+    .whiteboard__lamp__switch__button--right
+    .whiteboard__lamp__switch__on {
     display: inline-block;
 }
