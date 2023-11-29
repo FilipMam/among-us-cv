@@ -73,6 +73,7 @@
 
 .panel__part {
     height: 80%;
+    overflow: hidden;
 }
 
 .panel__part--left {
@@ -133,7 +134,7 @@
     background-color: var(--screen);
     border: 0.25em solid var(--desk-dark);
     border-radius: 25% 25% 10% 10% / 25% 25% 25% 25%;
-    font-family: 'VT323', monospace;
+    font-family: "VT323", monospace;
     color: #22b455;
     z-index: 1;
 }
@@ -193,8 +194,9 @@
     border: 0.25em solid var(--desk-dark);
     border-top: none;
     transform: skewX(13deg);
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: "Gloria Hallelujah", cursive;
     font-size: 0.5em;
+    overflow: hidden;
 }
 
 .panel__note--facebook {
